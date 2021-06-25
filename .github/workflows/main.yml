@@ -24,6 +24,7 @@ jobs:
           NETLIFY_DEPLOY_TO_PROD: true
           deploy_alias: "prod"
           build-dir: './build'
+          install_command: "yarn generate"
       
       # Creates a status check with link to preview
       - name: Status check
