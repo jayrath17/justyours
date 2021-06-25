@@ -5,6 +5,9 @@ on:
     types: ['published']
   pull_request:
     types: ['opened', 'edited', 'synchronize']
+  push:
+    branches:
+      - master
 
 jobs:
   deploy:
