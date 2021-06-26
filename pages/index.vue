@@ -1,8 +1,12 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <vs-button> Hello World Vuesax + Nuxtjs </vs-button>
+  <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+    <div class="bg-blue-500 hidden lg:block">Sidebar</div>
+    <div class="bg-yellow-500">
+      <div class="bg-red-400">Navbar</div>
+      <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+        <div class="bg-red">Content</div>
+        <div class="bg-lightblue">Suggestions</div>
+      </div>
     </div>
   </div>
 </template>
