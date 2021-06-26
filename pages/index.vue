@@ -1,18 +1,32 @@
 <template>
-  <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
-    <div class="bg-blue-500 hidden lg:block">Sidebar</div>
-    <div class="bg-yellow-500">
-      <div class="bg-red-400">Navbar</div>
+  <div
+    class="grid grid-cols-1 gap-4 lg:grid-cols-2"
+    style="grid-template-columns: 1fr 4fr"
+  >
+    <div class="hidden lg:block">
+      <Sidebar />
+    </div>
+    <div class="">
+      <div class="">
+        <Navbar />
+      </div>
       <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
-        <div class="bg-red">Content</div>
-        <div class="bg-lightblue">Suggestions</div>
+        <div class="bg-red"></div>
+        <div class="flex justify-center">
+          <Suggestions />
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+import Navbar from '../components/Navbar.vue'
+import Sidebar from '../components/Sidebar.vue'
+import Suggestions from '../components/Suggestions.vue'
+export default {
+  components: { Sidebar, Suggestions, Navbar },
+}
 </script>
 
 <style>
