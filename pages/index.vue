@@ -2,9 +2,7 @@
   <div class="container">
     <div>
       <Logo />
-      <h1 class="title">
-        Just Yours
-      </h1>
+      <vs-button> Hello World Vuesax + Nuxtjs </vs-button>
     </div>
   </div>
 </template>
@@ -29,16 +27,8 @@ export default {}
 }
 
 .title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
+  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;
