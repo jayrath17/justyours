@@ -15,6 +15,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: nelonoel/branch-name@v1.0.1
       - uses: actions/checkout@v1
       - uses: jsmrcaga/action-netlify-deploy@master
         with:
@@ -22,7 +23,7 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_DEPLOY_MESSAGE: "Prod deploy v${{ github.ref }}"
           NETLIFY_DEPLOY_TO_PROD: true
-          deploy_alias: "prod"
+          deploy_alias: ${{ env.BRANCH_NAME }}
           build_directory: './dist'
           install_command: "yarn install"
           build_command: "yarn generate"
@@ -34,4 +35,4 @@ jobs:
           authToken: ${{ secrets.GITHUB_TOKEN }}
           context: Netlify preview
           state: success
-          target_url: https://prod-justyours.netlify.app
+          target_url: https://${{ env.BRANCH_NAME }}--xenodochial-jepsen-15def8.netlify.app
