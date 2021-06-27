@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 col-layout">
+  <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 col-layout px-5 lg:px-0">
     <div class="hidden lg:block">
       <Sidebar />
     </div>

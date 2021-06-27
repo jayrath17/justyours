@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar grid lg:grid-cols-2 lg:mt-11 lg:pt-10 lg:pl-16">
+  <div class="navbar grid lg:grid-cols-2 lg:mt-11 lg:pt-10">
     <div class="order-2 lg:order-1">
       <div class="flex justify-center content-inputs">
         <vs-input
@@ -71,6 +71,8 @@
                 px-6
                 mt-5
                 z-30
+                overflow-y-scroll
+                h-12
               "
             >
               <div class="flex justify-between mt-5">
