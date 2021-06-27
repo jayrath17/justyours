@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="grid grid-cols-1 gap-4 lg:grid-cols-2"
-    style="grid-template-columns: 1fr 4fr"
-  >
+  <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 col-layout">
     <div class="hidden lg:block">
       <Sidebar />
     </div>

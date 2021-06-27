@@ -1,7 +1,7 @@
 <template>
   <div class="sidebar h-screen mt-11 pt-10">
     <div class="ml-6 flex flex-col items-center">
-      <div class="icon-container mb-4 pb-1">
+      <div class="relative mb-4 pb-1">
         <img
           class="rounded-full border-4 border-color"
           src="~/assets/img/profile.png"
