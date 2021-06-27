@@ -10,13 +10,9 @@
           placeholder="Search"
           class="mx-10 mt-5 lg:mt-0"
         >
-          <<<<<<< HEAD
           <template #icon>
             <i class="fas fa-search text-secondary cursor-pointer" />
           </template>
-          =======
-          <template #icon> <i class="fas fa-search"></i> </template>
-          >>>>>>> origin/fix/issues-v1
         </vs-input>
       </div>
       <div class="flex justify-center mt-5 mx-16 lg:px-10">
@@ -51,12 +47,15 @@
         ${item.slug == 'logo' ? 'sm:order-last' : ''}
         ${item.slug == 'wallet' ? '-mt-1' : ''}`"
       >
-        <img :class="`my-3 lg:my-0 ${item.slug == 'notify' ? 'notification' :
-        ''} ${item.slug == 'msg' ? 'mb-0' : ''}`"
-        :src="require(`~/assets/img/${item.slug}.png`)" <<<<<<< HEAD
-        @click.prevent.stop="handleMsg(item.slug)" role="button" =======
-        @click.self="handleMsg(item.slug)" :role="`${item.slug == 'msg' ?
-        'button' : ''}`" >>>>>>> origin/fix/issues-v1 />
+        <img
+          :class="`my-3 lg:my-0 ${
+            item.slug == 'notify' ? 'notification' : ''
+          } ${item.slug == 'msg' ? 'mb-0' : ''}`"
+          :src="require(`~/assets/img/${item.slug}.png`)"
+          @click.prevent.stop="handleMsg(item.slug)"
+          role="`${item.slug == 'msg' ?
+        'button' : ''}"
+        />
 
         <div
           v-click-outside="hide"
