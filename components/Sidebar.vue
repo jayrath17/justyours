@@ -23,16 +23,21 @@
         class="flex justify-start w-1/2 mb-9"
       >
         <div class="text-left">
-          <NuxtLink :to="route.to" class="text-xl text-secondary">
+          <NuxtLink
+            v-if="route.name !== 'dark'"
+            :to="route.to"
+            class="text-xl text-secondary flex items-center"
+          >
             <i :class="route.icon" />
-            {{ route.name }}
+            <span class="ml-5">
+              {{ route.name }}
+            </span>
           </NuxtLink>
+          <div v-else class="text-xl text-secondary flex items-center">
+            <vs-switch color="#C53761" v-model="darkMode" size="sm" />
+            <span class="text-xl text-secondary ml-5">Dark Mode</span>
+          </div>
         </div>
-      </div>
-
-      <div class="flex items-center">
-        <vs-switch color="#C53761" v-model="darkMode" />
-        <span class="text-xl text-secondary ml-5">Dark Mode</span>
       </div>
     </div>
   </div>
@@ -73,6 +78,12 @@ export default {
         {
           to: '#',
           name: 'Settings',
+          class: '',
+          icon: 'fas fa-cog',
+        },
+        {
+          to: '#',
+          name: 'dark',
           class: '',
           icon: 'fas fa-cog',
         },

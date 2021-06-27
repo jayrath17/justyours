@@ -9,6 +9,9 @@
     width: 26px;
     right: 2px;
   }
+  .vs-switch {
+    min-width: 20px !important;
+  }
 
   .border-color {
     border-color: $primary-color;
