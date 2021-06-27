@@ -10,15 +10,19 @@
           placeholder="Search"
           class="mx-10 mt-5 lg:mt-0"
         >
+          <<<<<<< HEAD
           <template #icon>
             <i class="fas fa-search text-secondary cursor-pointer" />
           </template>
+          =======
+          <template #icon> <i class="fas fa-search"></i> </template>
+          >>>>>>> origin/fix/issues-v1
         </vs-input>
       </div>
-      <div class="flex justify-center mt-5">
-        <vs-button class="rounded-full bg-primary xl:w-1/2">
+      <div class="flex justify-center mt-5 mx-16 lg:px-10">
+        <vs-button class="pills" block color="#c53761">
           <span class="btn-letter-spacing fs-20 whitespace-nowrap">
-            + NEW POST</span
+            <i class="fas fa-plus"></i> NEW POST</span
           >
         </vs-button>
       </div>
@@ -34,22 +38,25 @@
         2xl:mx-10
         order-1
         lg:order-2
+        flex-1
       "
     >
       <div
         v-for="(item, index) in items"
         :key="index"
-        :class="`${item.slug == 'notify' ? ' order-2 md:order-4' : ''}
-        ${item.slug == 'msg' ? 'mb-0 order-1 md:order-3' : ''}
-        ${item.slug == 'logo' ? 'md:order-last' : ''}`"
+        :class="`self-start ${
+          item.slug == 'notify' ? ' order-2 sm:order-4' : ''
+        }
+        ${item.slug == 'msg' ? 'mb-0 order-1 sm:order-3' : ''}
+        ${item.slug == 'logo' ? 'sm:order-last' : ''}
+        ${item.slug == 'wallet' ? '-mt-1' : ''}`"
       >
-        <img
-          :class="`my-3 lg:my-0 ${item.slug == 'notify' ? 'notification' : ''}
-          ${item.slug == 'msg' ? 'mb-0' : ''}`"
-          :src="require(`~/assets/img/${item.slug}.png`)"
-          @click.prevent.stop="handleMsg(item.slug)"
-          role="button"
-        />
+        <img :class="`my-3 lg:my-0 ${item.slug == 'notify' ? 'notification' :
+        ''} ${item.slug == 'msg' ? 'mb-0' : ''}`"
+        :src="require(`~/assets/img/${item.slug}.png`)" <<<<<<< HEAD
+        @click.prevent.stop="handleMsg(item.slug)" role="button" =======
+        @click.self="handleMsg(item.slug)" :role="`${item.slug == 'msg' ?
+        'button' : ''}`" >>>>>>> origin/fix/issues-v1 />
 
         <div
           v-click-outside="hide"
@@ -98,7 +105,7 @@
                   class="dark:bg-gray-700"
                 >
                   <template #icon>
-                    <i class="fas fa-times cursor-pointer dark:text-black" />
+                    <i class="fas fa-search cursor-pointer dark:text-black" />
                   </template>
                 </vs-input>
               </div>
@@ -116,7 +123,7 @@
                       </span>
                     </div>
                   </div>
-                  <div>
+                  <div :class="{ 'mr-16': msg.image == 'msg-profile04' }">
                     <div class="text-left fs-20 dark:text-white">
                       {{ msg.name }}
                     </div>
@@ -130,6 +137,9 @@
             </div>
           </transition>
         </div>
+      </div>
+      <div class="menu block lg:hidden order-last fs-40 text-secondary">
+        <i role="button" class="fas fa-bars" @click="openSidebar"></i>
       </div>
     </div>
   </div>
@@ -251,6 +261,9 @@ export default {
         },
         { complete: done }
       )
+    },
+    openSidebar() {
+      $nuxt.$emit('openSidebar')
     },
   },
 }
