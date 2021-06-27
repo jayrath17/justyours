@@ -1,8 +1,4 @@
-.sidebar{
-  .icon-container {
-    position: relative;
-  }
-  
+.sidebar {
   .status-circle {
     background-color: $green-color;
     border: 3px solid $primary-color;
@@ -14,7 +10,13 @@
     right: 2px;
   }
 
-  .border-color{
+  .border-color {
     border-color: $primary-color;
+  }
+}
+
+@media (min-width: 1025px) {
+  .col-layout {
+    grid-template-columns: 1fr 4fr;
   }
 }
