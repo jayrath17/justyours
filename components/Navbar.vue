@@ -1,6 +1,6 @@
 <template>
-  <div class="navbar grid lg:grid-cols-2 lg:mt-11 lg:pt-10">
-    <div class="order-2 lg:order-1">
+  <div class="navbar grid lg:grid-cols-2 lg:mt-12 lg:pt-10 xl:ml-16 xl:pl-5">
+    <div class="order-2 lg:order-1 xl:mr-8">
       <div class="flex justify-center content-inputs">
         <vs-input
           block
@@ -15,9 +15,9 @@
           </template>
         </vs-input>
       </div>
-      <div class="flex justify-center mt-5 mx-16 lg:px-10">
-        <vs-button class="pills" block color="#c53761">
-          <span class="btn-letter-spacing fs-20 whitespace-nowrap">
+      <div class="flex justify-center mt-5 mx-16 xl:px-10">
+        <vs-button class="pills" color="#c53761">
+          <span class="btn-letter-spacing fs-20 whitespace-nowrap xl:mx-9 mt-1">
             <i class="fas fa-plus"></i> NEW POST</span
           >
         </vs-button>
@@ -31,7 +31,7 @@
         flex-wrap
         mt-10
         lg:mt-0
-        2xl:mx-10
+        2xl:mx-8
         order-1
         lg:order-2
         flex-1

@@ -17,11 +17,19 @@
       <div>
         <Navbar />
       </div>
-      <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
-        <div class="mt-5">
+      <div
+        class="
+          grid grid-cols-1
+          2xl:grid-cols-2
+          gap-1
+          lg:gap-4
+          col-layout-content
+        "
+      >
+        <div class="mt-16 pt-1">
           <Content />
         </div>
-        <div class="flex justify-center">
+        <div class="flex justify-center lg:justify-start">
           <Suggestions />
         </div>
       </div>

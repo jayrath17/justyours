@@ -38,8 +38,15 @@
   .col-layout {
     grid-template-columns: 1fr 4fr;
   }
+  .col-layout-content {
+    grid-template-columns: 1.3fr 1fr;
+  }
 }
 
 .pills {
   border-radius: 40px;
+}
+
+.vs-card {
+  background: transparent;
 }

@@ -6,7 +6,7 @@
     <!-- Image -->
     <vs-card class="w-full">
       <template #img>
-        <img :src="post.image" :alt="post.user" />
+        <img :src="post.image" :alt="post.user" class="ml-1" />
       </template>
     </vs-card>
     <!-- Image -->

@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-3">
+  <div class="mt-3 fs-24 lg:mx-7">
     <div class="flex justify-between">
       <div class="flex-auto cursor-pointer font-semibold">
         <i class="fas fa-heart heart"></i>
@@ -37,7 +37,7 @@
           </div>
           <div class="flex-auto flex justify-between">
             <div>
-              <p class="text-justify text dark:text-white">
+              <p class="text-justify text dark:text-white fs-24">
                 {{ comment.content }}
               </p>
               <div class="flex">
@@ -64,6 +64,7 @@
           <div class="flex-auto comment">
             <div class="mt-1 relative">
               <input
+                id="input-comments"
                 type="text"
                 class="
                   p-2
@@ -110,7 +111,7 @@
       </div>
     </div>
     <!-- Comment -->
-    <div class="divider my-5 dark:border-gray-700" v-if="post.id != 2"></div>
+    <div class="divider my-16 dark:border-gray-700" v-if="post.id != 2"></div>
   </div>
 </template>
 
@@ -165,6 +166,7 @@ export default {
   background: #f0f2f5;
   border-radius: 53px;
   width: 100%;
+  height: 58px;
 }
 input::placeholder {
   margin-left: 1em;

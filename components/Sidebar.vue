@@ -1,6 +1,6 @@
 <template>
   <div
-    class="sidebar h-screen lg:mt-11 pt-10 lg:block dark:bg-black"
+    class="sidebar h-screen lg:mt-16 lg:ml-3 pt-5 lg:block dark:bg-black"
     v-click-outside="hideSidebar"
     :class="
       activeSidebar
@@ -8,10 +8,10 @@
         : 'slide-out hidden'
     "
   >
-    <div class="md:ml-6 flex flex-col items-center">
+    <div class="xl:ml-8 flex flex-col items-center">
       <div class="relative mb-4 pb-1">
         <img
-          class="rounded-full border-4 border-color"
+          class="rounded-full border-4 border-color profile-img ml-3"
           src="~/assets/img/profile.png"
           alt="profile"
         />
@@ -21,9 +21,9 @@
       <div
         v-for="(route, index) in routes"
         :key="index"
-        class="flex justify-start w-1/2 mb-9"
+        class="flex justify-start w-1/2 mb-12"
       >
-        <div class="text-left">
+        <div class="text-left fs-24">
           <NuxtLink
             v-if="route.name !== 'dark'"
             :to="route.to"
@@ -36,7 +36,9 @@
           </NuxtLink>
           <div v-else class="text-xl text-secondary flex items-center">
             <vs-switch color="#C53761" v-model="darkMode" size="sm" />
-            <span class="text-xl text-secondary ml-5">Dark Mode</span>
+            <span class="text-xl text-secondary ml-5 xl:whitespace-nowrap"
+              >Dark Mode</span
+            >
           </div>
         </div>
       </div>

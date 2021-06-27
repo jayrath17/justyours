@@ -1,8 +1,13 @@
 .navbar {
   input {
     width: 100% !important;
-    height: 3rem !important;
+    height: 69px !important;
     border-radius: 40px;
+    &::placeholder {
+      font-style: italic;
+      position: relative;
+      left: 20px;
+    }
   }
 
   .message-box {

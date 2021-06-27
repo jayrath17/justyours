@@ -1,5 +1,5 @@
 <template>
-  <div class="suggestions">
+  <div class="suggestions lg:mt-16 lg:pt-5">
     <div v-for="(suggestion, index) in suggestions" :key="index">
       <vs-card type="5" class="mt-14 w-full card-custom-width">
         <template #interactions>
