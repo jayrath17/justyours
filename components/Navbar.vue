@@ -107,7 +107,7 @@
                       {{ msg.count }}
                     </div>
                   </div>
-                  <div>
+                  <div :class="{ 'mr-16': msg.image == 'msg-profile04' }">
                     <div class="text-left fs-20">
                       {{ msg.name }}
                     </div>

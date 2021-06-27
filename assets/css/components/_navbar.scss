@@ -11,6 +11,12 @@
     @media (max-width: 1800px) and (min-width: 1022px) {
       right: -50%;
     }
+    @media (max-width: 478px) and (min-width: 443px) {
+      left: 0%;
+    }
+    @media (max-width: 639px) and (min-width: 478px) {
+      right: 0%;
+    }
   }
 
   .notification:hover {

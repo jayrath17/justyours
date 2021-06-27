@@ -1,8 +1,10 @@
 <template>
   <div
-    class="sidebar h-screen lg:mt-11 pt-10 lg:block slide"
+    class="sidebar h-screen lg:mt-11 pt-10 lg:block"
     :class="`${
-      activeSidebar ? 'z-30 bg-white w-9/12 md:w-6/12 ' : 'slide-out hidden'
+      activeSidebar
+        ? 'z-30 bg-white w-9/12 md:w-6/12 slide'
+        : 'slide-out hidden'
     }`"
   >
     <div class="md:ml-6 flex flex-col items-center">
