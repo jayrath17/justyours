@@ -13,10 +13,20 @@
   .border-color {
     border-color: $primary-color;
   }
+
+  &.slide {
+    position: fixed;
+    transform: translateX(0%);
+    animation: slide 0.3s ease-in-out;
+  }
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 1024px) {
   .col-layout {
     grid-template-columns: 1fr 4fr;
   }
+}
+
+.pills {
+  border-radius: 40px;
 }

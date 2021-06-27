@@ -10,13 +10,13 @@
           placeholder="Search"
           class="mx-10 mt-5 lg:mt-0"
         >
-          <template #icon> x </template>
+          <template #icon> <i class="fas fa-search"></i> </template>
         </vs-input>
       </div>
-      <div class="flex justify-center mt-5">
-        <vs-button class="rounded-full bg-primary xl:w-1/2">
+      <div class="flex justify-center mt-5 mx-16 lg:px-10">
+        <vs-button class="pills" block color="#c53761">
           <span class="btn-letter-spacing fs-20 whitespace-nowrap">
-            + NEW POST</span
+            <i class="fas fa-plus"></i> NEW POST</span
           >
         </vs-button>
       </div>
@@ -32,21 +32,25 @@
         2xl:mx-10
         order-1
         lg:order-2
+        flex-1
       "
     >
       <div
         v-for="(item, index) in items"
         :key="index"
-        :class="`${item.slug == 'notify' ? ' order-2 md:order-4' : ''}
-        ${item.slug == 'msg' ? 'mb-0 order-1 md:order-3' : ''}
-        ${item.slug == 'logo' ? 'md:order-last' : ''}`"
+        :class="`self-start ${
+          item.slug == 'notify' ? ' order-2 sm:order-4' : ''
+        }
+        ${item.slug == 'msg' ? 'mb-0 order-1 sm:order-3' : ''}
+        ${item.slug == 'logo' ? 'sm:order-last' : ''}
+        ${item.slug == 'wallet' ? '-mt-1' : ''}`"
       >
         <img
           :class="`my-3 lg:my-0 ${item.slug == 'notify' ? 'notification' : ''}
           ${item.slug == 'msg' ? 'mb-0' : ''}`"
           :src="require(`~/assets/img/${item.slug}.png`)"
           @click.self="handleMsg(item.slug)"
-          role="button"
+          :role="`${item.slug == 'msg' ? 'button' : ''}`"
         />
 
         <div
@@ -77,7 +81,7 @@
             >
               <div class="flex justify-between mt-5">
                 <span class="fs-24">Messages</span>
-                <span>x</span>
+                <i class="fas fa-ellipsis-v"></i>
               </div>
               <div class="flex justify-center content-inputs mt-5 mb-3">
                 <vs-input
@@ -88,7 +92,7 @@
                   placeholder="Search"
                   @change="search"
                 >
-                  <template #icon> x </template>
+                  <template #icon> <i class="fas fa-search"></i> </template>
                 </vs-input>
               </div>
 
@@ -117,6 +121,9 @@
             </div>
           </transition>
         </div>
+      </div>
+      <div class="menu block lg:hidden order-last fs-40 text-secondary">
+        <i role="button" class="fas fa-bars" @click="openSidebar"></i>
       </div>
     </div>
   </div>
@@ -208,33 +215,8 @@ export default {
         this.msgBox = !this.msgBox
       }
     },
-    search(e) {
-      let value = e.target.value
-      if (value) {
-        this.messages = this.messages.filter((x) => x.name.includes(value))
-      }
-    },
-    beforeEnter: function (el) {
-      el.style.opacity = 0
-      el.style.transformOrigin = 'left'
-    },
-    enter: function (el, done) {
-      Velocity(el, { opacity: 1, fontSize: '1.4em' }, { duration: 300 })
-      Velocity(el, { fontSize: '1em' }, { complete: done })
-    },
-    leave: function (el, done) {
-      Velocity(el, { translateX: '15px', rotateZ: '50deg' }, { duration: 600 })
-      Velocity(el, { rotateZ: '100deg' }, { loop: 2 })
-      Velocity(
-        el,
-        {
-          rotateZ: '45deg',
-          translateY: '30px',
-          translateX: '30px',
-          opacity: 0,
-        },
-        { complete: done }
-      )
+    openSidebar() {
+      $nuxt.$emit('openSidebar')
     },
   },
 }

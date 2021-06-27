@@ -1,6 +1,11 @@
 <template>
-  <div class="sidebar h-screen mt-11 pt-10">
-    <div class="ml-6 flex flex-col items-center">
+  <div
+    class="sidebar h-screen lg:mt-11 pt-10 lg:block slide"
+    :class="`${
+      activeSidebar ? 'z-30 bg-white w-9/12 md:w-6/12 ' : 'slide-out hidden'
+    }`"
+  >
+    <div class="md:ml-6 flex flex-col items-center">
       <div class="relative mb-4 pb-1">
         <img
           class="rounded-full border-4 border-color"
@@ -36,6 +41,7 @@ export default {
   data() {
     return {
       darkMode: false,
+      activeSidebar: false,
       routes: [
         {
           to: '#',
@@ -64,6 +70,11 @@ export default {
         },
       ],
     }
+  },
+  created() {
+    this.$nuxt.$on('openSidebar', () => {
+      this.activeSidebar = !this.activeSidebar
+    })
   },
 }
 </script>

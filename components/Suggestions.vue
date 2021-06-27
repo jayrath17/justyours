@@ -4,7 +4,7 @@
       <vs-card type="5" class="mt-14 w-full card-custom-width">
         <template #interactions>
           <div class="center">
-            <vs-button block class="bg-primary w-full">
+            <vs-button block class="w-full pills" color="#c53761">
               <span class="fs-20 text-white">
                 {{ suggestion.title }}
               </span>
@@ -18,7 +18,7 @@
     </div>
 
     <div class="mt-16">
-      <vs-button size="mini" class="bg-primary" block>
+      <vs-button class="pills" color="#c53761" block>
         <span class="fs-24 btn-letter-spacing mx-5">VIEW ALL </span>
       </vs-button>
     </div>

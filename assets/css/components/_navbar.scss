@@ -1,16 +1,28 @@
 .navbar {
   input {
     width: 100% !important;
+    height: 3rem !important;
+    border-radius: 40px;
   }
 
   .message-box {
     width: 455px;
     height: 500px;
+    @media (max-width: 1800px) and (min-width: 1022px) {
+      right: -50%;
+    }
   }
 
   .notification:hover {
     animation: shake 0.5s;
     animation-iteration-count: 1.5s;
+  }
+
+  .menu {
+    color: $primary-color;
+    &:hover {
+      color: $secondary-color;
+    }
   }
 
   .status-circle {
