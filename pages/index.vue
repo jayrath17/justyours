@@ -11,7 +11,9 @@
         <Navbar />
       </div>
       <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
-        <div class="bg-red"></div>
+        <div class="mt-5">
+          <Content />
+        </div>
         <div class="flex justify-center">
           <Suggestions />
         </div>
@@ -21,12 +23,7 @@
 </template>
 
 <script>
-import Navbar from '../components/Navbar.vue'
-import Sidebar from '../components/Sidebar.vue'
-import Suggestions from '../components/Suggestions.vue'
-export default {
-  components: { Sidebar, Suggestions, Navbar },
-}
+export default {}
 </script>
 
 <style>

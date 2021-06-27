@@ -11,6 +11,12 @@ export default {
       devtools: isDev,
     },
   },
+  watchers: {
+    webpack: {
+      aggregateTimeout: 300,
+      poll: 1000,
+    },
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'justyours',
@@ -22,7 +28,32 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'preconnect',
+        href: 'https://fonts.gstatic.com',
+      },
+      {
+        rel: 'prefetch',
+        href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css',
+      },
+    ],
+  },
+  webfontloader: {
+    google: {
+      families: [
+        'Source+Sans+Pro:wght@300;400;600;700;900&display=swap',
+        'Libre+Baskerville:ital@0;1&display=swap',
+        'Montserrat:wght@300;400;600;700;900&display=swap',
+      ],
+    },
+    custom: {
+      families: ['Font Awesome 5 Free', 'Font Awesome 5 Brands'],
+      urls: [
+        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css',
+      ],
+    },
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -41,8 +72,10 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: ['nuxt-webfontloader'],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    extractCSS: true,
+  },
 }
