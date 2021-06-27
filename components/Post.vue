@@ -1,0 +1,51 @@
+<template>
+  <div class="post">
+    <!-- Header -->
+    <PostTitle :post="post" />
+    <!-- Header -->
+    <!-- Image -->
+    <vs-card class="w-full">
+      <template #img>
+        <img :src="post.image" :alt="post.user" />
+      </template>
+    </vs-card>
+    <!-- Image -->
+
+    <!-- Footer -->
+    <SocialContainer :post="post" />
+    <!-- Footer -->
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    post: {
+      type: Object,
+    },
+  },
+}
+</script>
+
+<style>
+.post {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.vs-card {
+  max-width: 100% !important;
+}
+
+.vs-card__img {
+  max-height: 100% !important;
+}
+
+.text {
+  font-size: 16px;
+  line-height: 29px;
+}
+
+.text-muted {
+  color: #323232;
+}
+</style>
