@@ -10,7 +10,9 @@
           placeholder="Search"
           class="mx-10 mt-5 lg:mt-0"
         >
-          <template #icon> x </template>
+          <template #icon>
+            <i class="fas fa-search text-secondary cursor-pointer" />
+          </template>
         </vs-input>
       </div>
       <div class="flex justify-center mt-5">
@@ -45,11 +47,12 @@
           :class="`my-3 lg:my-0 ${item.slug == 'notify' ? 'notification' : ''}
           ${item.slug == 'msg' ? 'mb-0' : ''}`"
           :src="require(`~/assets/img/${item.slug}.png`)"
-          @click.self="handleMsg(item.slug)"
+          @click.prevent.stop="handleMsg(item.slug)"
           role="button"
         />
 
         <div
+          v-click-outside="hide"
           v-if="item.slug == 'msg'"
           class="flex justify-center relative ease-in-out"
           :class="{ 'ease-in-out': msgBox }"
@@ -73,11 +76,16 @@
                 z-30
                 overflow-y-scroll
                 h-12
+                dark:bg-black
               "
             >
               <div class="flex justify-between mt-5">
-                <span class="fs-24">Messages</span>
-                <span>x</span>
+                <span class="fs-24 dark:text-white">Messages</span>
+                <span
+                  ><i
+                    class="fas fa-times cursor-pointer dark:text-white"
+                    @click="msgBox = false"
+                /></span>
               </div>
               <div class="flex justify-center content-inputs mt-5 mb-3">
                 <vs-input
@@ -85,10 +93,13 @@
                   type="text"
                   icon-after
                   v-model="msgSearchValue"
-                  placeholder="Search"
-                  @change="search"
+                  placeholder="Search Messages"
+                  @keyup="search"
+                  class="dark:bg-gray-700"
                 >
-                  <template #icon> x </template>
+                  <template #icon>
+                    <i class="fas fa-times cursor-pointer dark:text-black" />
+                  </template>
                 </vs-input>
               </div>
 
@@ -100,18 +111,20 @@
                       :src="require(`~/assets/img/msg/${msg.image}.png`)"
                     />
                     <div v-if="!!msg.count" class="status-circle text-center">
-                      {{ msg.count }}
+                      <span class="dark:text-black">
+                        {{ msg.count }}
+                      </span>
                     </div>
                   </div>
                   <div>
-                    <div class="text-left fs-20">
+                    <div class="text-left fs-20 dark:text-white">
                       {{ msg.name }}
                     </div>
                     <div class="text-left fs-16 text-secondary">
                       {{ msg.msg }}
                     </div>
                   </div>
-                  <span>{{ msg.date }}</span>
+                  <span class="text-secondary">{{ msg.date }}</span>
                 </div>
               </div>
             </div>
@@ -124,7 +137,6 @@
 
 <script>
 export default {
-  name: 'Navbar',
   transition(to, from) {
     if (!from) {
       return 'slide-left'
@@ -208,11 +220,15 @@ export default {
         this.msgBox = !this.msgBox
       }
     },
+    hide() {
+      this.msgBox = false
+    },
     search(e) {
       let value = e.target.value
-      if (value) {
-        this.messages = this.messages.filter((x) => x.name.includes(value))
-      }
+      this.messages = this.messages.filter((x) => {
+        return x.name.includes(value) || x.msg.includes(value)
+      })
+      console.log(this.messages)
     },
     beforeEnter: function (el) {
       el.style.opacity = 0
@@ -240,4 +256,8 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+.dark:bg-gray-700 > input {
+  background: red;
+}
+</style>

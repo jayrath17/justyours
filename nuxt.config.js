@@ -19,7 +19,7 @@ export default {
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'justyours',
+    title: 'Just Yours',
     htmlAttrs: {
       lang: 'en',
     },
@@ -29,7 +29,7 @@ export default {
       { hid: 'description', name: 'description', content: '' },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: '/logo.ico' },
       {
         rel: 'preconnect',
         href: 'https://fonts.gstatic.com',
@@ -60,7 +60,10 @@ export default {
   css: ['~/assets/css/main.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [{ src: '~plugins/vuesax.js' }],
+  plugins: [
+    { src: '~plugins/vuesax.js' },
+    { src: '~/plugins/directives', mode: 'client' },
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -69,7 +72,16 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/color-mode',
   ],
+  tailwindcss: {
+    jit: true,
+    // add '~tailwind.config` alias
+    exposeConfig: true,
+  },
+  colorMode: {
+    classSuffix: '',
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: ['nuxt-webfontloader'],

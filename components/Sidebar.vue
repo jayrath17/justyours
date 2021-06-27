@@ -13,18 +13,19 @@
       <div
         v-for="(route, index) in routes"
         :key="index"
-        class="flex justify-start w-1/2 ml-8 mb-9"
+        class="flex justify-start w-1/2 mb-9"
       >
         <div class="text-left">
-          <NuxtLink :to="route.to" class="fs-24 text-secondary">{{
-            route.name
-          }}</NuxtLink>
+          <NuxtLink :to="route.to" class="text-xl text-secondary">
+            <i :class="route.icon" />
+            {{ route.name }}
+          </NuxtLink>
         </div>
       </div>
 
-      <div class="flex items-center ml-8">
+      <div class="flex items-center">
         <vs-switch color="#C53761" v-model="darkMode" />
-        <span class="fs-24 ml-5">Dark Mode</span>
+        <span class="text-xl text-secondary ml-5">Dark Mode</span>
       </div>
     </div>
   </div>
@@ -41,28 +42,43 @@ export default {
           to: '#',
           name: 'My Profile',
           class: '',
+          icon: 'fas fa-user-alt',
         },
         {
           to: '#',
           name: 'Home',
           class: '',
+          icon: 'fas fa-home',
         },
         {
           to: '#',
           name: 'Saved',
           class: '',
+          icon: 'fas fa-bookmark',
         },
         {
           to: '#',
           name: 'Subscriptions',
           class: '',
+          icon: 'fas fa-money-check',
         },
         {
           to: '#',
           name: 'Settings',
           class: '',
+          icon: 'fas fa-cog',
         },
       ],
+    }
+  },
+  watch: {
+    darkMode() {
+      this.$colorMode.preference = this.darkMode ? 'dark' : 'light'
+    },
+  },
+  mounted() {
+    if (this.$colorMode.preference == 'dark') {
+      this.darkMode = true
     }
   },
 }

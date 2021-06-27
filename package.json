@@ -9,11 +9,12 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@nuxtjs/color-mode": "^2.0.10",
     "core-js": "^3.9.1",
     "nuxt": "^2.15.3",
+    "nuxt-webfontloader": "^1.1.0",
     "sass": "^1.35.1",
     "sass-loader": "10",
-    "nuxt-webfontloader": "^1.1.0",
     "vuesax": "^4.0.1-alpha.25"
   },
   "devDependencies": {
@@ -21,9 +22,9 @@
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-prettier": "^3.3.1",
     "fibers": "^5.0.0",
-    "postcss": "^8.2.8",
     "node-sass": "^4.14.1",
-    "sass-loader": "^12.1.0",
-    "prettier": "^2.2.1"
+    "postcss": "^8.2.8",
+    "prettier": "^2.2.1",
+    "sass-loader": "^12.1.0"
   }
 }

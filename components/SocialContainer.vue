@@ -4,14 +4,22 @@
       <div class="flex-auto cursor-pointer font-semibold">
         <i class="fas fa-heart heart"></i>
         <span class="text-pink"> {{ post.likes }} </span>
-        Likes
+        <span class="dark:text-white"> Likes </span>
       </div>
       <div class="flex-auto text-center cursor-pointer font-semibold">
         <i class="fas fa-comment-alt comments"></i>
         <span class="text-pink"> {{ post.comments }} </span>
-        Comments
+        <span class="dark:text-white"> Comments </span>
       </div>
-      <div class="flex-auto text-right cursor-pointer font-semibold">
+      <div
+        class="
+          flex-auto
+          text-right
+          cursor-pointer
+          font-semibold
+          dark:text-white
+        "
+      >
         Save
         <i class="fas fa-bookmark save"></i>
       </div>
@@ -25,7 +33,7 @@
           </div>
           <div class="flex-auto flex justify-between">
             <div>
-              <p class="text-justify text">
+              <p class="text-justify text dark:text-white">
                 I’ve been a part of #MauxTeam as a "Latina light" Diana and I’ve
                 loved her 🌹✨ dietary advice, workouts, dancing and other
                 activities!
@@ -35,11 +43,17 @@
                 <p class="mt-1 text-muted cursor-pointer">Reply</p>
               </div>
             </div>
-            <div><i class="fas fa-ellipsis-v cursor-pointer ml-3"></i></div>
+            <div>
+              <i
+                class="fas fa-ellipsis-v cursor-pointer ml-3 dark:text-white"
+              ></i>
+            </div>
           </div>
         </div>
       </div>
-      <span class="font-semibold cursor-pointer">View 3 more comments</span>
+      <span class="font-semibold cursor-pointer dark:text-white"
+        >View 3 more comments</span
+      >
       <div class="add__comment mt-3">
         <div class="flex items-center">
           <div class="mr-4 flex-shrink-0">
@@ -58,6 +72,7 @@
                   sm:text-sm
                   border-gray-300
                   rounded-md
+                  dark:bg-gray-700
                 "
                 placeholder="Add your comment"
               />
@@ -73,7 +88,15 @@
                 "
               >
                 <i class="far fa-grin-alt mr-2 text-muted cursor-pointer"></i>
-                <i class="far fa-grin-alt mr-2 text-muted cursor-pointer"></i>
+                <i
+                  class="
+                    far
+                    fa-closed-captioning
+                    mr-2
+                    text-muted
+                    cursor-pointer
+                  "
+                ></i>
                 <i class="fas fa-paperclip mr-2 text-muted cursor-pointer"></i>
                 <i class="fas fa-camera mr-2 text-muted cursor-pointer"></i>
               </div>
@@ -83,7 +106,7 @@
       </div>
     </div>
     <!-- Comment -->
-    <div class="divider my-5" v-if="post.id != 2"></div>
+    <div class="divider my-5 dark:border-gray-700" v-if="post.id != 2"></div>
   </div>
 </template>
 
