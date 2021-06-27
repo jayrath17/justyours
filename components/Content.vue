@@ -17,6 +17,15 @@ export default {
           image: '/images/woman.png',
           likes: '2k',
           comments: '193',
+          commentsArray: [
+            {
+              user: {
+                img: '/images/woman2.png',
+              },
+              content:
+                'I’ve been a part of #MauxTeam as a "Latina light" Diana and I’ve loved her 🌹✨ dietary advice, workouts, dancing and other activities!',
+            },
+          ],
         },
         {
           id: 2,
@@ -26,6 +35,21 @@ export default {
           image: '/images/post1.png',
           likes: '5k',
           comments: '209',
+          commentsArray: [
+            {
+              user: {
+                img: '/images/woman2.png',
+              },
+              content:
+                'I’ve been a part of #MauxTeam as a "Latina light" Diana and I’ve loved her 🌹✨ dietary advice, workouts, dancing and other activities!',
+            },
+            {
+              user: {
+                img: '/images/post.png',
+              },
+              content: 'This is a gorgeous app!',
+            },
+          ],
         },
       ],
     }

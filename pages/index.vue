@@ -10,11 +10,11 @@
       dark:bg-black
     "
   >
-    <div class="hidden lg:block">
+    <div>
       <Sidebar />
     </div>
-    <div class="">
-      <div class="">
+    <div>
+      <div>
         <Navbar />
       </div>
       <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">

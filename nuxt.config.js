@@ -11,12 +11,6 @@ export default {
       devtools: isDev,
     },
   },
-  watchers: {
-    webpack: {
-      aggregateTimeout: 300,
-      poll: 1000,
-    },
-  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'Just Yours',

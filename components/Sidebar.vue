@@ -1,11 +1,12 @@
 <template>
   <div
-    class="sidebar h-screen lg:mt-11 pt-10 lg:block"
-    :class="`${
+    class="sidebar h-screen lg:mt-11 pt-10 lg:block dark:bg-black"
+    v-click-outside="hideSidebar"
+    :class="
       activeSidebar
-        ? 'z-30 bg-white w-9/12 md:w-6/12 slide'
+        ? 'z-50 bg-white w-9/12 md:w-6/12 slide'
         : 'slide-out hidden'
-    }`"
+    "
   >
     <div class="md:ml-6 flex flex-col items-center">
       <div class="relative mb-4 pb-1">
@@ -90,13 +91,18 @@ export default {
       ],
     }
   },
+  methods: {
+    hideSidebar() {
+      this.activeSidebar = false
+    },
+  },
   watch: {
     darkMode() {
       this.$colorMode.preference = this.darkMode ? 'dark' : 'light'
     },
   },
   mounted() {
-    if (this.$colorMode.preference == 'dark') {
+    if (['dark', 'system'].includes(this.$colorMode.preference)) {
       this.darkMode = true
     }
   },

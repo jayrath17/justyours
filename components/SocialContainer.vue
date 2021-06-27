@@ -27,16 +27,18 @@
     <!-- Comment -->
     <div class="mt-4">
       <div>
-        <div class="flex">
+        <div
+          class="flex"
+          v-for="comment in post.commentsArray"
+          :key="comment.content"
+        >
           <div class="mr-4 block flex-shrink-0">
-            <img src="/images/woman2.png" class="rounded-full w-12 h-12" />
+            <img :src="comment.user.img" class="rounded-full w-12 h-12" />
           </div>
           <div class="flex-auto flex justify-between">
             <div>
               <p class="text-justify text dark:text-white">
-                I’ve been a part of #MauxTeam as a "Latina light" Diana and I’ve
-                loved her 🌹✨ dietary advice, workouts, dancing and other
-                activities!
+                {{ comment.content }}
               </p>
               <div class="flex">
                 <p class="mt-1 mr-4 text-muted cursor-pointer">Like</p>
@@ -52,7 +54,7 @@
         </div>
       </div>
       <span class="font-semibold cursor-pointer dark:text-white"
-        >View 3 more comments</span
+        >View {{ post.commentsArray.length }} more comments</span
       >
       <div class="add__comment mt-3">
         <div class="flex items-center">
@@ -72,9 +74,11 @@
                   sm:text-sm
                   border-gray-300
                   rounded-md
-                  dark:bg-gray-700
+                  dark:bg-gray-700 dark:text-white
                 "
                 placeholder="Add your comment"
+                v-model="comment"
+                @keyup.enter="addComment(post)"
               />
               <div
                 class="
@@ -115,6 +119,21 @@ export default {
   props: {
     post: {
       type: Object,
+    },
+  },
+  data() {
+    return {
+      comment: null,
+    }
+  },
+  methods: {
+    addComment(post) {
+      console.log(post, 'post')
+      post.commentsArray.push({
+        content: this.comment,
+        user: { img: '/images/post.png' },
+      })
+      this.comment = null
     },
   },
 }

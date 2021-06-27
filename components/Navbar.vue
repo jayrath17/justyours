@@ -100,8 +100,6 @@
                   icon-after
                   v-model="msgSearchValue"
                   placeholder="Search Messages"
-                  @keyup="search"
-                  class="dark:bg-gray-700"
                 >
                   <template #icon>
                     <i class="fas fa-search cursor-pointer dark:text-black" />
@@ -109,7 +107,7 @@
                 </vs-input>
               </div>
 
-              <div v-for="(msg, index) in messages" :key="index">
+              <div v-for="(msg, index) in filteredMessages" :key="index">
                 <div class="flex justify-between items-center mt-1">
                   <div class="relative mb-4 pb-1">
                     <img
@@ -138,7 +136,11 @@
         </div>
       </div>
       <div class="menu block lg:hidden order-last fs-40 text-secondary">
-        <i role="button" class="fas fa-bars" @click="openSidebar"></i>
+        <i
+          role="button"
+          class="fas fa-bars"
+          @click.prevent.stop="openSidebar"
+        ></i>
       </div>
     </div>
   </div>
@@ -223,6 +225,19 @@ export default {
       ],
     }
   },
+  computed: {
+    filteredMessages() {
+      if (this.msgSearchValue == '') return this.messages
+      return this.messages.filter((entry) => {
+        return (
+          entry.name
+            .toLowerCase()
+            .includes(this.msgSearchValue.toLowerCase()) ||
+          entry.msg.toLowerCase().includes(this.msgSearchValue.toLowerCase())
+        )
+      })
+    },
+  },
   methods: {
     handleMsg(key) {
       if (key == 'msg') {
@@ -231,13 +246,6 @@ export default {
     },
     hide() {
       this.msgBox = false
-    },
-    search(e) {
-      let value = e.target.value
-      this.messages = this.messages.filter((x) => {
-        return x.name.includes(value) || x.msg.includes(value)
-      })
-      console.log(this.messages)
     },
     beforeEnter: function (el) {
       el.style.opacity = 0
