@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar grid lg:grid-cols-2 lg:mt-12 lg:pt-10 xl:ml-16 xl:pl-5">
+  <div class="grid navbar lg:grid-cols-2 lg:mt-12 lg:pt-10 xl:ml-16 xl:pl-5">
     <div class="order-2 lg:order-1 xl:mr-8">
       <div class="flex justify-center content-inputs">
         <vs-input
@@ -11,13 +11,13 @@
           class="mx-10 mt-5 lg:mt-0"
         >
           <template #icon>
-            <i class="fas fa-search text-secondary cursor-pointer" />
+            <i class="cursor-pointer fas fa-search text-secondary" />
           </template>
         </vs-input>
       </div>
-      <div class="flex justify-center mt-5 mx-16 xl:px-10">
+      <div class="flex justify-center mx-4 mt-5 sm:mx-16 md xl:px-10">
         <vs-button class="pills" color="#c53761">
-          <span class="btn-letter-spacing fs-20 whitespace-nowrap xl:mx-9 mt-1">
+          <span class="mt-1 btn-letter-spacing fs-20 whitespace-nowrap xl:mx-9">
             <i class="fas fa-plus"></i> NEW POST</span
           >
         </vs-button>
@@ -26,15 +26,14 @@
 
     <div
       class="
-        flex
+        flex flex-wrap
         justify-around
-        flex-wrap
+        flex-1
+        order-1
         mt-10
         lg:mt-0
         2xl:mx-8
-        order-1
         lg:order-2
-        flex-1
       "
     >
       <div
@@ -48,19 +47,18 @@
         ${item.slug == 'wallet' ? '-mt-1' : ''}`"
       >
         <img
-          :class="`my-3 lg:my-0 ${
+          :class="`my-3 lg:my-0 cursor-pointer ${
             item.slug == 'notify' ? 'notification' : ''
           } ${item.slug == 'msg' ? 'mb-0' : ''}`"
           :src="require(`~/assets/img/${item.slug}.png`)"
           @click.prevent.stop="handleMsg(item.slug)"
-          role="`${item.slug == 'msg' ?
-        'button' : ''}"
+          :role="`${item.slug == 'msg' ? 'button' : ''}`"
         />
 
         <div
           v-click-outside="hide"
           v-if="item.slug == 'msg'"
-          class="flex justify-center relative ease-in-out"
+          class="relative flex justify-center ease-in-out"
           :class="{ 'ease-in-out': msgBox }"
         >
           <img
@@ -73,15 +71,15 @@
               v-if="msgBox"
               class="
                 absolute
-                bg-white
-                message-box
-                shadow-lg
-                rounded-lg
+                z-30
+                h-12
                 px-6
                 mt-5
-                z-30
                 overflow-y-scroll
-                h-12
+                bg-white
+                rounded-lg
+                shadow-lg
+                message-box
                 dark:bg-black
               "
             >
@@ -89,11 +87,11 @@
                 <span class="fs-24 dark:text-white">Messages</span>
                 <span
                   ><i
-                    class="fas fa-times cursor-pointer dark:text-white"
+                    class="cursor-pointer fas fa-times dark:text-white"
                     @click="msgBox = false"
                 /></span>
               </div>
-              <div class="flex justify-center content-inputs mt-5 mb-3">
+              <div class="flex justify-center mt-5 mb-3 content-inputs">
                 <vs-input
                   block
                   type="text"
@@ -102,19 +100,19 @@
                   placeholder="Search Messages"
                 >
                   <template #icon>
-                    <i class="fas fa-search cursor-pointer dark:text-black" />
+                    <i class="cursor-pointer fas fa-search dark:text-black" />
                   </template>
                 </vs-input>
               </div>
 
               <div v-for="(msg, index) in filteredMessages" :key="index">
-                <div class="flex justify-between items-center mt-1">
-                  <div class="relative mb-4 pb-1">
+                <div class="flex items-center justify-between mt-1">
+                  <div class="relative pb-1 mb-4">
                     <img
                       class="rounded-full"
                       :src="require(`~/assets/img/msg/${msg.image}.png`)"
                     />
-                    <div v-if="!!msg.count" class="status-circle text-center">
+                    <div v-if="!!msg.count" class="text-center status-circle">
                       <span class="dark:text-black">
                         {{ msg.count }}
                       </span>
@@ -135,7 +133,7 @@
           </transition>
         </div>
       </div>
-      <div class="menu block lg:hidden order-last text-secondary">
+      <div class="order-last block menu lg:hidden text-secondary">
         <i
           role="button"
           class="fas fa-bars"

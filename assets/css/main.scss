@@ -4,3 +4,21 @@
 @import './components/sidebar';
 @import './components/suggestions';
 @import './components/navbar';
+
+input::placeholder {
+  font-size: 24px !important;
+  @media (max-width: 677px) {
+    font-size: 16px !important;
+  }
+}
+
+.slide-leave-active,
+.slide-enter-active {
+  transition: 1s;
+}
+.slide-enter {
+  transform: translate(100%, 0);
+}
+.slide-leave-to {
+  transform: translate(-100%, 0);
+}

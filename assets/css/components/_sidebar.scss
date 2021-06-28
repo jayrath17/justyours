@@ -19,7 +19,7 @@
 
   &.slide {
     position: fixed;
-    transform: translateX(0%);
+    transform: translateX(0%) !important;
     animation: slide 0.3s ease-in-out;
   }
 
@@ -45,6 +45,7 @@
 
 .pills {
   border-radius: 40px;
+  margin: 0 !important;
 }
 
 .vs-card {

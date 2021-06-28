@@ -3,10 +3,9 @@
     class="
       grid grid-cols-1
       gap-4
+      p-5
       lg:grid-cols-2
       col-layout
-      p-5
-      pl-0
       md:px-5
       lg:px-0
       dark:bg-black
@@ -22,13 +21,13 @@
       <div
         class="
           grid grid-cols-1
-          2xl:grid-cols-2
           gap-1
+          2xl:grid-cols-2
           lg:gap-4
           col-layout-content
         "
       >
-        <div class="mt-16 pt-1">
+        <div class="pt-1 mt-16">
           <Content />
         </div>
         <div class="flex justify-center lg:justify-start">
