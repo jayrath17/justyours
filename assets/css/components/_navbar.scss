@@ -16,11 +16,14 @@
     @media (max-width: 1800px) and (min-width: 1022px) {
       right: -50%;
     }
-    @media (max-width: 478px) and (min-width: 443px) {
+    @media (max-width: 639px) and (min-width: 479px) {
+      right: 0%;
+    }
+    @media (max-width: 478px) and (min-width: 425px) {
       left: 0%;
     }
-    @media (max-width: 639px) and (min-width: 478px) {
-      right: 0%;
+    @media (max-width: 424px) and (min-width: 423px) {
+      left: -13px;
     }
   }
 
@@ -31,6 +34,7 @@
 
   .menu {
     color: $primary-color;
+    font-size: 40px !important;
     &:hover {
       color: $secondary-color;
     }

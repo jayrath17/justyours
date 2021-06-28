@@ -135,7 +135,7 @@
           </transition>
         </div>
       </div>
-      <div class="menu block lg:hidden order-last fs-40 text-secondary">
+      <div class="menu block lg:hidden order-last text-secondary">
         <i
           role="button"
           class="fas fa-bars"

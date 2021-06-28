@@ -1,5 +1,5 @@
 <template>
-  <div class="post">
+  <div class="post pl-4 md:pl-0">
     <!-- Header -->
     <PostTitle :post="post" />
     <!-- Header -->

@@ -5,7 +5,9 @@
       gap-4
       lg:grid-cols-2
       col-layout
-      px-5
+      p-5
+      pl-0
+      md:px-5
       lg:px-0
       dark:bg-black
     "
