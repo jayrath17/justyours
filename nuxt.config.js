@@ -2,7 +2,7 @@ require('dotenv').config()
 const isDev = process.env.NODE_ENV !== 'production'
 
 export default {
-  ssr: false,
+  // ssr: false,
   target: 'static',
   components: true,
   vue: {
@@ -32,6 +32,10 @@ export default {
         rel: 'prefetch',
         href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css',
       },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/icon?family=Material+Icons',
+      },
     ],
   },
   webfontloader: {
@@ -40,6 +44,7 @@ export default {
         'Source+Sans+Pro:wght@300;400;600;700;900&display=swap',
         'Libre+Baskerville:ital@0;1&display=swap',
         'Montserrat:wght@300;400;600;700;900&display=swap',
+        'Material+Icons&display=swap',
       ],
     },
     custom: {
@@ -78,7 +83,7 @@ export default {
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['nuxt-webfontloader'],
+  modules: ['nuxt-webfontloader', 'nuxt-material-design-icons'],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

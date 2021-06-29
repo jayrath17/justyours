@@ -1,40 +1,6 @@
 <template>
-  <div
-    class="
-      grid grid-cols-1
-      gap-4
-      p-5
-      lg:grid-cols-2
-      col-layout
-      md:px-5
-      lg:px-0
-      dark:bg-black
-    "
-  >
-    <div>
-      <Sidebar />
-    </div>
-    <div>
-      <div>
-        <Navbar />
-      </div>
-      <div
-        class="
-          grid grid-cols-1
-          gap-1
-          2xl:grid-cols-2
-          lg:gap-4
-          col-layout-content
-        "
-      >
-        <div class="pt-1 mt-16">
-          <Content />
-        </div>
-        <div class="flex justify-center lg:justify-start">
-          <Suggestions />
-        </div>
-      </div>
-    </div>
+  <div>
+    <Content />
   </div>
 </template>
 

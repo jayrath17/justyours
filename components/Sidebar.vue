@@ -70,31 +70,31 @@ export default {
       activeSidebar: false,
       routes: [
         {
-          to: '#',
+          to: '/',
           name: 'My Profile',
           class: '',
           icon: 'fas fa-user-alt',
         },
         {
-          to: '#',
+          to: '/',
           name: 'Home',
           class: '',
           icon: 'fas fa-home',
         },
         {
-          to: '#',
+          to: '/',
           name: 'Saved',
           class: '',
           icon: 'fas fa-bookmark',
         },
         {
-          to: '#',
+          to: '/subscriptions',
           name: 'Subscriptions',
           class: '',
           icon: 'fas fa-money-check',
         },
         {
-          to: '#',
+          to: '/',
           name: 'Settings',
           class: '',
           icon: 'fas fa-cog',

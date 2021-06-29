@@ -1,20 +1,36 @@
 <template>
-  <div>
-    <Nuxt />
+  <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 col-layout dark:bg-black">
+    <div>
+      <Sidebar />
+    </div>
+    <div>
+      <div>
+        <Navbar />
+      </div>
+      <div
+        class="
+          grid grid-cols-1
+          gap-1
+          2xl:grid-cols-2
+          lg:gap-4
+          col-layout-content
+        "
+      >
+        <div class="pt-1 mt-16">
+          <Nuxt />
+        </div>
+        <div class="flex justify-center lg:justify-start">
+          <Suggestions />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <style>
 html {
-  font-family:
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
+  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
