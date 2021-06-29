@@ -17,11 +17,11 @@
       <div>
         <Navbar />
       </div>
-      <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
-        <div class="mt-5">
+      <div class="grid grid-cols-1 gap-1 lg:grid-cols-2">
+        <div id="scroll-content" class="mt-5 overflow-scroll">
           <Content />
         </div>
-        <div class="flex justify-center">
+        <div id="scroll-suggestion" class="flex justify-center overflow-scroll">
           <Suggestions />
         </div>
       </div>
@@ -30,7 +30,14 @@
 </template>
 
 <script>
-export default {}
+export default {
+  mounted() {
+    let maxHeigh = window.innerHeight
+    document.getElementById('scroll-content').style.maxHeight = maxHeigh + 'px'
+    document.getElementById('scroll-suggestion').style.maxHeight =
+      maxHeigh + 'px'
+  },
+}
 </script>
 
 <style>

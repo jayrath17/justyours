@@ -26,7 +26,7 @@
 
     <div
       class="
-        flex
+        lg:flex
         justify-around
         flex-wrap
         mt-10
@@ -34,32 +34,51 @@
         2xl:mx-10
         order-1
         lg:order-2
-        flex-1
       "
     >
+      <div class="">
+        <div
+          class="
+            fs-16
+            flex
+            items-center
+            rounded-full
+            border-solid border-2 border-light-blue-500
+            px-5
+            py-1
+            relative
+          "
+        >
+          <img
+            class="self-start my-3 lg:my-0 absolute just-logo"
+            src="~/assets/img/wallet-icon.png"
+          />
+          <span class="ml-3 text-blue font-bold">54,000</span>
+          <span class="ml-1 text-primary font-bold">JUST</span>
+        </div>
+      </div>
+      <div class="self-start">
+        <div
+          class="
+            fs-16
+            rounded-full
+            border-solid border-2 border-light-blue-500
+            px-5
+            py-1
+          "
+        >
+          <span>0x623d...298c </span>
+        </div>
+      </div>
+      <br class="block lg:hidden" />
       <div
-        v-for="(item, index) in items"
-        :key="index"
-        :class="`self-start ${
-          item.slug == 'notify' ? ' order-2 sm:order-4' : ''
-        }
-        ${item.slug == 'msg' ? 'mb-0 order-1 sm:order-3' : ''}
-        ${item.slug == 'logo' ? 'sm:order-last' : ''}
-        ${item.slug == 'wallet' ? '-mt-1' : ''}`"
+        class="self-start mb-0"
+        @click.prevent.stop="msgBox = !msgBox"
+        role="button"
       >
-        <img
-          :class="`my-3 lg:my-0 ${
-            item.slug == 'notify' ? 'notification' : ''
-          } ${item.slug == 'msg' ? 'mb-0' : ''}`"
-          :src="require(`~/assets/img/${item.slug}.png`)"
-          @click.prevent.stop="handleMsg(item.slug)"
-          role="`${item.slug == 'msg' ?
-        'button' : ''}"
-        />
-
+        <img class="my-3 lg:my-0 mb-0" src="~/assets/img/msg.png" />
         <div
           v-click-outside="hide"
-          v-if="item.slug == 'msg'"
           class="flex justify-center relative ease-in-out"
           :class="{ 'ease-in-out': msgBox }"
         >
@@ -135,6 +154,15 @@
           </transition>
         </div>
       </div>
+      <div class="" role="button">
+        <img
+          class="self-start my-3 lg:my-0 notification"
+          src="~/assets/img/notify.png"
+        />
+      </div>
+      <div>
+        <img class="self-start my-3 lg:my-0" src="~/assets/img/logo.png" />
+      </div>
       <div class="menu block lg:hidden order-last fs-40 text-secondary">
         <i
           role="button"
@@ -159,23 +187,6 @@ export default {
       msgBox: false,
       searchValue: '',
       msgSearchValue: '',
-      items: [
-        {
-          slug: 'wallet',
-        },
-        {
-          slug: 'hex',
-        },
-        {
-          slug: 'msg',
-        },
-        {
-          slug: 'notify',
-        },
-        {
-          slug: 'logo',
-        },
-      ],
       messages: [
         {
           image: 'msg-profile07',
@@ -239,11 +250,6 @@ export default {
     },
   },
   methods: {
-    handleMsg(key) {
-      if (key == 'msg') {
-        this.msgBox = !this.msgBox
-      }
-    },
     hide() {
       this.msgBox = false
     },
