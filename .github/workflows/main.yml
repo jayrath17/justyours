@@ -7,44 +7,41 @@ on:
     types: ['opened', 'edited', 'synchronize']
   push:
     branches:
-      - master
+    - master
 
 jobs:
   deploy:
     name: 'Deploy'
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node_version: ['12']
-        os: [ubuntu-latest]
 
     steps:
-      - uses: nelonoel/branch-name@v1.0.1
-      - uses: actions/checkout@v1
-      - name: Setup Node.js ${{ matrix.node_version }} environment
-        uses: actions/setup-node@v2.1.5
-        with:
-          node-version: ${{ matrix.node_version }}
-      - name: 'Command Install'
-        run: |
-          sudo apt-get install g++ build-essential
-          npm install -g fibers
-      - uses: jsmrcaga/action-netlify-deploy@master
-        with:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          NETLIFY_DEPLOY_MESSAGE: "Prod deploy v${{ github.ref }}"
-          NETLIFY_DEPLOY_TO_PROD: true
-          deploy_alias: ${{ env.BRANCH_NAME }}
-          build_directory: './dist'
-          install_command: "yarn install"
-          build_command: "yarn generate"
-      
-      # Creates a status check with link to preview
-      - name: Status check
-        uses: Sibz/github-status-action@v1.1.1
-        with:
-          authToken: ${{ secrets.GITHUB_TOKEN }}
-          context: Netlify preview
-          state: success
-          target_url: https://${{ env.BRANCH_NAME }}--xenodochial-jepsen-15def8.netlify.app
+    - uses: nelonoel/branch-name@v1.0.1
+    - uses: actions/checkout@v1
+    - name: Setup Node.js ${{ matrix.node_version }} environment
+      uses: actions/setup-node@v2.1.5
+      with:
+        node-version: 12
+    - name: 'Command Install'
+      run: |
+        sudo apt-get install g++ build-essential
+        npm install -g fibers
+        yarn install
+    - uses: jsmrcaga/action-netlify-deploy@master
+      with:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        NETLIFY_DEPLOY_MESSAGE: "Prod deploy v${{ github.ref }}"
+        NETLIFY_DEPLOY_TO_PROD: true
+        deploy_alias: ${{ env.BRANCH_NAME }}
+        build_directory: 'dist'
+        install_command: "yarn"
+        build_command: "yarn generate"
+
+    # Creates a status check with link to preview
+    - name: Status check
+      uses: Sibz/github-status-action@v1.1.1
+      with:
+        authToken: ${{ secrets.GITHUB_TOKEN }}
+        context: Netlify preview
+        state: success
+        target_url: <https://$>{{ env.BRANCH_NAME }}--xenodochial-jepsen-15def8.netlify.app
