@@ -17,11 +17,14 @@
       <div>
         <Navbar />
       </div>
-      <div class="grid grid-cols-1 gap-1 lg:grid-cols-2">
-        <div id="scroll-content" class="mt-5 overflow-scroll">
+      <div id="foobar" class="grid grid-cols-1 gap-1 lg:grid-cols-2">
+        <div id="scroll-content" class="mt-5 overflow-y-scroll h-full">
           <Content />
         </div>
-        <div id="scroll-suggestion" class="flex justify-center overflow-scroll">
+        <div
+          id="scroll-suggestion"
+          class="flex justify-center overflow-y-scroll h-full"
+        >
           <Suggestions />
         </div>
       </div>
@@ -32,10 +35,20 @@
 <script>
 export default {
   mounted() {
-    let maxHeigh = window.innerHeight
-    document.getElementById('scroll-content').style.maxHeight = maxHeigh + 'px'
-    document.getElementById('scroll-suggestion').style.maxHeight =
-      maxHeigh + 'px'
+    if (window.screen.width > 1024) {
+      setTimeout(function () {
+        let maxHeigh =
+          10 +
+          window.innerHeight -
+          document.getElementById('foobar').getBoundingClientRect().top
+
+        console.log(maxHeigh)
+        document.getElementById('scroll-content').style.maxHeight =
+          maxHeigh + 'px'
+        document.getElementById('scroll-suggestion').style.maxHeight =
+          maxHeigh + 'px'
+      }, 100)
+    }
   },
 }
 </script>

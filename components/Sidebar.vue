@@ -1,6 +1,6 @@
 <template>
   <div
-    class="sidebar h-screen lg:mt-11 pt-10 lg:block dark:bg-black"
+    class="sidebar lg:mt-11 pt-10 lg:block dark:bg-black"
     v-click-outside="hideSidebar"
     :class="
       activeSidebar

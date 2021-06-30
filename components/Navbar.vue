@@ -26,7 +26,9 @@
 
     <div
       class="
+        grid
         lg:flex
+        cols-3
         justify-around
         flex-wrap
         mt-10
@@ -70,7 +72,7 @@
           <span>0x623d...298c </span>
         </div>
       </div>
-      <br class="block lg:hidden" />
+
       <div
         class="self-start mb-0"
         @click.prevent.stop="msgBox = !msgBox"
@@ -160,7 +162,7 @@
           src="~/assets/img/notify.png"
         />
       </div>
-      <div>
+      <div class="order-3 lg:order-5">
         <img class="self-start my-3 lg:my-0" src="~/assets/img/logo.png" />
       </div>
       <div class="menu block lg:hidden order-last fs-40 text-secondary">

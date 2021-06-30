@@ -17,7 +17,7 @@
       </vs-card>
     </div>
 
-    <div class="mt-16">
+    <div class="my-16">
       <vs-button class="pills" color="#c53761" block>
         <span class="fs-24 btn-letter-spacing mx-5">VIEW ALL </span>
       </vs-button>
