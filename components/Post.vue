@@ -1,12 +1,12 @@
 <template>
-  <div class="post">
+  <div class="post md:pl-0 lg:pl-4">
     <!-- Header -->
     <PostTitle :post="post" />
     <!-- Header -->
     <!-- Image -->
     <vs-card class="w-full">
       <template #img>
-        <img :src="post.image" :alt="post.user" />
+        <img :src="post.image" :alt="post.user" class="ml-1" />
       </template>
     </vs-card>
     <!-- Image -->

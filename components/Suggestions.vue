@@ -1,11 +1,11 @@
 <template>
-  <div class="suggestions">
+  <div class="px-3 suggestions lg:mt-16 lg:pt-5">
     <div v-for="(suggestion, index) in suggestions" :key="index">
-      <vs-card type="5" class="mt-14 w-full card-custom-width">
+      <vs-card type="5" class="w-full mt-14 card-custom-width">
         <template #interactions>
           <div class="center">
             <vs-button block class="w-full pills" color="#c53761">
-              <span class="fs-20 text-white">
+              <span class="text-white fs-20">
                 {{ suggestion.title }}
               </span>
             </vs-button>
@@ -19,7 +19,7 @@
 
     <div class="my-16">
       <vs-button class="pills" color="#c53761" block>
-        <span class="fs-24 btn-letter-spacing mx-5">VIEW ALL </span>
+        <span class="fs-24 btn-letter-spacing">VIEW ALL </span>
       </vs-button>
     </div>
   </div>

@@ -3,9 +3,10 @@
     class="
       grid grid-cols-1
       gap-4
+      p-5
       lg:grid-cols-2
       col-layout
-      px-5
+      md:px-5
       lg:px-0
       dark:bg-black
     "

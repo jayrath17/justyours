@@ -19,7 +19,7 @@
 
   &.slide {
     position: fixed;
-    transform: translateX(0%);
+    transform: translateX(0%) !important;
     animation: slide 0.3s ease-in-out;
   }
 
@@ -38,8 +38,16 @@
   .col-layout {
     grid-template-columns: 1fr 4fr;
   }
+  .col-layout-content {
+    grid-template-columns: 1.3fr 1fr;
+  }
 }
 
 .pills {
   border-radius: 40px;
+  margin: 0 !important;
+}
+
+.vs-card {
+  background: transparent;
 }

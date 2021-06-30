@@ -1,7 +1,39 @@
 .navbar {
+  .vs-input__label {
+    font-size: 24px;
+    @media (max-width: 677px) {
+      font-size: 16px !important;
+    }
+  }
   input {
     width: 100% !important;
-    height: 3rem !important;
+    font-size: 24px !important;
+    &::-webkit-input-placeholder {
+      color: red !important;
+    }
+
+    &::-moz-placeholder {
+      color: red !important;
+    }
+
+    &::-ms-placeholder {
+      color: red !important;
+    }
+
+    &::placeholder {
+      color: red !important;
+    }
+    &::placeholder {
+      font-style: italic;
+      position: relative;
+      left: 20px;
+    }
+    @media (min-width: 320px) {
+      height: 40px !important;
+    }
+    @media (min-width: 1200px) {
+      height: 68px !important;
+    }
     border-radius: 40px;
   }
 
@@ -11,10 +43,35 @@
     @media (max-width: 1800px) and (min-width: 1022px) {
       right: -50%;
     }
-    @media (max-width: 478px) and (min-width: 443px) {
-      left: 0%;
+    // @media (max-width: 639px) and (min-width: 479px) {
+    //   right: 0%;
+    // }
+    // @media (max-width: 478px) and (min-width: 425px) {
+    //   right: 0%;
+    // }
+    // @media (max-width: 424px) and (min-width: 423px) {
+    //   left: -13px;
+    // }
+    // @media (max-width: 500px) and (min-width: 440px) {
+    //   right: 0;
+    // }
+    // @media (max-width: 423px) and (min-width: 320px) {
+    //   left: 0;
+    // }
+
+    @media (min-width: 320px) and (max-width: 350px) {
+      left: -14.5em;
     }
-    @media (max-width: 639px) and (min-width: 478px) {
+
+    @media (min-width: 351px) and (max-width: 400px) {
+      left: -7.5em;
+    }
+    @media (min-width: 401px) and (max-width: 440px) {
+      left: 0;
+      right: 0;
+    }
+
+    @media (min-width: 441px) and (max-width: 700px) {
       right: 0%;
     }
   }
@@ -26,6 +83,7 @@
 
   .menu {
     color: $primary-color;
+    font-size: 40px !important;
     &:hover {
       color: $secondary-color;
     }
@@ -106,6 +164,11 @@
   @media (max-width: 677px) {
     .message-box {
       width: 360px;
+    }
+  }
+  @media (min-width: 678px) {
+    .message-box {
+      width: 455px;
     }
   }
 }

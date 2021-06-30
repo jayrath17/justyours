@@ -1,21 +1,21 @@
 <template>
-  <div>
+  <div class="mb-5 lg:ml-6">
     <div class="flex">
-      <div class="mr-4 flex flex-shrink-0">
+      <div class="flex flex-shrink-0 mr-4">
         <img src="/images/post.png" class="rounded-full" />
       </div>
-      <div class="flex-auto flex justify-between">
+      <div class="flex justify-between flex-auto">
         <div>
-          <b class="text-lg font-bold dark:text-white">{{ post.user }}</b>
-          <p class="mt-1 text-muted">44m</p>
+          <b class="text-lg font-bold dark:text-white fs-24">{{ post.user }}</b>
+          <p class="mt-1 text-muted fs-24">44m</p>
         </div>
         <div>
-          <i class="fas fa-ellipsis-v cursor-pointer dark:text-white"></i>
+          <i class="cursor-pointer fas fa-ellipsis-v dark:text-white"></i>
         </div>
       </div>
     </div>
     <!-- Text -->
-    <p class="text-justify text mt-3 dark:text-white">
+    <p class="mt-3 text-justify text dark:text-white fs-24">
       {{ post.content }}
     </p>
     <!-- Text -->
