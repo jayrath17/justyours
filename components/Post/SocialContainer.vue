@@ -64,7 +64,6 @@
           <div class="flex-auto comment">
             <div class="relative mt-1">
               <input
-                id="input-comments"
                 type="text"
                 class="
                   block

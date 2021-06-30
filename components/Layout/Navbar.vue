@@ -24,26 +24,7 @@
       </div>
     </div>
 
-    <div
-      class="
-        <<<<<<<
-        HEAD
-        grid
-        lg:flex
-        cols-3
-        =======
-        flex flex-wrap
-        >>>>>>>
-        9a1f8305dc151438aac3f7482401395ec7933ad1
-        justify-around
-        flex-1
-        order-1
-        mt-10
-        lg:mt-0
-        2xl:mx-8
-        lg:order-2
-      "
-    >
+    <div class="grid lg:flex cols-3 justify-around mt-10 lg:mt-0 2xl:mx-8">
       <div class="">
         <div
           class="
@@ -168,10 +149,10 @@
           src="~/assets/img/notify.png"
         />
       </div>
-      <div class="order-3 lg:order-5">
+      <div class="">
         <img class="self-start my-3 lg:my-0" src="~/assets/img/logo.png" />
       </div>
-      <div class="menu block lg:hidden order-last fs-40 text-secondary">
+      <div class="menu block lg:hidden fs-40 text-secondary">
         <i
           role="button"
           class="fas fa-bars"

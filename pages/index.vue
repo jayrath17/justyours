@@ -12,21 +12,21 @@
     "
   >
     <div>
-      <Sidebar />
+      <LayoutSidebar />
     </div>
     <div>
       <div>
-        <Navbar />
+        <LayoutNavbar />
       </div>
-      <div id="foobar" class="grid grid-cols-1 gap-1 lg:grid-cols-2">
+      <div id="wrap-container" class="grid grid-cols-1 gap-1 lg:grid-cols-2">
         <div id="scroll-content" class="mt-5 overflow-y-scroll h-full">
-          <Content />
+          <PostContent />
         </div>
         <div
           id="scroll-suggestion"
           class="flex justify-center overflow-y-scroll h-full"
         >
-          <Suggestions />
+          <LayoutSuggestions />
         </div>
       </div>
     </div>
@@ -41,14 +41,13 @@ export default {
         let maxHeigh =
           10 +
           window.innerHeight -
-          document.getElementById('foobar').getBoundingClientRect().top
+          document.getElementById('wrap-container').getBoundingClientRect().top
 
-        console.log(maxHeigh)
         document.getElementById('scroll-content').style.maxHeight =
           maxHeigh + 'px'
         document.getElementById('scroll-suggestion').style.maxHeight =
           maxHeigh + 'px'
-      }, 100)
+      }, 200)
     }
   },
 }

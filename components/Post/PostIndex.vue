@@ -12,7 +12,7 @@
     <!-- Image -->
 
     <!-- Footer -->
-    <SocialContainer :post="post" />
+    <PostSocialContainer :post="post" />
     <!-- Footer -->
   </div>
 </template>
