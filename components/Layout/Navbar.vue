@@ -24,7 +24,19 @@
       </div>
     </div>
 
-    <div class="grid lg:flex cols-3 justify-around mt-10 lg:mt-0 2xl:mx-8">
+    <div
+      class="
+        order-1
+        lg:order-2
+        grid
+        lg:flex
+        cols-3
+        justify-around
+        mt-10
+        lg:mt-0
+        2xl:mx-8
+      "
+    >
       <div class="">
         <div
           class="
