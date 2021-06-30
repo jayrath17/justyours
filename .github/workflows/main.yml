@@ -25,7 +25,7 @@ jobs:
           NETLIFY_DEPLOY_TO_PROD: true
           deploy_alias: ${{ env.BRANCH_NAME }}
           build_directory: './dist'
-          install_command: "sudo apt-get install g++ && npm install -g fibers@4 && npm install -g node-gyp && yarn install"
+          install_command: "yarn install && npm install fibers -g"
           build_command: "yarn generate"
       
       # Creates a status check with link to preview
