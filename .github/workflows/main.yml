@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node_version: ['8', '10', '12', '14']
+        node_version: ['12']
         os: [ubuntu-latest]
 
     steps:
