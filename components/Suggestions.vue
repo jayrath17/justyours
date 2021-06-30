@@ -12,7 +12,7 @@
           </div>
         </template>
         <template #img>
-          <img :src="require(`~/assets/img/${suggestion.img}`)" alt="" />
+          <img :src="`/images/${suggestion.img}`" alt="" />
         </template>
       </vs-card>
     </div>

@@ -1,5 +1,7 @@
 <template>
-  <div class="bg-white rounded-3xl subscriptions">
+  <div
+    class="bg-white shadow-lg  rounded-3xl subscriptions dark:bg-black dark:shadow-white"
+  >
     <span class="flex justify-center py-3 text-white rounded-t-3xl bg-primary"
       >My Subscriptions</span
     >
@@ -8,14 +10,7 @@
         <div
           v-for="tab in tabs"
           :key="tab.name"
-          class="
-            p-3
-            rounded-full
-            cursor-pointer
-            border-primary
-            action__item
-            hover:bg-primary hover:text-white
-          "
+          class="p-3 rounded-full cursor-pointer  border-primary action__item hover:bg-primary hover:text-white"
           @click="selectOption(tab)"
           :class="tab.active ? 'bg-primary text-white' : 'text-primary'"
         >
@@ -26,7 +21,7 @@
         </div>
       </div>
       <div class="flex flex-col items-center subscription__cards">
-        <subscription-card
+        <SubscriptionsCard
           v-for="subscription in subscriptions"
           :key="subscription.name"
           :subscription="subscription"
@@ -37,9 +32,7 @@
 </template>
 
 <script>
-import SubscriptionCard from './SubscriptionCard.vue'
 export default {
-  components: { SubscriptionCard },
   data() {
     return {
       tabs: [

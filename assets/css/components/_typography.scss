@@ -11,6 +11,9 @@
 .text-pink {
   color: #d64973;
 }
+.text-blue {
+  color: $blue-color;
+}
 .fs-40 {
   font-size: 40px;
   @media (max-width: 677px) {

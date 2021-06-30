@@ -2,7 +2,7 @@ require('dotenv').config()
 const isDev = process.env.NODE_ENV !== 'production'
 
 export default {
-  // ssr: false,
+  ssr: true,
   target: 'static',
   components: true,
   vue: {

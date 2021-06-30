@@ -1,14 +1,7 @@
 <template>
   <transition name="slide">
     <div
-      class="
-        h-screen
-        pt-5
-        overflow-hidden
-        sidebar
-        lg:mt-16 lg:ml-3 lg:block
-        dark:bg-black
-      "
+      class="h-screen pt-5 overflow-hidden  sidebar lg:mt-16 lg:ml-3 lg:block dark:bg-black"
       v-click-outside="hideSidebar"
       :class="
         activeSidebar
@@ -17,14 +10,7 @@
       "
     >
       <div class="flex flex-col items-center xl:ml-8">
-        <div class="relative pb-1 mb-4">
-          <img
-            class="ml-3 border-4 rounded-full border-color profile-img"
-            src="~/assets/img/profile.png"
-            alt="profile"
-          />
-          <div class="status-circle"></div>
-        </div>
+        <GeneralAvatar image="/images/profile.png" />
 
         <div
           v-for="(route, index) in routes"
@@ -35,13 +21,7 @@
             <NuxtLink
               v-if="route.name !== 'dark'"
               :to="route.to"
-              class="
-                flex
-                items-center
-                text-xl text-secondary
-                hover:text-black
-                dark:hover:text-white
-              "
+              class="flex items-center text-xl  text-secondary hover:text-black dark:hover:text-white"
             >
               <i :class="route.icon" />
               <span class="ml-5">
