@@ -20,7 +20,7 @@ jobs:
     - name: Setup Node.js ${{ matrix.node_version }} environment
       uses: actions/setup-node@v2.1.5
       with:
-        node-version: 12
+        node-version: 10
     - name: 'Command Install'
       run: |
         sudo apt-get install g++ build-essential
