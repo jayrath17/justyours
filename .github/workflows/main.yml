@@ -25,7 +25,7 @@ jobs:
           NETLIFY_DEPLOY_TO_PROD: true
           deploy_alias: ${{ env.BRANCH_NAME }}
           build_directory: './dist'
-          install_command: "npm install node-fibers -g && yarn install"
+          install_command: "npm install fibers -g && yarn install"
           build_command: "yarn generate"
       
       # Creates a status check with link to preview
