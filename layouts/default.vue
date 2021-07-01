@@ -1,11 +1,11 @@
 <template>
   <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 col-layout dark:bg-black">
     <div>
-      <Sidebar />
+      <LayoutSidebar />
     </div>
     <div>
       <div>
-        <Navbar />
+        <LayoutNavbar />
       </div>
       <div
         class="
@@ -17,10 +17,17 @@
         "
       >
         <div class="pt-1 mt-16">
-          <Nuxt />
+          <div id="wrap-container">
+            <div id="scroll-content" class="h-full mt-5 overflow-y-scroll">
+              <Nuxt />
+            </div>
+          </div>
         </div>
-        <div class="flex justify-center lg:justify-start">
-          <Suggestions />
+        <div
+          id="scroll-suggestion"
+          class="flex justify-center h-full overflow-y-scroll lg:justify-start"
+        >
+          <LayoutSuggestions />
         </div>
       </div>
     </div>
@@ -28,6 +35,11 @@
 </template>
 
 <style>
+#wrap-container,
+#scroll-suggestion {
+  overflow-y: scroll;
+  height: 100vh;
+}
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;
