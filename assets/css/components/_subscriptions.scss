@@ -9,4 +9,14 @@
       margin-left: -12em;
     }
   }
+
+  .menu__options {
+    right: 12px;
+    top: 5px;
+    z-index: 10;
+    width: 145px;
+    padding-left: 1em;
+    padding-right: 1em;
+    user-select: none;
+  }
 }

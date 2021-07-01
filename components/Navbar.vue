@@ -8,11 +8,9 @@
           icon-after
           v-model="searchValue"
           placeholder="Search"
-          class="mx-10 mt-5 lg:mt-0"
+          class="w-full mx-10 mt-5 lg:mt-0"
+          icon="search"
         >
-          <template #icon>
-            <i class="cursor-pointer fas fa-search text-secondary" />
-          </template>
         </vs-input>
       </div>
       <div class="flex justify-center mx-4 mt-5 sm:mx-16 md xl:px-10">

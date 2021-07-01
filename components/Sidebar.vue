@@ -1,7 +1,14 @@
 <template>
   <transition name="slide">
     <div
-      class="h-screen pt-5 overflow-hidden  sidebar lg:mt-16 lg:ml-3 lg:block dark:bg-black"
+      class="
+        h-screen
+        pt-5
+        overflow-hidden
+        sidebar
+        lg:mt-16 lg:ml-3 lg:block
+        dark:bg-black
+      "
       v-click-outside="hideSidebar"
       :class="
         activeSidebar
@@ -21,7 +28,13 @@
             <NuxtLink
               v-if="route.name !== 'dark'"
               :to="route.to"
-              class="flex items-center text-xl  text-secondary hover:text-black dark:hover:text-white"
+              class="
+                flex
+                items-center
+                text-xl text-secondary
+                hover:text-black
+                dark:hover:text-white
+              "
             >
               <i :class="route.icon" />
               <span class="ml-5">
@@ -50,7 +63,7 @@ export default {
       activeSidebar: false,
       routes: [
         {
-          to: '/',
+          to: '/profile',
           name: 'My Profile',
           class: '',
           icon: 'fas fa-user-alt',
@@ -62,7 +75,7 @@ export default {
           icon: 'fas fa-home',
         },
         {
-          to: '/',
+          to: '/saved',
           name: 'Saved',
           class: '',
           icon: 'fas fa-bookmark',
@@ -74,7 +87,7 @@ export default {
           icon: 'fas fa-money-check',
         },
         {
-          to: '/',
+          to: '/settings',
           name: 'Settings',
           class: '',
           icon: 'fas fa-cog',

@@ -4,10 +4,10 @@
     <PostTitle :post="post" />
     <!-- Header -->
     <!-- Image -->
-    <vs-card class="w-full">
-      <template #img>
+    <vs-card actionable class="w-full">
+      <div slot="media">
         <img :src="post.image" :alt="post.user" class="ml-1" />
-      </template>
+      </div>
     </vs-card>
     <!-- Image -->
 
@@ -28,10 +28,6 @@ export default {
 </script>
 
 <style>
-.post {
-  font-family: 'Montserrat', sans-serif;
-}
-
 .vs-card {
   max-width: 100% !important;
 }

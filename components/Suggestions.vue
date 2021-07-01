@@ -1,23 +1,21 @@
 <template>
   <div class="px-3 suggestions lg:mt-16 lg:pt-5">
     <div v-for="(suggestion, index) in suggestions" :key="index">
-      <vs-card type="5" class="w-full mt-14 card-custom-width">
-        <template #interactions>
-          <div class="center">
+      <vs-card actionable class="cardx">
+        <div slot="media" class="relative">
+          <img :src="`/images/${suggestion.img}`" />
+          <div class="absolute flex justify-center w-full center top-80">
             <vs-button block class="w-full pills" color="#c53761">
               <span class="text-white fs-20">
                 {{ suggestion.title }}
               </span>
             </vs-button>
           </div>
-        </template>
-        <template #img>
-          <img :src="`/images/${suggestion.img}`" alt="" />
-        </template>
+        </div>
       </vs-card>
     </div>
 
-    <div class="mt-16">
+    <div class="flex justify-center mt-16">
       <vs-button class="pills" color="#c53761" block>
         <span class="fs-24 btn-letter-spacing">VIEW ALL </span>
       </vs-button>
@@ -49,4 +47,11 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+.top-80 {
+  top: 80%;
+}
+.vs-button {
+  width: 80% !important;
+}
+</style>

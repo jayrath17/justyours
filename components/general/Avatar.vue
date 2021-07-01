@@ -3,12 +3,15 @@
     class="relative pb-1 mb-4 profile__pic"
     :class="isAbsolute && 'absolute__profile_pic'"
   >
-    <img
-      class="ml-3 border-4 rounded-full border-color-primary profile-img"
-      :src="image"
-      alt="profile"
-    />
-    <div class="status-circle"></div>
+    <div class="border-4 rounded-full border-color-primary">
+      <img
+        class="w-full rounded-full profile-img"
+        :class="isGrayScale ? 'filter grayscale' : null"
+        :src="image"
+        alt="profile"
+      />
+    </div>
+    <div v-if="showAvailableStatus" class="status-circle"></div>
   </div>
 </template>
 
@@ -23,6 +26,14 @@ export default {
     image: {
       type: String,
       default: '~/assets/img/profile.png',
+    },
+    showAvailableStatus: {
+      type: Boolean,
+      default: true,
+    },
+    isGrayScale: {
+      type: Boolean,
+      default: false,
     },
   },
 }

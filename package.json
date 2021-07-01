@@ -11,12 +11,13 @@
   "dependencies": {
     "@nuxtjs/color-mode": "^2.0.10",
     "core-js": "^3.9.1",
+    "material-icons": "^0.7.4",
     "nuxt": "^2.15.3",
     "nuxt-material-design-icons": "^1.0.4",
     "nuxt-webfontloader": "^1.1.0",
     "sass": "^1.35.1",
     "sass-loader": "10",
-    "vuesax": "^4.0.1-alpha.25"
+    "vuesax": "^3"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^4.0.1",

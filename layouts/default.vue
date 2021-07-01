@@ -8,7 +8,13 @@
         <Navbar />
       </div>
       <div
-        class="grid grid-cols-1 gap-1  2xl:grid-cols-2 lg:gap-4 col-layout-content"
+        class="
+          grid grid-cols-1
+          gap-1
+          2xl:grid-cols-2
+          lg:gap-4
+          col-layout-content
+        "
       >
         <div class="pt-1 mt-16">
           <Nuxt />
