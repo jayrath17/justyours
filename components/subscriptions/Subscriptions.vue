@@ -101,7 +101,9 @@ export default {
           active: false,
         },
       ],
-      selectedTab: 'all',
+      selectedTab: {
+        slug: 'all',
+      },
     }
   },
   computed: {
