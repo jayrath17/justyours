@@ -1,7 +1,16 @@
 .navbar {
-  .vs-input__label {
-    margin-left: 20px;
+  .vs-con-input-label {
+    width: 100% !important;
+  }
+  .vs-input--icon {
+    border-left: 0;
+    top: 23px;
+  }
+  .vs-input--placeholder {
+    display: flex;
+    align-items: center;
     font-size: 24px;
+    height: 67px;
     @media (max-width: 677px) {
       font-size: 16px !important;
     }

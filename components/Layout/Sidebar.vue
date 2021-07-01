@@ -9,15 +9,8 @@
           : 'slide-out hidden'
       "
     >
-      <div class="md:ml-6 flex flex-col items-center">
-        <div class="relative mb-4 pb-1">
-          <img
-            class="rounded-full border-4 border-color"
-            src="~/assets/img/profile.png"
-            alt="profile"
-          />
-          <div class="status-circle"></div>
-        </div>
+      <div class="md:ml-6 flex flex-col items-center xl:ml-8">
+        <GeneralAvatar image="/images/profile.png" />
 
         <div
           v-for="(route, index) in routes"
@@ -63,31 +56,31 @@ export default {
       activeSidebar: false,
       routes: [
         {
-          to: '#',
+          to: '/profile',
           name: 'My Profile',
           class: '',
           icon: 'fas fa-user-alt',
         },
         {
-          to: '#',
+          to: '/',
           name: 'Home',
           class: '',
           icon: 'fas fa-home',
         },
         {
-          to: '#',
+          to: '/saved',
           name: 'Saved',
           class: '',
           icon: 'fas fa-bookmark',
         },
         {
-          to: '#',
+          to: '/subscriptions',
           name: 'Subscriptions',
           class: '',
           icon: 'fas fa-money-check',
         },
         {
-          to: '#',
+          to: '/settings',
           name: 'Settings',
           class: '',
           icon: 'fas fa-cog',

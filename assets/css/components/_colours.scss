@@ -2,7 +2,16 @@ $primary-color: #c53761;
 $secondary-color: #a9a9a9;
 $green-color: #55d170;
 $blue-color: #233d9b;
+$blue-color: #627fe8;
 
 .bg-primary {
   background-color: $primary-color !important;
+}
+
+.border-primary {
+  border: 1px solid $primary-color !important;
+}
+
+.border-color-primary {
+  border-color: $primary-color !important;
 }
