@@ -1,5 +1,6 @@
 <template>
   <div class="grid navbar lg:grid-cols-2 lg:mt-12 lg:pt-10 xl:ml-16 xl:pl-5">
+    <!-- NEW POST -->
     <div class="order-2 lg:order-1 xl:mr-8">
       <div class="flex justify-center content-inputs">
         <vs-input
@@ -24,13 +25,103 @@
       </div>
     </div>
 
+    <!-- NAVBAR MOBILE -->
+    <div class="lg:hidden flex justify-around items-start relative">
+      <div class="flex justify-between align-start">
+        <div class="mr-10">
+          <img class="self-start my-3 lg:my-0" src="~/assets/img/logo.png" />
+        </div>
+        <div class="menu block lg:hidden fs-40 text-secondary">
+          <i
+            role="button"
+            class="fas fa-bars"
+            @click.prevent.stop="openSidebar"
+          ></i>
+        </div>
+      </div>
+      <div class="menu fs-40 text-secondary">
+        <i
+          @click="notificationsBox = !notificationsBox"
+          :class="`fas fa-chevron-circle-${notificationsBox ? 'up' : 'down'}`"
+        ></i>
+      </div>
+
+      <div
+        v-if="notificationsBox"
+        class="absolute bg-white dark:bg-black w-screen h-auto mt-16 z-30"
+      >
+        <div class="flex justify-around align-start pt-4">
+          <div
+            class="
+              fs-16
+              flex
+              items-center
+              rounded-full
+              border-solid border-2 border-light-blue-500
+              px-5
+              py-1
+              relative
+            "
+          >
+            <img
+              class="self-start my-3 lg:my-0 absolute just-logo"
+              src="~/assets/img/wallet-icon.png"
+            />
+            <span class="ml-3 text-blue font-bold">54,000</span>
+            <span class="ml-1 text-primary font-bold">JUST</span>
+          </div>
+          <div
+            class="
+              fs-16
+              rounded-full
+              border-solid border-2 border-light-blue-500
+              px-5
+              py-1
+            "
+          >
+            <span class="dark:text-white">0x623d...298c </span>
+          </div>
+        </div>
+
+        <div class="flex justify-center align-start py-4">
+          <div
+            class="self-center mr-10"
+            @click.prevent.stop="msgBox = !msgBox"
+            role="button"
+          >
+            <img class="my-2 lg:my-0 mb-0" src="~/assets/img/msg.png" />
+            <div
+              v-click-outside="hide"
+              class="flex justify-center ease-in-out"
+              :class="{ 'ease-in-out': msgBox }"
+            >
+              <img
+                src="~/assets/img/dropdown.png"
+                :class="`mx-0 dropdown ${msgBox ? 'dropdown-active' : ''}`"
+              />
+              <MessageMsgNotification v-if="msgBox" :messages="messages" />
+            </div>
+          </div>
+          <div class="" role="button">
+            <img
+              class="self-start my-3 lg:my-0 notification"
+              src="~/assets/img/notify.png"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAVBAR DESKTOP -->
     <div
       class="
+        lg:block
+        hidden
+        navbar-template
         order-1
         lg:order-2
         grid
         lg:flex
-        cols-3
         justify-around
         mt-10
         lg:mt-0
@@ -68,7 +159,7 @@
             py-1
           "
         >
-          <span>0x623d...298c </span>
+          <span class="dark:text-white">0x623d...298c </span>
         </div>
       </div>
 
@@ -80,79 +171,14 @@
         <img class="my-3 lg:my-0 mb-0" src="~/assets/img/msg.png" />
         <div
           v-click-outside="hide"
-          class="flex justify-center relative ease-in-out"
+          class="flex justify-center ease-in-out"
           :class="{ 'ease-in-out': msgBox }"
         >
           <img
             src="~/assets/img/dropdown.png"
             :class="`mx-0 dropdown ${msgBox ? 'dropdown-active' : ''}`"
           />
-
-          <transition name="box">
-            <div
-              v-if="msgBox"
-              class="
-                absolute
-                z-30
-                h-12
-                px-6
-                mt-5
-                overflow-y-scroll
-                bg-white
-                rounded-lg
-                shadow-lg
-                message-box
-                dark:bg-black
-              "
-            >
-              <div class="flex justify-between mt-5">
-                <span class="fs-24 dark:text-white">Messages</span>
-                <span
-                  ><i
-                    class="cursor-pointer fas fa-times dark:text-white"
-                    @click="msgBox = false"
-                /></span>
-              </div>
-              <div class="flex justify-center mt-5 mb-3 content-inputs">
-                <vs-input
-                  block
-                  type="text"
-                  icon-after
-                  v-model="msgSearchValue"
-                  placeholder="Search Messages"
-                >
-                  <template #icon>
-                    <i class="cursor-pointer fas fa-search dark:text-black" />
-                  </template>
-                </vs-input>
-              </div>
-
-              <div v-for="(msg, index) in filteredMessages" :key="index">
-                <div class="flex items-center justify-between mt-1">
-                  <div class="relative pb-1 mb-4">
-                    <img
-                      class="rounded-full"
-                      :src="require(`~/assets/img/msg/${msg.image}.png`)"
-                    />
-                    <div v-if="!!msg.count" class="text-center status-circle">
-                      <span class="dark:text-black">
-                        {{ msg.count }}
-                      </span>
-                    </div>
-                  </div>
-                  <div :class="{ 'mr-16': msg.image == 'msg-profile04' }">
-                    <div class="text-left fs-20 dark:text-white">
-                      {{ msg.name }}
-                    </div>
-                    <div class="text-left fs-16 text-secondary">
-                      {{ msg.msg }}
-                    </div>
-                  </div>
-                  <span class="text-secondary">{{ msg.date }}</span>
-                </div>
-              </div>
-            </div>
-          </transition>
+          <MessageMsgNotification v-if="msgBox" :messages="messages" />
         </div>
       </div>
       <div class="" role="button">
@@ -161,7 +187,7 @@
           src="~/assets/img/notify.png"
         />
       </div>
-      <div class="">
+      <div class="logo-container">
         <img class="self-start my-3 lg:my-0" src="~/assets/img/logo.png" />
       </div>
       <div class="menu block lg:hidden fs-40 text-secondary">
@@ -186,8 +212,8 @@ export default {
   data() {
     return {
       msgBox: false,
+      notificationsBox: false,
       searchValue: '',
-      msgSearchValue: '',
       messages: [
         {
           image: 'msg-profile07',
@@ -253,28 +279,6 @@ export default {
   methods: {
     hide() {
       this.msgBox = false
-    },
-    beforeEnter: function (el) {
-      el.style.opacity = 0
-      el.style.transformOrigin = 'left'
-    },
-    enter: function (el, done) {
-      Velocity(el, { opacity: 1, fontSize: '1.4em' }, { duration: 300 })
-      Velocity(el, { fontSize: '1em' }, { complete: done })
-    },
-    leave: function (el, done) {
-      Velocity(el, { translateX: '15px', rotateZ: '50deg' }, { duration: 600 })
-      Velocity(el, { rotateZ: '100deg' }, { loop: 2 })
-      Velocity(
-        el,
-        {
-          rotateZ: '45deg',
-          translateY: '30px',
-          translateX: '30px',
-          opacity: 0,
-        },
-        { complete: done }
-      )
     },
     openSidebar() {
       $nuxt.$emit('openSidebar')
