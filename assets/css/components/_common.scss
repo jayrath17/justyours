@@ -1,0 +1,25 @@
+html,
+body {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  @media (max-width: 1024px) {
+    overflow: scroll;
+  }
+}
+::-webkit-scrollbar {
+  background: transparent;
+  width: 0;
+}
+
+.slide-leave-active,
+.slide-enter-active {
+  transition: 1s;
+}
+.slide-enter {
+  transform: translate(100%, 0);
+}
+.slide-leave-to {
+  transform: translate(-100%, 0);
+}

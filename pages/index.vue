@@ -3,26 +3,30 @@
     class="
       grid grid-cols-1
       gap-4
+      p-5
       lg:grid-cols-2
       col-layout
-      px-5
+      md:px-5
       lg:px-0
       dark:bg-black
     "
   >
     <div>
-      <Sidebar />
+      <LayoutSidebar />
     </div>
     <div>
       <div>
-        <Navbar />
+        <LayoutNavbar />
       </div>
-      <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
-        <div class="mt-5">
-          <Content />
+      <div id="wrap-container" class="grid grid-cols-1 gap-1 lg:grid-cols-2">
+        <div id="scroll-content" class="mt-5 overflow-y-scroll h-full">
+          <PostContent />
         </div>
-        <div class="flex justify-center">
-          <Suggestions />
+        <div
+          id="scroll-suggestion"
+          class="flex justify-center overflow-y-scroll h-full"
+        >
+          <LayoutSuggestions />
         </div>
       </div>
     </div>
@@ -30,7 +34,23 @@
 </template>
 
 <script>
-export default {}
+export default {
+  mounted() {
+    if (window.screen.width > 1024) {
+      setTimeout(function () {
+        let maxHeigh =
+          10 +
+          window.innerHeight -
+          document.getElementById('wrap-container').getBoundingClientRect().top
+
+        document.getElementById('scroll-content').style.maxHeight =
+          maxHeigh + 'px'
+        document.getElementById('scroll-suggestion').style.maxHeight =
+          maxHeigh + 'px'
+      }, 200)
+    }
+  },
+}
 </script>
 
 <style>
