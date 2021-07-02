@@ -254,17 +254,6 @@ export default {
     }
   },
   computed: {
-    filteredMessages() {
-      if (this.msgSearchValue == '') return this.messages
-      return this.messages.filter((entry) => {
-        return (
-          entry.name
-            .toLowerCase()
-            .includes(this.msgSearchValue.toLowerCase()) ||
-          entry.msg.toLowerCase().includes(this.msgSearchValue.toLowerCase())
-        )
-      })
-    },
     isMainPage() {
       return this.$route.path == '/'
     },

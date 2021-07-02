@@ -24,7 +24,7 @@
         </vs-input>
       </div>
 
-      <div v-for="(msg, index) in messages" :key="index">
+      <div v-for="(msg, index) in filteredMessages" :key="index">
         <div class="flex items-center justify-between mt-1">
           <div class="relative pb-1 mb-4">
             <img
@@ -64,6 +64,19 @@ export default {
     messages: {
       type: Array,
       default: () => [],
+    },
+  },
+  computed: {
+    filteredMessages() {
+      if (this.msgSearchValue == '') return this.messages
+      return this.messages.filter((entry) => {
+        return (
+          entry.name
+            .toLowerCase()
+            .includes(this.msgSearchValue.toLowerCase()) ||
+          entry.msg.toLowerCase().includes(this.msgSearchValue.toLowerCase())
+        )
+      })
     },
   },
   methods: {
