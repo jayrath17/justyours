@@ -49,7 +49,17 @@ export default {
 
 .absolute__profile_pic {
   position: absolute;
-  bottom: -30%;
+  bottom: -50%;
+
+  @media (min-width: 1024px) and (max-width: 1200px) {
+    bottom: -60%;
+    width: 5rem;
+  }
+
+  @media (min-width: 1201px) and (max-width: 1500px) {
+    bottom: -60%;
+    width: 6rem;
+  }
 
   @media (max-width: 576px) {
     bottom: -50%;

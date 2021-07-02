@@ -6,7 +6,8 @@
 @import './components/navbar';
 @import './components/common';
 @import './components/subscriptions';
-// @import 'material-icons/iconfont/material-icons.scss';
+@import './components/_utilities.scss';
+@import 'material-icons/iconfont/material-icons.css';
 
 input::placeholder {
   font-size: 24px !important;
@@ -30,8 +31,9 @@ a.nuxt-link-active {
   font-weight: bold;
 }
 /* exact link will show the primary color for only the exact matching link */
+
 a.nuxt-link-exact-active {
-  color: #fff;
+  color: #000;
 }
 
 .con-vs-card {

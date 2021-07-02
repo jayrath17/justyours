@@ -3,22 +3,7 @@
 </template>
 
 <script>
-export default {
-  mounted() {
-    if (window.screen.width > 1024) {
-      setTimeout(function () {
-        let maxHeight =
-          10 +
-          window.innerHeight -
-          document.getElementById('wrap-container').getBoundingClientRect().top
-        document.getElementById('scroll-content').style.maxHeight =
-          maxHeight + 'px'
-        document.getElementById('scroll-suggestion').style.maxHeight =
-          maxHeight + 'px'
-      }, 200)
-    }
-  },
-}
+export default {}
 </script>
 
 <style>

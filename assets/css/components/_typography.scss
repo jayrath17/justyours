@@ -20,6 +20,9 @@
 .text-blue {
   color: $blue-color;
 }
+.text-gray {
+  color: $gray-color;
+}
 .fs-40 {
   font-size: 40px;
   @media (max-width: 677px) {
@@ -40,6 +43,13 @@
 }
 .fs-16 {
   font-size: 16px;
+}
+.fs-14 {
+  font-size: 14px;
+}
+
+.fs-12 {
+  font-size: 12px;
 }
 .btn-letter-spacing {
   letter-spacing: 8.68px;

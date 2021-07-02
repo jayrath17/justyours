@@ -1,5 +1,5 @@
 <template>
-  <div class="relative my-10">
+  <div class="relative my-8">
     <div class="relative">
       <vs-card actionable class="w-full">
         <div slot="media">
@@ -17,11 +17,11 @@
         :showAvailableStatus="false"
       />
     </div>
-    <div class="flex justify-between">
-      <div></div>
+    <div class="flex justify-between -mt-4">
+      <!-- <div></div> -->
       <div class="personal__data">
         <h3 class="font-semibold text-pink fs-24">{{ subscription.name }}</h3>
-        <span class="text-blue fs-16">{{
+        <span class="font-semibold text-blue fs-16">{{
           subscription.active
             ? subscription.subscribed_at
             : subscription.expired_at
@@ -29,48 +29,39 @@
       </div>
       <div class="relative">
         <i
-          class="
-            mt-3
-            text-black
-            cursor-pointer
-            fas
-            fa-ellipsis-v
-            fs-16
-            dark:text-white
-          "
+          title="More options"
+          class="mt-3 cursor-pointer text-gray fas fa-ellipsis-v fs-16"
           @click.prevent.stop="openOptions"
         ></i>
         <div
           v-click-outside="hide"
-          class="
-            absolute
-            ease-in-out
-            transform
-            rounded
-            shadow-lg
-            px-7
-            dark:bg-black dark:shadow-white
-            subscriptions
-            menu__options
-          "
+          class="absolute ease-in-out transform shadow-md  rounded-xl px-7 dark:bg-black dark:custom-box-shadow subscriptions menu__options"
           v-if="isMenuOpen"
         >
           <ul>
             <li class="flex items-center my-3 cursor-pointer">
-              <i class="mr-3 fas fa-pen dark:text-white text-primary"></i>
-              <span class="dark:text-white"> Manage </span>
+              <span class="mr-3 material-icons-round text-gray text-primary"
+                >mode</span
+              >
+              <span class="font-semibold fs-14 text-gray"> Manage </span>
             </li>
             <li class="flex items-center my-3 cursor-pointer">
-              <i class="mr-3 fas fa-times dark:text-white text-primary"></i>
-              <span class="dark:text-white"> Remove </span>
+              <span class="mr-3 material-icons-round text-gray text-primary"
+                >clear</span
+              >
+              <span class="font-semibold fs-14 text-gray"> Remove </span>
             </li>
             <li class="flex items-center my-3 cursor-pointer">
-              <i class="mr-3 fas fa-sync-alt dark:text-white text-primary"></i>
-              <span class="dark:text-white"> Renew </span>
+              <span class="mr-3 material-icons-round text-gray text-primary"
+                >autorenew</span
+              >
+              <span class="font-semibold fs-14 text-gray"> Renew </span>
             </li>
             <li class="flex items-center my-3 cursor-pointer">
-              <i class="mr-3 fas fa-sync-alt dark:text-white text-primary"></i>
-              <span class="dark:text-white"> Mute User </span>
+              <span class="mr-3 material-icons-round text-gray text-primary"
+                >do_not_disturb_on_total_silence</span
+              >
+              <span class="font-semibold fs-14 text-gray"> Mute User </span>
             </li>
           </ul>
         </div>

@@ -1,7 +1,7 @@
 <template>
   <transition name="slide">
     <div
-      class="sidebar lg:mt-11 pt-10 lg:block dark:bg-black"
+      class="pt-10 sidebar lg:mt-11 lg:block dark:bg-black"
       v-click-outside="hideSidebar"
       :class="
         activeSidebar
@@ -9,7 +9,7 @@
           : 'slide-out hidden'
       "
     >
-      <div class="md:ml-6 flex flex-col items-center xl:ml-8">
+      <div class="flex flex-col items-center md:ml-6 xl:ml-8">
         <GeneralAvatar image="/images/profile.png" />
 
         <div
@@ -21,13 +21,7 @@
             <NuxtLink
               v-if="route.name !== 'dark'"
               :to="route.to"
-              class="
-                flex
-                items-center
-                text-xl text-secondary
-                hover:text-black
-                dark:hover:text-white
-              "
+              class="flex items-center text-xl  text-secondary dark:text-active hover:text-black dark:hover:text-white"
             >
               <i :class="route.icon" />
               <span class="ml-5">
@@ -35,9 +29,17 @@
               </span>
             </NuxtLink>
             <div v-else class="flex items-center text-xl text-secondary">
-              <vs-switch color="#C53761" v-model="darkMode" size="sm" />
-              <span class="ml-5 text-xl text-secondary xl:whitespace-nowrap"
-                >Dark Mode</span
+              <vs-switch
+                color="#C53761"
+                v-model="darkMode"
+                size="sm"
+                id="dark"
+              />
+              <label
+                @click="darkMode = !darkMode"
+                class="ml-5 text-xl cursor-pointer select-none  text-secondary xl:whitespace-nowrap"
+                for="dark"
+                >Dark Mode</label
               >
             </div>
           </div>

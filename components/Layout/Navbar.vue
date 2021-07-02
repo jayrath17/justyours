@@ -16,7 +16,10 @@
           </template>
         </vs-input>
       </div>
-      <div class="flex justify-center mx-4 mt-5 sm:mx-16 md xl:px-10">
+      <div
+        class="flex justify-center mx-4 mt-5 sm:mx-16 md xl:px-10"
+        v-if="isMainPage"
+      >
         <vs-button class="pills" color="#c53761">
           <span class="mt-1 btn-letter-spacing fs-20 whitespace-nowrap xl:mx-9">
             <i class="fas fa-plus"></i> NEW POST</span
@@ -26,12 +29,12 @@
     </div>
 
     <!-- NAVBAR MOBILE -->
-    <div class="lg:hidden flex justify-around items-start relative">
+    <div class="relative flex items-start justify-around lg:hidden">
       <div class="flex justify-between align-start">
         <div class="mr-10">
           <img class="self-start my-3 lg:my-0" src="~/assets/img/logo.png" />
         </div>
-        <div class="menu block lg:hidden fs-40 text-secondary">
+        <div class="block menu lg:hidden fs-40 text-secondary">
           <i
             role="button"
             class="fas fa-bars"
@@ -48,50 +51,34 @@
 
       <div
         v-if="notificationsBox"
-        class="absolute bg-white dark:bg-black w-screen h-auto mt-16 z-30"
+        class="absolute z-30 w-screen h-auto mt-16 bg-white dark:bg-black"
       >
-        <div class="flex justify-around align-start pt-4">
+        <div class="flex justify-around pt-4 align-start">
           <div
-            class="
-              fs-16
-              flex
-              items-center
-              rounded-full
-              border-solid border-2 border-light-blue-500
-              px-5
-              py-1
-              relative
-            "
+            class="relative flex items-center px-5 py-1 border-solid rounded-full  border-custom-gray fs-16"
           >
             <img
-              class="self-start my-3 lg:my-0 absolute just-logo"
+              class="absolute self-start my-3 lg:my-0 just-logo"
               src="~/assets/img/wallet-icon.png"
             />
-            <span class="ml-3 text-blue font-bold">54,000</span>
-            <span class="ml-1 text-primary font-bold">JUST</span>
+            <span class="ml-3 font-semibold text-blue">54,000</span>
+            <span class="ml-1 font-semibold text-primary">JUST</span>
           </div>
           <div
-            class="
-              fs-16
-              rounded-full
-              border-solid border-2 border-light-blue-500
-              px-5
-              py-1
-            "
+            class="px-5 py-1 border-solid rounded-full border-custom-gray fs-16"
           >
-            <span class="dark:text-white">0x623d...298c </span>
+            <span class="font-semibold text-gray">0x623d...298c </span>
           </div>
         </div>
 
-        <div class="flex justify-center align-start py-4">
+        <div class="flex justify-center py-4 align-start">
           <div
             class="self-center mr-10"
             @click.prevent.stop="msgBox = !msgBox"
             role="button"
           >
-            <img class="my-2 lg:my-0 mb-0" src="~/assets/img/msg.png" />
+            <img class="my-2 mb-0 lg:my-0" src="~/assets/img/msg.png" />
             <div
-              v-click-outside="hide"
               class="flex justify-center ease-in-out"
               :class="{ 'ease-in-out': msgBox }"
             >
@@ -114,71 +101,48 @@
 
     <!-- NAVBAR DESKTOP -->
     <div
-      class="
-        lg:block
-        hidden
-        navbar-template
-        order-1
-        lg:order-2
-        grid
-        lg:flex
-        justify-around
-        mt-10
-        lg:mt-0
-        2xl:mx-8
-      "
+      class="grid justify-around order-1 hidden mt-10  lg:block navbar-template lg:order-2 lg:flex lg:mt-0 2xl:mx-8"
     >
       <div class="">
         <div
-          class="
-            fs-16
-            flex
-            items-center
-            rounded-full
-            border-solid border-2 border-light-blue-500
-            px-5
-            py-1
-            relative
-          "
+          class="relative flex items-center px-5 py-1 border-solid rounded-full  border-custom-gray fs-16"
         >
           <img
-            class="self-start my-3 lg:my-0 absolute just-logo"
+            class="absolute self-start my-3 mr-2 lg:my-0 just-logo"
             src="~/assets/img/wallet-icon.png"
           />
-          <span class="ml-3 text-blue font-bold">54,000</span>
-          <span class="ml-1 text-primary font-bold">JUST</span>
+          <span class="ml-3 font-semibold text-blue">54,000</span>
+          <span class="ml-1 font-semibold text-primary">JUST</span>
         </div>
       </div>
       <div class="self-start">
         <div
-          class="
-            fs-16
-            rounded-full
-            border-solid border-2 border-light-blue-500
-            px-5
-            py-1
-          "
+          class="px-5 py-1 border-solid rounded-full border-custom-gray fs-16"
         >
-          <span class="dark:text-white">0x623d...298c </span>
+          <span class="font-semibold text-gray">0x623d...298c </span>
         </div>
       </div>
 
-      <div
-        class="self-start mb-0"
-        @click.prevent.stop="msgBox = !msgBox"
-        role="button"
-      >
-        <img class="my-3 lg:my-0 mb-0" src="~/assets/img/msg.png" />
+      <div class="self-start mb-0" role="button">
+        <img
+          class="my-3 mb-0 lg:my-0"
+          src="~/assets/img/msg.png"
+          @click.prevent.stop="msgBox = !msgBox"
+        />
         <div
-          v-click-outside="hide"
           class="flex justify-center ease-in-out"
           :class="{ 'ease-in-out': msgBox }"
         >
           <img
+            @click.prevent.stop="msgBox = !msgBox"
             src="~/assets/img/dropdown.png"
             :class="`mx-0 dropdown ${msgBox ? 'dropdown-active' : ''}`"
           />
-          <MessageMsgNotification v-if="msgBox" :messages="messages" />
+          <MessageMsgNotification
+            v-if="msgBox"
+            :messages="messages"
+            @hidden="msgBox = false"
+          />
         </div>
       </div>
       <div class="" role="button">
@@ -190,7 +154,7 @@
       <div class="logo-container">
         <img class="self-start my-3 lg:my-0" src="~/assets/img/logo.png" />
       </div>
-      <div class="menu block lg:hidden fs-40 text-secondary">
+      <div class="block menu lg:hidden fs-40 text-secondary">
         <i
           role="button"
           class="fas fa-bars"
@@ -274,6 +238,9 @@ export default {
           entry.msg.toLowerCase().includes(this.msgSearchValue.toLowerCase())
         )
       })
+    },
+    isMainPage() {
+      return this.$route.path == '/'
     },
   },
   methods: {

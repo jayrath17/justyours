@@ -1,15 +1,10 @@
 <template>
   <div>
     <div
-      class="
-        bg-white
-        shadow-lg
-        rounded-3xl
-        subscriptions
-        dark:bg-black dark:shadow-white
-      "
+      class="bg-white shadow-lg  rounded-3xl subscriptions dark:bg-black dark:custom-box-shadow"
     >
-      <span class="flex justify-center py-3 text-white rounded-t-3xl bg-primary"
+      <span
+        class="flex justify-center py-3 font-semibold text-white  rounded-t-3xl bg-primary fs-20"
         >My Subscriptions</span
       >
       <div class="p-5 my-5">
@@ -17,19 +12,12 @@
           <div
             v-for="tab in tabs"
             :key="tab.name"
-            class="
-              p-3
-              rounded-full
-              cursor-pointer
-              border-primary
-              action__item
-              hover:bg-primary hover:text-white
-            "
+            class="flex items-center py-3 rounded-full cursor-pointer  3xl:px-16 xl:px-10 border-primary action__item hover:bg-primary hover:text-white tab__action"
             @click="selectOption(tab)"
             :class="tab.active ? 'bg-primary text-white' : 'text-primary'"
           >
-            <span class="font-semibold cursor-pointer">
-              <i :class="tab.icon"></i>
+            <span class="flex items-center font-semibold cursor-pointer fs-20">
+              <span class="mr-2 material-icons-round">{{ tab.icon }}</span>
               {{ tab.name }}
             </span>
           </div>
@@ -53,19 +41,19 @@ export default {
       tabs: [
         {
           slug: 'all',
-          icon: 'far fa-eye',
+          icon: 'visibility',
           name: 'View All',
           active: true,
         },
         {
           slug: 'active',
-          icon: 'fas fa-star',
+          icon: 'stars',
           name: 'Active',
           active: false,
         },
         {
           slug: 'renew',
-          icon: 'fas fa-sync',
+          icon: 'autorenew',
           name: 'Renew',
           active: false,
         },

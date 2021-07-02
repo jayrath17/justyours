@@ -2,21 +2,46 @@
   background: #e9e9e9;
 
   .personal__data {
-    @media (max-width: 768px) {
-      margin-left: 4em;
-    }
-    @media (min-width: 1300px) {
-      margin-left: -12em;
-    }
+    position: relative;
+    left: 21%;
+    // @media (max-width: 768px) {
+    //   margin-left: 4em;
+    // }
+    // @media (min-width: 1024px) and (max-width: 1300px) {
+    //   margin-left: -1em;
+    // }
+    // @media (min-width: 1301px) {
+    //   margin-left: -6em;
+    // }
+    // @media (min-width: 1800px) {
+    //   margin-left: -13em;
+    // }
   }
 
   .menu__options {
     right: 12px;
     top: 5px;
     z-index: 10;
-    width: 145px;
+    width: 151px;
     padding-left: 1em;
     padding-right: 1em;
     user-select: none;
+  }
+
+  .tab__action {
+    @media (max-width: 1023px) {
+      padding-left: 1em;
+      padding-right: 1em;
+    }
+    @media (min-width: 1024px) and (max-width: 1500px) {
+      padding-left: 1em;
+      padding-right: 1em;
+    }
+  }
+}
+
+#scroll-suggestion {
+  @media (min-width: 1024px) {
+    margin-left: -1.5em;
   }
 }

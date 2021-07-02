@@ -1,26 +1,13 @@
 <template>
   <transition name="box">
     <div
-      class="
-        absolute
-        z-30
-        h-12
-        px-6
-        mt-5
-        overflow-y-scroll
-        bg-white
-        rounded-lg
-        shadow-lg
-        dark:bg-black
-        message-box
-      "
+      v-click-outside="hide"
+      class="absolute z-30 h-12 px-6 mt-5 overflow-y-scroll bg-white rounded-lg  custom-box-shadow dark:bg-messages message-box"
     >
       <div class="flex justify-between mt-5">
         <span class="fs-24 dark:text-white">Messages</span>
         <span
-          ><i
-            class="cursor-pointer fas fa-times dark:text-white"
-            @click="msgBox = false"
+          ><i class="cursor-pointer fas fa-times dark:text-white" @click="hide"
         /></span>
       </div>
       <div class="flex justify-center mt-5 mb-3 content-inputs">
@@ -81,7 +68,7 @@ export default {
   },
   methods: {
     hide() {
-      this.msgBox = false
+      this.$emit('hidden')
     },
     beforeEnter: function (el) {
       el.style.opacity = 0

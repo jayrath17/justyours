@@ -1,6 +1,11 @@
 <template>
   <div class="px-3 suggestions lg:mt-16 lg:pt-5">
-    <div v-for="(suggestion, index) in suggestions" :key="index">
+    <p
+      class="text-center  fs-24 btn-letter-spacing dark:text-white lg:mt-16 lg:mb-10"
+    >
+      SUGGESTED
+    </p>
+    <div v-for="(suggestion, index) in suggestions" :key="index" class="mb-16">
       <vs-card actionable class="cardx">
         <div slot="media" class="relative">
           <img :src="`/images/${suggestion.img}`" />
@@ -50,6 +55,12 @@ export default {
 <style scoped>
 .top-80 {
   top: 80%;
+  @media (min-width: 1024px) {
+    top: 60%;
+  }
+  @media (min-width: 1450px) {
+    top: 80%;
+  }
 }
 .vs-button {
   width: 80% !important;

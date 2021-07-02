@@ -8,15 +8,9 @@
         <LayoutNavbar />
       </div>
       <div
-        class="
-          grid grid-cols-1
-          gap-1
-          2xl:grid-cols-2
-          lg:gap-4
-          col-layout-content
-        "
+        class="grid grid-cols-1 gap-1  2xl:grid-cols-2 lg:gap-4 col-layout-content"
       >
-        <div class="pt-1 mt-16">
+        <div class="px-3 pt-1 mt-16 lg:mr-6">
           <div id="wrap-container">
             <div id="scroll-content" class="h-full mt-5 overflow-y-scroll">
               <Nuxt />
@@ -33,6 +27,25 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  mounted() {
+    if (window.screen.width > 1024) {
+      setTimeout(function () {
+        let maxHeight =
+          10 +
+          window.innerHeight -
+          document.getElementById('wrap-container').getBoundingClientRect().top
+        document.getElementById('scroll-content').style.maxHeight =
+          maxHeight + 'px'
+        document.getElementById('scroll-suggestion').style.maxHeight =
+          maxHeight + 'px'
+      }, 200)
+    }
+  },
+}
+</script>
 
 <style>
 #wrap-container,
