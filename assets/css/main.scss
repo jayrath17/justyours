@@ -16,6 +16,10 @@ input::placeholder {
   }
 }
 
+html {
+  user-select: none;
+}
+
 .slide-leave-active,
 .slide-enter-active {
   transition: 1s;

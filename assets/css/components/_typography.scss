@@ -83,3 +83,10 @@
 .text-primary {
   color: $primary-color !important;
 }
+
+.text-ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: inherit;
+}
