@@ -50,11 +50,11 @@
               </span>
             </div>
           </div>
-          <div :class="{ 'mr-16': msg.image == 'msg-profile04' }">
+          <div class="w-1/2">
             <div class="text-left fs-20 dark:text-white">
               {{ msg.name }}
             </div>
-            <div class="text-left fs-16 text-secondary">
+            <div class="text-left fs-16 text-secondary text-ellipsis">
               {{ msg.msg }}
             </div>
           </div>

@@ -149,6 +149,7 @@
           <span class="ml-1 text-primary font-bold">JUST</span>
         </div>
       </div>
+
       <div class="self-start">
         <div
           class="
@@ -163,30 +164,48 @@
         </div>
       </div>
 
-      <div
-        class="self-start mb-0"
-        @click.prevent.stop="msgBox = !msgBox"
-        role="button"
-      >
-        <img class="my-3 lg:my-0 mb-0" src="~/assets/img/msg.png" />
+      <div class="self-start mb-0" role="button">
+        <img
+          @click.prevent.stop="handleOpenModals('msg')"
+          @mouseover="msgHover = true"
+          @mouseleave="msgHover = false"
+          class="my-3 lg:my-0 mb-0"
+          :src="require(`~/assets/img/${msgHover ? hoverMsgImg : 'msg'}.png`)"
+        />
         <div
-          v-click-outside="hide"
-          class="flex justify-center ease-in-out"
+          class="flex justify-ce nter ease-in-out"
           :class="{ 'ease-in-out': msgBox }"
         >
-          <img
-            src="~/assets/img/dropdown.png"
-            :class="`mx-0 dropdown ${msgBox ? 'dropdown-active' : ''}`"
+          <img v-if="msgBox" src="~/assets/img/dropdown.png" class="mx-0" />
+          <MessageMsgNotification
+            :show="msgBox"
+            :messages="messages"
+            @close="msgBox = false"
           />
-          <MessageMsgNotification v-if="msgBox" :messages="messages" />
         </div>
       </div>
+
       <div class="" role="button">
         <img
+          @click.prevent.stop="handleOpenModals('notify')"
+          @mouseover="notifyHover = true"
+          @mouseleave="notifyHover = false"
           class="self-start my-3 lg:my-0 notification"
-          src="~/assets/img/notify.png"
+          :src="
+            require(`~/assets/img/${
+              notifyHover ? hoverNotifyImg : 'notify'
+            }.png`)
+          "
         />
+        <div
+          class="flex justify-center ease-in-out"
+          :class="{ 'ease-in-out': notifyBox }"
+        >
+          <img v-if="notifyBox" src="~/assets/img/dropdown.png" class="mx-0" />
+          <!-- <MessageMsgNotification v-if="notifyBox" :messages="messages" /> -->
+        </div>
       </div>
+
       <div class="logo-container">
         <img class="self-start my-3 lg:my-0" src="~/assets/img/logo.png" />
       </div>
@@ -211,8 +230,12 @@ export default {
   },
   data() {
     return {
+      msgHover: false,
+      notifyHover: false,
       msgBox: false,
+      notifyBox: false,
       notificationsBox: false,
+      darkMode: true,
       searchValue: '',
       messages: [
         {
@@ -275,6 +298,17 @@ export default {
         )
       })
     },
+    hoverMsgImg() {
+      return this.darkMode ? 'msg-hover-dark' : 'msg-hover'
+    },
+    hoverNotifyImg() {
+      return this.darkMode ? 'notify-hover-dark' : 'notify-hover'
+    },
+  },
+  mounted() {
+    if (['dark', 'system'].includes(this.$colorMode.preference)) {
+      this.darkMode = true
+    }
   },
   methods: {
     hide() {
@@ -282,6 +316,16 @@ export default {
     },
     openSidebar() {
       $nuxt.$emit('openSidebar')
+    },
+    handleOpenModals(type) {
+      if (type == 'msg') {
+        this.msgBox = !this.msgBox
+        this.notifyBox = false
+      }
+      if (type == 'notify') {
+        this.notifyBox = !this.notifyBox
+        this.msgBox = false
+      }
     },
   },
 }

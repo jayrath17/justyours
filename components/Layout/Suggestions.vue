@@ -1,5 +1,16 @@
 <template>
-  <div class="px-3 suggestions lg:mt-16 lg:pt-5">
+  <div class="px-3 suggestions">
+    <p
+      class="
+        fs-24
+        btn-letter-spacing
+        text-center
+        dark:text-white
+        lg:mt-16 lg:mb-10
+      "
+    >
+      SUGGESTED
+    </p>
     <div v-for="(suggestion, index) in suggestions" :key="index">
       <vs-card actionable class="cardx">
         <div slot="media" class="relative">

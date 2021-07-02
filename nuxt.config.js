@@ -62,6 +62,7 @@ export default {
   plugins: [
     { src: '~plugins/vuesax.js' },
     { src: '~/plugins/directives', mode: 'client' },
+    { src: '~/plugins/scripts', mode: 'client' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
