@@ -1,5 +1,15 @@
 <template>
-  <div class="grid navbar lg:grid-cols-2 lg:mt-12 lg:pt-10 xl:ml-16 xl:pl-5">
+  <div
+    id="navbar"
+    class="
+      grid
+      navbar
+      lg:grid-cols-2 lg:mt-12 lg:pt-10
+      xl:ml-16 xl:pl-5
+      bg-white
+      dark:bg-black
+    "
+  >
     <!-- NEW POST -->
     <div class="order-2 lg:order-1 xl:mr-8">
       <div class="flex justify-center content-inputs">
@@ -17,6 +27,7 @@
         </vs-input>
       </div>
       <div
+        id="new-post"
         class="flex justify-center mx-4 mt-5 sm:mx-16 md xl:px-10"
         v-if="isMainPage"
       >

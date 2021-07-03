@@ -1,3 +1,18 @@
+#navbar {
+  overflow: hidden;
+  transition: 0.4s;
+  position: fixed;
+  width: inherit;
+  z-index: 10;
+  top: 0;
+}
+#body-layout {
+  margin-top: 217px;
+  transition: 0.4s;
+}
+.navbar-container {
+  width: 76%;
+}
 .navbar {
   .vs-con-input-label {
     width: 100% !important;
