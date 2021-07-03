@@ -4,15 +4,26 @@
       <LayoutSidebar />
     </div>
     <div>
-      <div>
+      <div class="navbar-container">
         <LayoutNavbar />
       </div>
       <div
-        class="grid grid-cols-1 gap-1  2xl:grid-cols-2 lg:gap-4 col-layout-content"
+        id="body-layout"
+        class="
+          grid grid-cols-1
+          gap-1
+          2xl:grid-cols-2
+          lg:gap-4
+          col-layout-content
+        "
       >
         <div class="px-3 pt-1 mt-16 lg:mr-6">
           <div id="wrap-container">
-            <div id="scroll-content" class="h-full mt-5 overflow-y-scroll">
+            <div
+              id="scroll-content"
+              class="h-full mt-5 overflow-y-scroll"
+              @scroll="scrollFunction"
+            >
               <Nuxt />
             </div>
           </div>
@@ -20,6 +31,7 @@
         <div
           id="scroll-suggestion"
           class="flex justify-center h-full overflow-y-scroll lg:justify-start"
+          @scroll="scrollFunction"
         >
           <LayoutSuggestions />
         </div>
@@ -43,6 +55,32 @@ export default {
           maxHeight + 'px'
       }, 200)
     }
+  },
+  methods: {
+    scrollFunction() {
+      let navbar = document.getElementById('navbar').classList
+      let postBtn = document.getElementById('new-post').classList
+      let body = document.getElementById('body-layout').style
+
+      if (
+        document.getElementById('scroll-content').scrollTop > 80 ||
+        document.getElementById('scroll-suggestion').scrollTop > 80 ||
+        document.documentElement.scrollTop > 80
+      ) {
+        navbar.remove('lg:mt-12', 'lg:pt-10')
+        navbar.add('lg:mt-3')
+        postBtn.remove('mt-5')
+        postBtn.add('mt-0.5')
+        body.marginTop = '50px'
+      } else {
+        console.log('up')
+        postBtn.remove('mt-0.5')
+        postBtn.add('mt-5')
+        navbar.remove('lg:mt-3')
+        navbar.add('lg:mt-12', 'lg:pt-10')
+        body.marginTop = '217px'
+      }
+    },
   },
 }
 </script>

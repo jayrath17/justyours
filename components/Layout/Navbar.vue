@@ -1,5 +1,15 @@
 <template>
-  <div class="grid navbar lg:grid-cols-2 lg:mt-12 lg:pt-10 xl:ml-16 xl:pl-5">
+  <div
+    id="navbar"
+    class="
+      grid
+      navbar
+      lg:grid-cols-2 lg:mt-12 lg:pt-10
+      xl:ml-16 xl:pl-5
+      bg-white
+      dark:bg-black
+    "
+  >
     <!-- NEW POST -->
     <div class="order-2 lg:order-1 xl:mr-8">
       <div class="flex justify-center content-inputs">
@@ -17,6 +27,7 @@
         </vs-input>
       </div>
       <div
+        id="new-post"
         class="flex justify-center mx-4 mt-5 sm:mx-16 md xl:px-10"
         v-if="isMainPage"
       >
@@ -55,7 +66,17 @@
       >
         <div class="flex justify-around pt-4 align-start">
           <div
-            class="relative flex items-center px-5 py-1 border-solid rounded-full  border-custom-gray fs-16"
+            class="
+              relative
+              flex
+              items-center
+              px-5
+              py-1
+              border-solid
+              rounded-full
+              border-custom-gray
+              fs-16
+            "
           >
             <img
               class="absolute self-start my-3 lg:my-0 just-logo"
@@ -106,11 +127,31 @@
 
     <!-- NAVBAR DESKTOP -->
     <div
-      class="grid justify-around order-1 hidden mt-10  lg:block navbar-template lg:order-2 lg:flex lg:mt-0 2xl:mx-8"
+      class="
+        grid
+        justify-around
+        order-1
+        hidden
+        mt-10
+        lg:block
+        navbar-template
+        lg:order-2 lg:flex lg:mt-0
+        2xl:mx-8
+      "
     >
       <div class="">
         <div
-          class="relative flex items-center px-5 py-1 border-solid rounded-full  border-custom-gray fs-16"
+          class="
+            relative
+            flex
+            items-center
+            px-5
+            py-1
+            border-solid
+            rounded-full
+            border-custom-gray
+            fs-16
+          "
         >
           <img
             class="absolute self-start my-3 mr-2 lg:my-0 just-logo"
