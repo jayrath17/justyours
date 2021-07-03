@@ -1,6 +1,6 @@
 <template>
   <transition name="box">
-    <nav v-click-outside="hide" class="messages_dropdown">
+    <nav class="messages_dropdown" v-click-outside="hide">
       <div class="px-3 py-3 rounded-lg wrapper_box">
         <div class="wrapper show">
           <ul class="menu-bar">
@@ -105,15 +105,6 @@
 </template>
 
 <script>
-const drop_btn = document.querySelector('.drop-btn span')
-const menu_wrapper = document.querySelector('.wrapper')
-const menu_bar = document.querySelector('.menu-bar')
-const setting_drop = document.querySelector('.setting-drop')
-const help_drop = document.querySelector('.help-drop')
-const setting_item = document.querySelector('.setting-item')
-const help_item = document.querySelector('.help-item')
-const setting_btn = document.querySelector('.back-setting-btn')
-const help_btn = document.querySelector('.back-help-btn')
 export default {
   data() {
     return {
@@ -187,6 +178,15 @@ export default {
 
 <style lang="scss">
 .messages_dropdown {
+  @media (max-width: 380px) {
+    width: 320px;
+    right: 0;
+    left: 0;
+  }
+  @media (min-width: 381px) and (max-width: 1024px) {
+    width: 320px;
+    left: 10%;
+  }
   input {
     height: 40px !important;
   }
@@ -219,6 +219,10 @@ nav .tooltip.show {
   background: #242526;
   top: 40px;
   display: flex;
+
+  @media (min-width: 320px) and (max-width: 1024px) {
+    padding: 0;
+  }
   // position: absolute;
   flex-direction: column;
 }
@@ -227,6 +231,9 @@ nav .wrapper {
   top: 65px;
   display: flex;
   width: 400px;
+  @media (min-width: 320px) and (max-width: 1024px) {
+    width: 320px;
+  }
   overflow: hidden;
   border-radius: 5px;
   background: #242526;
@@ -239,6 +246,9 @@ nav .wrapper.show {
 }
 .wrapper ul {
   width: 400px;
+  @media (min-width: 320px) and (max-width: 1024px) {
+    width: 320px;
+  }
   list-style: none;
   padding: 10px;
   transition: all 0.3s ease;

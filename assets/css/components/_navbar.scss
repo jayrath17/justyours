@@ -4,6 +4,9 @@
   width: inherit;
   z-index: 10;
   top: 0;
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
 }
 #body-layout {
   margin-top: 217px;
