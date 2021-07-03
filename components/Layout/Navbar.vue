@@ -55,7 +55,17 @@
       >
         <div class="flex justify-around pt-4 align-start">
           <div
-            class="relative flex items-center px-5 py-1 border-solid rounded-full  border-custom-gray fs-16"
+            class="
+              relative
+              flex
+              items-center
+              px-5
+              py-1
+              border-solid
+              rounded-full
+              border-custom-gray
+              fs-16
+            "
           >
             <img
               class="absolute self-start my-3 lg:my-0 just-logo"
@@ -76,7 +86,7 @@
             <img
               class="my-2 mb-0 lg:my-0"
               src="~/assets/img/msg.png"
-              @click.prevent.stop="msgBox = !msgBox"
+              @click.prevent.stop="openMessages()"
             />
             <div
               class="flex justify-center ease-in-out"
@@ -84,14 +94,19 @@
             >
               <img
                 src="~/assets/img/dropdown.png"
-                @click.prevent.stop="msgBox = !msgBox"
+                @click.prevent.stop="openMessages()"
                 :class="`mx-0 dropdown ${msgBox ? 'dropdown-active' : ''}`"
               />
-              <MessageMsgNotification
+              <MessageDropdown
                 v-if="msgBox"
                 :messages="messages"
                 @hidden="msgBox = false"
               />
+              <!-- <MessageMsgNotification
+                v-if="msgBox"
+                :messages="messages"
+                @hidden="msgBox = false"
+              /> -->
             </div>
           </div>
           <div class="" role="button">
@@ -106,11 +121,31 @@
 
     <!-- NAVBAR DESKTOP -->
     <div
-      class="grid justify-around order-1 hidden mt-10  lg:block navbar-template lg:order-2 lg:flex lg:mt-0 2xl:mx-8"
+      class="
+        grid
+        justify-around
+        order-1
+        hidden
+        mt-10
+        lg:block
+        navbar-template
+        lg:order-2 lg:flex lg:mt-0
+        2xl:mx-8
+      "
     >
       <div class="">
         <div
-          class="relative flex items-center px-5 py-1 border-solid rounded-full  border-custom-gray fs-16"
+          class="
+            relative
+            flex
+            items-center
+            px-5
+            py-1
+            border-solid
+            rounded-full
+            border-custom-gray
+            fs-16
+          "
         >
           <img
             class="absolute self-start my-3 mr-2 lg:my-0 just-logo"
@@ -133,22 +168,27 @@
         <img
           class="my-3 mb-0 lg:my-0"
           src="~/assets/img/msg.png"
-          @click.prevent.stop="msgBox = !msgBox"
+          @click.prevent.stop="openMessages()"
         />
         <div
-          class="flex justify-center ease-in-out"
+          class="relative flex justify-center ease-in-out"
           :class="{ 'ease-in-out': msgBox }"
         >
           <img
-            @click.prevent.stop="msgBox = !msgBox"
+            @click.prevent.stop="openMessages()"
             src="~/assets/img/dropdown.png"
             :class="`mx-0 dropdown ${msgBox ? 'dropdown-active' : ''}`"
           />
-          <MessageMsgNotification
+          <MessageDropdown
             v-if="msgBox"
             :messages="messages"
             @hidden="msgBox = false"
           />
+          <!-- <MessageMsgNotification
+            v-if="msgBox"
+            :messages="messages"
+            @hidden="msgBox = false"
+          /> -->
         </div>
       </div>
 
@@ -270,6 +310,9 @@ export default {
     }
   },
   methods: {
+    openMessages() {
+      this.msgBox = !this.msgBox
+    },
     hide() {
       this.msgBox = false
     },

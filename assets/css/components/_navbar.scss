@@ -27,6 +27,19 @@
   }
 
   .message-box {
+    transition: all 0.3s ease;
+
+    .show {
+      display: block;
+      display: flex;
+    }
+
+    .wrapper ul {
+      width: 400px;
+      list-style: none;
+      padding: 10px;
+      transition: all 0.3s ease;
+    }
     width: 455px;
     height: 500px;
     right: 3%;
