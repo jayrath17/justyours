@@ -55,8 +55,8 @@ export default {
   methods: {
     scrollFunction() {
       let navbar = document.getElementById('navbar').classList
-      let postBtn = document.getElementById('new-post').classList
-      let body = document.getElementById('body-layout').style
+      // let postBtn = document.getElementById('new-post').classList
+      // let body = document.getElementById('body-layout').style
       // let content = document.getElementById('content__layout').style
 
       if (
@@ -66,14 +66,14 @@ export default {
       ) {
         navbar.remove('lg:mt-12', 'lg:pt-10')
         navbar.add('lg:mt-3')
-        postBtn.remove('mt-5')
-        postBtn.add('mt-0.5')
+        // postBtn.remove('mt-5')
+        // postBtn.add('mt-0.5')
         // body.marginTop = '50px'
         // content.marginTop = '50px'
       } else {
         console.log('up')
-        postBtn.remove('mt-0.5')
-        postBtn.add('mt-5')
+        // postBtn.remove('mt-0.5')
+        // postBtn.add('mt-5')
         navbar.remove('lg:mt-3')
         navbar.add('lg:mt-12', 'lg:pt-10')
         // body.marginTop = '217px'
