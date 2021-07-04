@@ -3,10 +3,10 @@
     id="navbar"
     class="
       grid
-      navbar
-      lg:grid-cols-2 lg:mt-12 lg:pt-10
-      xl:ml-16 xl:pl-5
       bg-white
+      navbar
+      lg:grid-cols-2 lg:pt-12 lg:pt-10
+      xl:pl-5
       dark:bg-black
     "
   >
@@ -19,6 +19,7 @@
           icon-after
           v-model="searchValue"
           placeholder="Search"
+          icon="search"
           class="mx-10 mt-5 lg:mt-0"
         >
           <template #icon>
@@ -31,11 +32,11 @@
         class="flex justify-center mx-4 mt-5 sm:mx-16 md xl:px-10"
         v-if="isMainPage"
       >
-        <vs-button class="pills" color="#c53761">
+        <!-- <vs-button class="pills" color="#c53761">
           <span class="mt-1 btn-letter-spacing fs-20 whitespace-nowrap xl:mx-9">
             <i class="fas fa-plus"></i> NEW POST</span
           >
-        </vs-button>
+        </vs-button> -->
       </div>
     </div>
 

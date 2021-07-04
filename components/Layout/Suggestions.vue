@@ -1,29 +1,33 @@
 <template>
-  <div class="px-3 suggestions lg:mt-16 lg:pt-5">
-    <p
-      class="text-center  fs-24 btn-letter-spacing dark:text-white lg:mt-16 lg:mb-10"
-    >
+  <div class="px-3 suggestions lg:mt-12 lg:pt-5 dark:bg-black">
+    <p class="text-center fs-24 btn-letter-spacing dark:text-white lg:mb-3">
       SUGGESTED
     </p>
-    <div v-for="(suggestion, index) in suggestions" :key="index" class="mb-16">
-      <vs-card actionable class="cardx">
-        <div slot="media" class="relative">
-          <img :src="`/images/${suggestion.img}`" />
-          <div class="absolute flex justify-center w-full center top-80">
-            <vs-button block class="w-full pills" color="#c53761">
-              <span class="text-white fs-20">
-                {{ suggestion.title }}
-              </span>
-            </vs-button>
+    <div id="scroll-suggestion" class="overflow-y-scroll">
+      <div
+        v-for="(suggestion, index) in suggestions"
+        :key="index"
+        class="mb-16"
+      >
+        <vs-card actionable class="cardx">
+          <div slot="media" class="relative">
+            <img :src="`/images/${suggestion.img}`" />
+            <div class="absolute flex justify-center w-full center top-80">
+              <vs-button block class="w-full pills" color="#c53761">
+                <span class="text-white fs-20">
+                  {{ suggestion.title }}
+                </span>
+              </vs-button>
+            </div>
           </div>
-        </div>
-      </vs-card>
-    </div>
+        </vs-card>
+      </div>
 
-    <div class="flex justify-center my-16">
-      <vs-button class="pills" color="#c53761" block>
-        <span class="fs-24 btn-letter-spacing">VIEW ALL </span>
-      </vs-button>
+      <div class="flex justify-center my-16">
+        <vs-button class="pills" color="#c53761" block>
+          <span class="fs-24 btn-letter-spacing">VIEW ALL </span>
+        </vs-button>
+      </div>
     </div>
   </div>
 </template>
@@ -47,6 +51,18 @@ export default {
           img: 'suggestion1.png',
         },
       ],
+    }
+  },
+  mounted() {
+    if (window.screen.width > 1024) {
+      setTimeout(function () {
+        let maxHeight =
+          10 +
+          window.innerHeight -
+          document.getElementById('wrap-container').getBoundingClientRect().top
+        document.getElementById('scroll-suggestion').style.maxHeight =
+          maxHeight - 100 + 'px'
+      }, 200)
     }
   },
 }

@@ -17,7 +17,7 @@
           col-layout-content
         "
       >
-        <div class="px-3 pt-1 mt-16 lg:mr-6">
+        <div class="px-3 pt-1 mt-44 lg:mr-6 dark:bg-black">
           <div id="wrap-container">
             <div
               id="scroll-content"
@@ -28,11 +28,7 @@
             </div>
           </div>
         </div>
-        <div
-          id="scroll-suggestion"
-          class="flex justify-center h-full overflow-y-scroll lg:justify-start"
-          @scroll="scrollFunction"
-        >
+        <div class="flex justify-center h-full lg:mt-40 lg:justify-start">
           <LayoutSuggestions />
         </div>
       </div>
@@ -61,6 +57,7 @@ export default {
       let navbar = document.getElementById('navbar').classList
       let postBtn = document.getElementById('new-post').classList
       let body = document.getElementById('body-layout').style
+      // let content = document.getElementById('content__layout').style
 
       if (
         document.getElementById('scroll-content').scrollTop > 80 ||
@@ -71,14 +68,16 @@ export default {
         navbar.add('lg:mt-3')
         postBtn.remove('mt-5')
         postBtn.add('mt-0.5')
-        body.marginTop = '50px'
+        // body.marginTop = '50px'
+        // content.marginTop = '50px'
       } else {
         console.log('up')
         postBtn.remove('mt-0.5')
         postBtn.add('mt-5')
         navbar.remove('lg:mt-3')
         navbar.add('lg:mt-12', 'lg:pt-10')
-        body.marginTop = '217px'
+        // body.marginTop = '217px'
+        // content.marginTop = '157px'
       }
     },
   },

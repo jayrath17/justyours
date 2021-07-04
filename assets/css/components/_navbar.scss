@@ -9,8 +9,10 @@
   }
 }
 #body-layout {
-  margin-top: 217px;
+  // margin-top: 157px;
   transition: 0.4s;
+  max-height: 100vh;
+  // overflow-y: scroll;
 }
 .navbar-container {
   width: 76%;
@@ -20,21 +22,21 @@
     width: 100% !important;
   }
   .vs-input--icon {
-    border-left: 0;
-    top: 23px;
+    border-left: 0 !important;
+    top: 13px;
   }
   .vs-input--placeholder {
     display: flex;
     align-items: center;
     font-size: 24px;
-    height: 67px;
+    height: 50px;
     @media (max-width: 677px) {
       font-size: 16px !important;
     }
   }
   input {
     width: 100% !important;
-    height: 68px !important;
+    height: 50px !important;
     font-size: 24px !important;
     border-radius: 40px;
 
