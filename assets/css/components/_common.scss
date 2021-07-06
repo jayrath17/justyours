@@ -51,3 +51,15 @@ body {
     width: 29.6%;
   }
 }
+
+@media (max-width: 1023px) {
+  .sidebar-container {
+    width: 0;
+  }
+  .page-container {
+    width: 100%;
+  }
+  .suggestions-container {
+    width: 100%;
+  }
+}

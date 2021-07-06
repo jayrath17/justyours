@@ -1,13 +1,13 @@
 <template>
-  <nav id="navbar" class="navbar w-full pt-4 flex justify-center">
-    <div class="nav-items flex items-center justify-between pl-16">
+  <nav id="navbar" class="flex justify-center w-full pt-4 navbar dark:bg-black">
+    <div class="flex items-center justify-between pl-16 nav-items">
       <div class="logo-container">
         <img class="self-start my-3 lg:my-0" src="~/assets/img/logo.png" />
       </div>
 
-      <div class="" style="width: 7%"></div>
+      <div class="hidden lg:flex" style="width: 7%"></div>
 
-      <div class="content-inputs w-1/3">
+      <div class="hidden w-1/3 content-inputs lg:flex">
         <vs-input
           block
           type="text"
@@ -85,19 +85,9 @@
         </div>
       </div>
 
-      <div class="">
+      <div class="hidden lg:flex">
         <div
-          class="
-            relative
-            flex
-            items-center
-            px-5
-            py-1
-            border-solid
-            rounded-full
-            border-custom-gray
-            fs-16
-          "
+          class="relative flex items-center px-5 py-1 border-solid rounded-full  border-custom-gray fs-16"
         >
           <img
             class="absolute self-start my-3 mr-2 lg:my-0 just-logo"
@@ -108,7 +98,7 @@
         </div>
       </div>
 
-      <div class="">
+      <div class="hidden lg:flex">
         <div
           class="px-5 py-1 border-solid rounded-full border-custom-gray fs-16"
         >

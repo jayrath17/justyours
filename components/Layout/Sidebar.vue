@@ -1,6 +1,6 @@
 <template>
   <transition name="slide">
-    <div class="sidebar pl-4 lg:pl-3 xl:pl-8" v-click-outside="hideSidebar">
+    <div class="pl-4 sidebar lg:pl-3 xl:pl-8" v-click-outside="hideSidebar">
       <div class="flex flex-col items-start 2xl:items-center">
         <GeneralAvatar image="/images/profile.png" />
 
@@ -13,14 +13,7 @@
             <NuxtLink
               v-if="route.name !== 'dark'"
               :to="route.to"
-              class="
-                flex
-                items-center
-                text-xl text-secondary
-                dark:text-active
-                hover:text-black
-                dark:hover:text-white
-              "
+              class="flex items-center text-xl  text-secondary dark:text-active hover:text-black dark:hover:text-white"
             >
               <i :class="route.icon" />
               <span class="ml-5">
@@ -36,14 +29,7 @@
               />
               <label
                 @click="darkMode = !darkMode"
-                class="
-                  ml-5
-                  text-xl
-                  cursor-pointer
-                  select-none
-                  text-secondary
-                  xl:whitespace-nowrap
-                "
+                class="ml-5 text-xl cursor-pointer select-none  text-secondary xl:whitespace-nowrap"
                 for="dark"
                 >Dark Mode</label
               >
@@ -122,9 +108,9 @@ export default {
     this.$nuxt.$on('openSidebar', () => {
       this.activeSidebar = !this.activeSidebar
       if (this.activeSidebar) {
-        document.body.style.overflowY = 'hidden'
+        // document.body.style.overflowY = 'hidden'
       } else {
-        document.body.style.overflowY = 'scroll'
+        // document.body.style.overflowY = 'scroll'
       }
     })
   },

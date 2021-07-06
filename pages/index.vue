@@ -7,20 +7,6 @@ export default {}
 </script>
 
 <style>
-/* Sample `apply` at-rules with Tailwind CSS
-.container {
-@apply min-h-screen flex justify-center items-center text-center mx-auto;
-}
-*/
-/* .container {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: start;
-  text-align: center;
-  width: 100vw !important;
-} */
-
 .title {
   font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
     'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;

@@ -12,13 +12,7 @@
         <span class="dark:text-white"> Comments </span>
       </div>
       <div
-        class="
-          flex-auto
-          font-semibold
-          text-right
-          cursor-pointer
-          dark:text-white
-        "
+        class="flex-auto font-semibold text-right cursor-pointer  dark:text-white"
       >
         Save
         <i class="fas fa-bookmark save"></i>
@@ -53,7 +47,9 @@
           </div>
         </div>
       </div>
-      <span class="font-semibold cursor-pointer dark:text-white"
+      <span
+        class="font-semibold cursor-pointer dark:text-white"
+        v-if="post.commentsArray.length"
         >View {{ post.commentsArray.length }} more comments</span
       >
       <div class="mt-3 add__comment">
@@ -65,43 +61,17 @@
             <div class="relative mt-1">
               <input
                 type="text"
-                class="
-                  block
-                  w-full
-                  p-2
-                  pt-4
-                  pl-4
-                  pr-10
-                  border-gray-300
-                  rounded-md
-                  focus:ring-indigo-500 focus:border-indigo-500
-                  sm:text-sm
-                  dark:bg-gray-700 dark:text-white
-                "
+                class="block w-full p-2 pt-4 pl-4 pr-10 border-gray-300 rounded-md  focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm dark:bg-gray-700 dark:text-white"
                 placeholder="Add your comment"
                 v-model="comment"
                 @keyup.enter="addComment(post)"
               />
               <div
-                class="
-                  absolute
-                  inset-y-0
-                  right-0
-                  flex
-                  items-center
-                  pr-3
-                  pointer-events-none
-                "
+                class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none "
               >
                 <i class="mr-2 cursor-pointer far fa-grin-alt text-muted"></i>
                 <i
-                  class="
-                    mr-2
-                    cursor-pointer
-                    far
-                    fa-closed-captioning
-                    text-muted
-                  "
+                  class="mr-2 cursor-pointer  far fa-closed-captioning text-muted"
                 ></i>
                 <i class="mr-2 cursor-pointer fas fa-paperclip text-muted"></i>
                 <i class="mr-2 cursor-pointer fas fa-camera text-muted"></i>
@@ -112,7 +82,7 @@
       </div>
     </div>
     <!-- Comment -->
-    <div class="my-16 divider dark:border-gray-700" v-if="post.id != 2"></div>
+    <div class="my-16 divider dark:border-gray-700" v-if="post.id != 3"></div>
   </div>
 </template>
 
@@ -130,7 +100,6 @@ export default {
   },
   methods: {
     addComment(post) {
-      console.log(post, 'post')
       post.commentsArray.push({
         content: this.comment,
         user: { img: '/images/post.png' },

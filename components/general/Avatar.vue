@@ -3,9 +3,11 @@
     class="relative pb-1 mb-4 profile__pic"
     :class="isAbsolute && 'absolute__profile_pic'"
   >
-    <div class="border-4 rounded-full border-color-primary w-full">
+    <div
+      class="w-full border-4 rounded-full border-color-primary profile__wrapper"
+    >
       <img
-        class="profile-img"
+        class="w-full rounded-full profile-img"
         :class="isGrayScale ? 'filter grayscale' : null"
         :src="image"
         alt="profile"

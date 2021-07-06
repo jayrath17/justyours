@@ -1,20 +1,26 @@
 #navbar {
-  transition: 0.4s;
-  position: fixed;
   z-index: 10;
+  position: fixed;
   top: 0;
+  padding-bottom: 1em;
 }
 
 #body-layout {
   transition: 0.4s;
-  max-height: 100vh;
+  // max-height: 100vh;
 }
 #body-container {
   position: relative;
-  top: 9rem;
+  top: 7rem;
+  // min-height: 100vh;
+  overflow-y: hidden !important;
 }
 .nav-items {
   width: 87.5%;
+  @media (max-width: 1024px) {
+    width: 100%;
+    padding: 0;
+  }
 }
 .navbar {
   .vs-con-input-label {

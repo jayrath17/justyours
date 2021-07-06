@@ -28,6 +28,11 @@ export default {
 </script>
 
 <style>
+.back__img {
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 1037px;
+}
 .vs-card {
   max-width: 100% !important;
 }

@@ -51,6 +51,24 @@ export default {
             },
           ],
         },
+        {
+          id: 3,
+          user: 'Paloma Ahanas',
+          content:
+            '🤳Hiit with Paloma | 🌤Full Body Mobility with Paloma\n Paloma guides you through some full-body exercises to help increase your mobility!',
+          image: '/images/woman.png',
+          likes: '5k',
+          comments: '209',
+          commentsArray: [
+            {
+              user: {
+                img: '/images/woman2.png',
+              },
+              content:
+                'I’ve been a part of #MauxTeam as a "Latina light" Diana and I’ve loved her 🌹✨ dietary advice, workouts, dancing and other activities!',
+            },
+          ],
+        },
       ],
     }
   },

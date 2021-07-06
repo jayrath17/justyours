@@ -1,38 +1,19 @@
 <template>
   <div class="dark:bg-black">
-    <div class="border-b border-lighter"><LayoutNavbar /></div>
-    <div
-      id="body-container"
-      class="flex flex-wrap w-screen border-t border-lighter"
-    >
+    <div><LayoutNavbar /></div>
+    <div id="body-container" class="flex flex-wrap w-screen dark:bg-black">
       <!-- side nav -->
-      <div class="sidebar-container hidden md:flex flex-col justify-start px-2">
+      <div class="flex-col justify-start hidden px-2 sidebar-container lg:flex">
         <LayoutSidebar />
       </div>
 
       <!-- tweets -->
-      <div
-        class="
-          page-container
-          md:w-full
-          h-full
-          overflow-y-scroll
-          border-l border-r border-lighter
-        "
-      >
+      <div class="w-full h-screen overflow-y-scroll page-container lg:w-full">
         <Nuxt />
       </div>
 
       <!-- trending -->
-      <div
-        class="
-          suggestions-container
-          h-full
-          overflow-y-scroll
-          flex
-          justify-center
-        "
-      >
+      <div class="flex justify-center h-screen suggestions-container">
         <LayoutSuggestions />
       </div>
     </div>
@@ -46,7 +27,7 @@ export default {}
 <style>
 #wrap-container,
 #scroll-suggestion {
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   height: 100vh;
 }
 html {
