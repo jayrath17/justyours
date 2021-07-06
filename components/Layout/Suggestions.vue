@@ -1,13 +1,21 @@
 <template>
-  <div class="px-3 suggestions lg:mt-12 lg:pt-5 dark:bg-black">
-    <p class="text-center fs-24 btn-letter-spacing dark:text-white lg:mb-3">
+  <div class="px-3 suggestions lg:w-3/4 3xl:w-4/3">
+    <p
+      class="
+        text-center
+        fs-24
+        btn-letter-spacing
+        lg:mb-3 lg:-ml-4
+        dark:text-white
+      "
+    >
       SUGGESTED
     </p>
     <div id="scroll-suggestion" class="overflow-y-scroll">
       <div
         v-for="(suggestion, index) in suggestions"
         :key="index"
-        class="mb-16"
+        class="mt-7 mb-16 pb-0.5"
       >
         <vs-card actionable class="cardx">
           <div slot="media" class="relative">
@@ -51,18 +59,6 @@ export default {
           img: 'suggestion1.png',
         },
       ],
-    }
-  },
-  mounted() {
-    if (window.screen.width > 1024) {
-      setTimeout(function () {
-        let maxHeight =
-          10 +
-          window.innerHeight -
-          document.getElementById('wrap-container').getBoundingClientRect().top
-        document.getElementById('scroll-suggestion').style.maxHeight =
-          maxHeight - 100 + 'px'
-      }, 200)
     }
   },
 }

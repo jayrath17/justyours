@@ -1,87 +1,46 @@
 <template>
-  <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 col-layout dark:bg-black">
-    <div>
-      <LayoutSidebar />
-    </div>
-    <div>
-      <div class="navbar-container">
-        <LayoutNavbar />
+  <div class="dark:bg-black">
+    <div class="border-b border-lighter"><LayoutNavbar /></div>
+    <div
+      id="body-container"
+      class="flex flex-wrap w-screen border-t border-lighter"
+    >
+      <!-- side nav -->
+      <div class="sidebar-container hidden md:flex flex-col justify-start px-2">
+        <LayoutSidebar />
       </div>
+
+      <!-- tweets -->
       <div
-        id="body-layout"
         class="
-          grid grid-cols-1
-          gap-1
-          2xl:grid-cols-2
-          lg:gap-4
-          col-layout-content
+          page-container
+          md:w-full
+          h-full
+          overflow-y-scroll
+          border-l border-r border-lighter
         "
       >
-        <div class="px-3 pt-1 mt-44 lg:mr-6 dark:bg-black">
-          <div id="wrap-container">
-            <div
-              id="scroll-content"
-              class="h-full mt-5 overflow-y-scroll"
-              @scroll="scrollFunction"
-            >
-              <Nuxt />
-            </div>
-          </div>
-        </div>
-        <div class="flex justify-center h-full lg:mt-40 lg:justify-start">
-          <LayoutSuggestions />
-        </div>
+        <Nuxt />
+      </div>
+
+      <!-- trending -->
+      <div
+        class="
+          suggestions-container
+          h-full
+          overflow-y-scroll
+          flex
+          justify-center
+        "
+      >
+        <LayoutSuggestions />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {
-  mounted() {
-    if (window.screen.width > 1024) {
-      setTimeout(function () {
-        let maxHeight =
-          10 +
-          window.innerHeight -
-          document.getElementById('wrap-container').getBoundingClientRect().top
-        document.getElementById('scroll-content').style.maxHeight =
-          maxHeight + 'px'
-        document.getElementById('scroll-suggestion').style.maxHeight =
-          maxHeight + 'px'
-      }, 200)
-    }
-  },
-  methods: {
-    scrollFunction() {
-      let navbar = document.getElementById('navbar').classList
-      // let postBtn = document.getElementById('new-post').classList
-      // let body = document.getElementById('body-layout').style
-      // let content = document.getElementById('content__layout').style
-
-      if (
-        document.getElementById('scroll-content').scrollTop > 80 ||
-        document.getElementById('scroll-suggestion').scrollTop > 80 ||
-        document.documentElement.scrollTop > 80
-      ) {
-        navbar.remove('lg:mt-12', 'lg:pt-10')
-        navbar.add('lg:mt-3')
-        // postBtn.remove('mt-5')
-        // postBtn.add('mt-0.5')
-        // body.marginTop = '50px'
-        // content.marginTop = '50px'
-      } else {
-        console.log('up')
-        // postBtn.remove('mt-0.5')
-        // postBtn.add('mt-5')
-        navbar.remove('lg:mt-3')
-        navbar.add('lg:mt-12', 'lg:pt-10')
-        // body.marginTop = '217px'
-        // content.marginTop = '157px'
-      }
-    },
-  },
-}
+export default {}
 </script>
 
 <style>
@@ -91,8 +50,8 @@ export default {
   height: 100vh;
 }
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  /* font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif; */
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;

@@ -1,4 +1,9 @@
 .sidebar {
+  .profile-img {
+    width: 104px;
+    height: 104px;
+    border-radius: 50%;
+  }
   .status-circle {
     background-color: $green-color;
     border: 3px solid $primary-color;
@@ -7,7 +12,7 @@
     height: 26px;
     bottom: 13px;
     width: 26px;
-    right: 2px;
+    right: 13px;
   }
   .vs-switch {
     min-width: 20px !important;
