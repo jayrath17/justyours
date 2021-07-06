@@ -1,15 +1,7 @@
 <template>
   <transition name="slide">
-    <div
-      class="pt-10 sidebar lg:mt-11 lg:block dark:bg-black"
-      v-click-outside="hideSidebar"
-      :class="
-        activeSidebar
-          ? 'z-50 bg-white w-9/12 md:w-6/12 slide'
-          : 'slide-out hidden'
-      "
-    >
-      <div class="flex flex-col items-center md:ml-6 xl:ml-8">
+    <div class="sidebar pl-4 lg:pl-3 xl:pl-8" v-click-outside="hideSidebar">
+      <div class="flex flex-col items-start 2xl:items-center">
         <GeneralAvatar image="/images/profile.png" />
 
         <div
@@ -21,7 +13,14 @@
             <NuxtLink
               v-if="route.name !== 'dark'"
               :to="route.to"
-              class="flex items-center text-xl  text-secondary dark:text-active hover:text-black dark:hover:text-white"
+              class="
+                flex
+                items-center
+                text-xl text-secondary
+                dark:text-active
+                hover:text-black
+                dark:hover:text-white
+              "
             >
               <i :class="route.icon" />
               <span class="ml-5">
@@ -37,7 +36,14 @@
               />
               <label
                 @click="darkMode = !darkMode"
-                class="ml-5 text-xl cursor-pointer select-none  text-secondary xl:whitespace-nowrap"
+                class="
+                  ml-5
+                  text-xl
+                  cursor-pointer
+                  select-none
+                  text-secondary
+                  xl:whitespace-nowrap
+                "
                 for="dark"
                 >Dark Mode</label
               >
