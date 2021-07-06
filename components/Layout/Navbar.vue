@@ -27,7 +27,7 @@
         <img
           class="my-3 mb-0 lg:my-0"
           src="~/assets/img/msg.png"
-          @click.prevent.stop="openMessages()"
+          @click.prevent.stop="openMessages"
         />
         <div
           class="relative flex justify-center ease-in-out"
@@ -35,7 +35,7 @@
         >
           <img
             v-if="msgBox"
-            @click.prevent.stop="openMessages()"
+            @click.prevent.stop="openMessages"
             src="~/assets/img/dropdown.png"
             :class="`mx-0 dropdown ${msgBox ? 'dropdown-active' : ''}`"
           />

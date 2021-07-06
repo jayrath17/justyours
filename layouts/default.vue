@@ -1,5 +1,5 @@
 <template>
-  <div class="dark:bg-black">
+  <div class="p-5 overflow-hidden lg:p-0 dark:bg-black">
     <div><LayoutNavbar /></div>
     <div id="body-container" class="flex flex-wrap w-screen dark:bg-black">
       <!-- side nav -->

@@ -9,7 +9,7 @@
           <b class="text-lg font-bold dark:text-white fs-24">{{ post.user }}</b>
           <p class="mt-1 text-muted fs-24">44m</p>
         </div>
-        <div class="self-center pr-10">
+        <div class="self-center">
           <i class="cursor-pointer fas fa-ellipsis-v dark:text-white"></i>
         </div>
       </div>
