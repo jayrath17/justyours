@@ -1,16 +1,16 @@
 <template>
   <nav
     id="navbar"
-    class="container flex justify-center w-full pt-4 navbar dark:bg-black"
+    class="container flex justify-center w-full px-10 pt-4 border-t  navbar dark:bg-black border-lighter lg:border-0"
   >
     <div class="flex items-center justify-between pl-16 nav-items">
       <div class="logo-container">
-        <img class="self-start my-3 lg:my-0" src="~/assets/img/logo.png" />
+        <img class="self-start my-3 lg:my-0" src="~/assets/img/logo.svg" />
       </div>
 
-      <div class="hidden lg:flex" style="width: 7%"></div>
+      <div class="hidden lg:flex" style="width: 12%"></div>
 
-      <div class="hidden w-1/3 content-inputs lg:flex">
+      <div class="hidden search-input lg:flex">
         <vs-input
           block
           type="text"
@@ -21,76 +21,104 @@
           class=""
         >
           <template #icon>
-            <i class="cursor-pointer fas fa-search text-secondary" />
+            <span class="fs-40">
+              <i class="cursor-pointer fs-40 fas fa-search text-secondary" />
+            </span>
           </template>
         </vs-input>
       </div>
 
-      <div class="" role="button">
-        <img
-          class="my-3 mb-0 lg:my-0"
-          src="~/assets/img/msg.png"
-          @click.prevent.stop="openMessages"
-        />
-        <div
-          class="relative flex justify-center ease-in-out"
-          :class="{ 'ease-in-out': msgBox }"
-        >
-          <img
-            v-if="msgBox"
-            @click.prevent.stop="openMessages"
-            src="~/assets/img/dropdown.png"
-            :class="`mx-0 dropdown ${msgBox ? 'dropdown-active' : ''}`"
-          />
-          <MessageDropdown
-            v-if="msgBox"
-            :messages="messages"
-            @hidden="msgBox = false"
-          />
+      <div class="flex items-center justify-between lg:pr-10">
+        <div class="px-3 lg:pl-3 lg:pr-5" role="button">
+          <span
+            class="my-3 mb-0 text-white  lg:my-0 material-icons fs-40 icons-color"
+          >
+            question_answer
+          </span>
+          <div
+            class="relative flex justify-center ease-in-out"
+            :class="{ 'ease-in-out': msgBox }"
+          >
+            <img
+              v-if="msgBox"
+              @click.prevent.stop="openMessages"
+              src="~/assets/img/dropdown.png"
+              :class="`mx-0 dropdown ${msgBox ? 'dropdown-active' : ''}`"
+            />
+            <MessageDropdown
+              v-if="msgBox"
+              :messages="messages"
+              @hidden="msgBox = false"
+            />
+          </div>
+        </div>
+
+        <div class="px-3 lg:px-5" role="button">
+          <span
+            @click.prevent.stop="handleOpenModals('notify')"
+            @mouseover="notifyHover = true"
+            @mouseleave="notifyHover = false"
+            class="my-3 text-white  lg:my-0 notification material-icons fs-40 icons-color"
+          >
+            notifications_active
+          </span>
+          <div
+            class="flex justify-center ease-in-out"
+            :class="{ 'ease-in-out': notifyBox }"
+          >
+            <img
+              v-if="notifyBox"
+              src="~/assets/img/dropdown.png"
+              class="mx-0"
+            />
+            <!-- <MessageMsgNotification v-if="notifyBox" :messages="messages" /> -->
+          </div>
+        </div>
+
+        <div class="block px-3 lg:px-5 lg:hidden" role="button">
+          <span
+            @click.prevent.stop="handleOpenModals('notify')"
+            @mouseover="notifyHover = true"
+            @mouseleave="notifyHover = false"
+            class="my-3 text-white  lg:my-0 notification material-icons fs-40 icons-color"
+          >
+            try
+          </span>
+          <div
+            class="flex justify-center ease-in-out"
+            :class="{ 'ease-in-out': notifyBox }"
+          >
+            <img
+              v-if="notifyBox"
+              src="~/assets/img/dropdown.png"
+              class="mx-0"
+            />
+            <!-- <MessageMsgNotification v-if="notifyBox" :messages="messages" /> -->
+          </div>
+        </div>
+
+        <div class="px-3 lg:pl-5" role="button">
+          <span
+            @click.prevent.stop="handleOpenModals('store')"
+            @mouseover="storeHover = true"
+            @mouseleave="storeHover = false"
+            class="my-3 text-white  lg:my-0 notification material-icons fs-40 icons-color"
+          >
+            store
+          </span>
+          <div
+            class="flex justify-center ease-in-out"
+            :class="{ 'ease-in-out': storeBox }"
+          >
+            <img v-if="storeBox" src="~/assets/img/dropdown.png" class="mx-0" />
+            <!-- <MessageMsgNotification v-if="storeBox" :messages="messages" /> -->
+          </div>
         </div>
       </div>
 
-      <div class="" role="button">
-        <img
-          @click.prevent.stop="handleOpenModals('notify')"
-          @mouseover="notifyHover = true"
-          @mouseleave="notifyHover = false"
-          class="self-start my-3 lg:my-0 notification"
-          :src="
-            require(`~/assets/img/${
-              notifyHover ? hoverNotifyImg : 'notify'
-            }.png`)
-          "
-        />
+      <div class="hidden lg:flex 0">
         <div
-          class="flex justify-center ease-in-out"
-          :class="{ 'ease-in-out': notifyBox }"
-        >
-          <img v-if="notifyBox" src="~/assets/img/dropdown.png" class="mx-0" />
-          <!-- <MessageMsgNotification v-if="notifyBox" :messages="messages" /> -->
-        </div>
-      </div>
-
-      <div class="" role="button">
-        <img
-          @click.prevent.stop="handleOpenModals('store')"
-          @mouseover="storeHover = true"
-          @mouseleave="storeHover = false"
-          class="self-start my-3 lg:my-0 notification"
-          :src="require(`~/assets/img/${storeHover ? 'store' : 'store'}.png`)"
-        />
-        <div
-          class="flex justify-center ease-in-out"
-          :class="{ 'ease-in-out': storeBox }"
-        >
-          <img v-if="storeBox" src="~/assets/img/dropdown.png" class="mx-0" />
-          <!-- <MessageMsgNotification v-if="storeBox" :messages="messages" /> -->
-        </div>
-      </div>
-
-      <div class="hidden lg:flex">
-        <div
-          class="relative flex items-center px-5 py-1 border-solid rounded-full  border-custom-gray fs-16"
+          class="relative flex items-center px-5 px-10 py-1 border-solid rounded-full  border-custom-gray fs-16"
         >
           <img
             class="absolute self-start my-3 mr-2 lg:my-0 just-logo"
