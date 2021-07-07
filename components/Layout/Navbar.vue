@@ -1,9 +1,9 @@
 <template>
   <nav
     id="navbar"
-    class="container flex justify-center w-full px-10 pt-4 border-t  navbar dark:bg-black border-lighter lg:border-0"
+    class="container flex justify-center w-full max-w-full px-10 pt-4 border-t  navbar dark:bg-black border-lighter lg:border-0"
   >
-    <div class="flex items-center justify-between pl-16 nav-items">
+    <div class="flex items-center justify-between pl-16 lg:pl-0 nav-items">
       <div class="logo-container">
         <img class="self-start my-3 lg:my-0" src="~/assets/img/logo.svg" />
       </div>

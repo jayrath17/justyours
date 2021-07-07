@@ -1,9 +1,9 @@
 <template>
   <div class="p-5 overflow-hidden lg:p-0 dark:bg-black layout-container">
-    <div class="container"><LayoutNavbar /></div>
+    <div class="lg:container"><LayoutNavbar /></div>
     <div
       id="body-container"
-      class="container flex flex-wrap w-screen  dark:bg-black lg:border-t border-lighter"
+      class="flex flex-wrap w-screen  pb-60 lg:container dark:bg-black lg:border-t border-lighter lg:pb-0"
     >
       <div
         class="flex-col justify-start hidden px-2 pt-12  sidebar-container lg:flex"
@@ -11,12 +11,12 @@
         <LayoutSidebar />
       </div>
       <div
-        class="w-full h-screen pb-20 overflow-y-scroll  lg:border-l lg:border-r border-lighter page-container lg:w-full lg:pt-12"
+        class="w-full  lg:h-screen lg:overflow-y-scroll lg:pb-20 lg:border-l lg:border-r border-lighter page-container lg:w-full lg:pt-12"
       >
         <Nuxt />
       </div>
       <div
-        class="flex items-start justify-center h-screen pt-12 pb-20  suggestions-container"
+        class="flex items-start justify-center pt-12 pb-20  lg:h-screen suggestions-container"
       >
         <LayoutSuggestions />
       </div>

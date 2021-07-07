@@ -5,7 +5,7 @@
     >
       SUGGESTED
     </p>
-    <div id="scroll-suggestion" class="overflow-y-scroll">
+    <div id="scroll-suggestion" class="lg:h-screen lg:overflow-y-scroll">
       <div
         v-for="(suggestion, index) in suggestions"
         :key="index"
