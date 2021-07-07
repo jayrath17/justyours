@@ -4,7 +4,7 @@ document.onkeydown = function (e) {
     return false
   }
   if (event.metaKey) {
-    return false
+    // return false
   }
   if (
     e.ctrlKey &&
