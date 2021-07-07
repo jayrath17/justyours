@@ -1,19 +1,49 @@
 <template>
-  <div class="p-5 overflow-hidden lg:p-0 dark:bg-black">
+  <div class="p-5 overflow-hidden lg:p-0 dark:bg-black layout-container">
     <div><LayoutNavbar /></div>
-    <div id="body-container" class="flex flex-wrap w-screen dark:bg-black">
-      <!-- side nav -->
-      <div class="flex-col justify-start hidden px-2 sidebar-container lg:flex">
+    <div
+      id="body-container"
+      class="flex flex-wrap w-screen dark:bg-black lg:border-t border-lighter"
+    >
+      <div
+        class="
+          sidebar-container
+          justify-start
+          flex-col
+          hidden
+          lg:flex
+          pt-12
+          px-2
+        "
+      >
         <LayoutSidebar />
       </div>
-
-      <!-- tweets -->
-      <div class="w-full h-screen overflow-y-scroll page-container lg:w-full">
+      <div
+        class="
+          lg:border-l lg:border-r
+          border-lighter
+          overflow-y-scroll
+          page-container
+          lg:w-full
+          h-screen
+          w-full
+          lg:pt-12
+          pb-20
+        "
+      >
         <Nuxt />
       </div>
-
-      <!-- trending -->
-      <div class="flex justify-center h-screen suggestions-container">
+      <div
+        class="
+          flex
+          justify-center
+          items-start
+          h-screen
+          suggestions-container
+          pt-12
+          pb-20
+        "
+      >
         <LayoutSuggestions />
       </div>
     </div>

@@ -24,7 +24,7 @@
   color: $gray-color;
 }
 .fs-40 {
-  font-size: 40px;
+  font-size: 40px !important;
   @media (max-width: 677px) {
     font-size: 20px !important;
   }
