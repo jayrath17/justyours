@@ -1,5 +1,8 @@
 <template>
-  <nav id="navbar" class="flex justify-center w-full pt-4 navbar dark:bg-black">
+  <nav
+    id="navbar"
+    class="container flex justify-center w-full pt-4 navbar dark:bg-black"
+  >
     <div class="flex items-center justify-between pl-16 nav-items">
       <div class="logo-container">
         <img class="self-start my-3 lg:my-0" src="~/assets/img/logo.png" />

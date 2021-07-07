@@ -15,8 +15,8 @@
           <div slot="media" class="relative">
             <img :src="`/images/${suggestion.img}`" />
             <div class="absolute flex justify-center w-full center top-80">
-              <vs-button block class="w-full pills" color="#c53761">
-                <span class="text-white fs-20">
+              <vs-button block class="w-full truncate pills" color="#c53761">
+                <span class="block text-white truncate fs-20">
                   {{ suggestion.title }}
                 </span>
               </vs-button>
@@ -41,15 +41,18 @@ export default {
     return {
       suggestions: [
         {
-          title: 'Lana Fernandes- Starts from 12 $JUST',
+          title: 'Lana Fernandes - Starts from 12 $JUST',
+          price: 12,
           img: 'suggestion3.png',
         },
         {
-          title: 'Sarina Izvyk- Starts from 7 $JUST',
+          title: 'Sarina Izvyk - Starts from 7 $JUST',
+          price: 7,
           img: 'suggestion2.png',
         },
         {
-          title: 'Mariska XX- Starts from 5 $JUST',
+          title: 'Mariska XX - Starts from 5 $JUST',
+          price: 5,
           img: 'suggestion1.png',
         },
       ],
@@ -60,15 +63,15 @@ export default {
 
 <style scoped>
 .top-80 {
-  top: 80%;
+  top: 75%;
   @media (min-width: 1024px) {
     top: 60%;
   }
   @media (min-width: 1450px) {
-    top: 80%;
+    top: 75%;
   }
 }
 .vs-button {
-  width: 80% !important;
+  width: 85% !important;
 }
 </style>

@@ -1,7 +1,10 @@
 <template>
   <div class="p-5 overflow-hidden lg:p-0 dark:bg-black">
-    <div><LayoutNavbar /></div>
-    <div id="body-container" class="flex flex-wrap w-screen dark:bg-black">
+    <div class="container"><LayoutNavbar /></div>
+    <div
+      id="body-container"
+      class="container flex flex-wrap w-screen dark:bg-black"
+    >
       <!-- side nav -->
       <div class="flex-col justify-start hidden px-2 sidebar-container lg:flex">
         <LayoutSidebar />
