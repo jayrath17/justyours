@@ -39,7 +39,7 @@
           >
             <div
               v-if="option.to"
-              class="flex justify-center items-center pb-4 pt-4 my-4"
+              class="flex justify-center items-center pb-2 pt-2 my-2"
             >
               <span class="fs-20">
                 {{ option.name }}
@@ -61,9 +61,9 @@
                 justify-center
                 items-center
                 text-secondary
-                pb-4
-                pt-4
-                my-4
+                pb-2
+                pt-2
+                my-2
               "
             >
               <label
@@ -86,7 +86,7 @@
                 id="dark"
               />
             </div>
-            <div v-else class="flex justify-center items-center pt-4 my-4">
+            <div v-else class="flex justify-center items-center pt-2 my-2">
               <span class="fs-20">
                 {{ option.name }}
               </span>
