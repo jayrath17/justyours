@@ -205,17 +205,7 @@
       </div>
 
       <div
-        class="
-          block
-          menu
-          lg:hidden
-          fs-40
-          text-secondary
-          pl-2
-          md:pl-5
-          lg:pl-0
-          relative
-        "
+        class="block menu lg:hidden fs-40 text-secondary pl-2 md:pl-5 lg:pl-0"
       >
         <i
           role="button"

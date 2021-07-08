@@ -40,6 +40,7 @@
       </div>
       <div
         class="
+          hidden
           lg:flex
           items-start
           justify-center

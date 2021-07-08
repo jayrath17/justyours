@@ -24,13 +24,7 @@
         <li
           v-for="(option, index) in options"
           :key="index"
-          class="
-            divide-y-4 divide-yellow-600
-            text-center
-            flex
-            justify-center
-            items-center
-          "
+          class="divide-y-4 divide-yellow-600 text-center"
         >
           <component
             :is="option.to ? 'nuxt-link' : 'div'"
@@ -49,7 +43,10 @@
                 {{ option.icon }}
               </span>
             </div>
-            <div v-else class="flex items-center text-xl text-secondary">
+            <div
+              v-else-if="option.type == 'switch'"
+              class="fs-20 flex justify-center items-center mt-3 text-secondary"
+            >
               <label
                 @click="darkMode = !darkMode"
                 class="
@@ -69,6 +66,14 @@
                 size="sm"
                 id="dark"
               />
+            </div>
+            <div v-else>
+              <span class="fs-20">
+                {{ option.name }}
+              </span>
+              <span class="material-icons-round fs-20">
+                {{ option.icon }}
+              </span>
             </div>
           </component>
         </li>
