@@ -3,51 +3,20 @@
     <div class="lg:container"><LayoutNavbar /></div>
     <div
       id="body-container"
-      class="
-        flex flex-wrap
-        w-screen
-        pb-10
-        lg:container
-        dark:bg-black
-        lg:border-t
-        border-lighter
-        lg:pb-0
-      "
+      class="flex flex-wrap w-full pb-60 lg:container dark:bg-black lg:border-t border-lighter lg:pb-0"
     >
       <div
-        class="
-          flex-col
-          justify-start
-          hidden
-          px-2
-          pt-12
-          sidebar-container
-          lg:flex
-        "
+        class="flex-col justify-start hidden px-2 pt-12 sidebar-container lg:flex"
       >
         <LayoutSidebar />
       </div>
       <div
-        class="
-          w-full
-          lg:h-screen lg:overflow-y-scroll lg:pb-20 lg:border-l lg:border-r
-          border-lighter
-          page-container
-          lg:w-full lg:pt-12
-        "
+        class="w-full lg:h-screen lg:overflow-y-scroll lg:pb-20 lg:border-l lg:border-r border-lighter page-container lg:w-full lg:pt-12"
       >
         <Nuxt />
       </div>
       <div
-        class="
-          lg:flex
-          items-start
-          justify-center
-          pt-12
-          pb-20
-          lg:h-screen lg:overflow-y-scroll
-          suggestions-container
-        "
+        class="flex items-start justify-center pt-12 pb-20 lg:h-screen lg:overflow-y-scroll suggestions-container"
       >
         <LayoutSuggestions />
       </div>
@@ -76,14 +45,12 @@ html {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
 }
-
 *,
 *::before,
 *::after {
   box-sizing: border-box;
   margin: 0;
 }
-
 .button--green {
   display: inline-block;
   border-radius: 4px;
@@ -92,12 +59,10 @@ html {
   text-decoration: none;
   padding: 10px 30px;
 }
-
 .button--green:hover {
   color: #fff;
   background-color: #3b8070;
 }
-
 .button--grey {
   display: inline-block;
   border-radius: 4px;
@@ -107,7 +72,6 @@ html {
   padding: 10px 30px;
   margin-left: 15px;
 }
-
 .button--grey:hover {
   color: #fff;
   background-color: #35495e;
