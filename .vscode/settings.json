@@ -5,11 +5,13 @@
     },
     "[javascript]": {
       "editor.formatOnSave": true,
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.tabSize": 2
     },
     "[vue]": {
       "editor.formatOnSave": true,
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.tabSize": 2
     },
     "[scss]": {
       "editor.formatOnSave": true,
@@ -22,5 +24,10 @@
     "javascript.updateImportsOnFileMove.enabled": "always",
     "emmet.includeLanguages": {
       "javascript": "javascriptreact"
-    }
+    },
+    "eslint.workingDirectories": [
+      "./components",
+  ],
+  "prettier.singleQuote": true,
+  "prettier.semi": false,
   }

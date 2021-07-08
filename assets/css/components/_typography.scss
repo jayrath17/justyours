@@ -51,6 +51,11 @@
 .fs-12 {
   font-size: 12px;
 }
+.fs-res-24 {
+  @media (max-width: 677px) {
+    font-size: 24px !important;
+  }
+}
 .btn-letter-spacing {
   letter-spacing: 8.68px;
 }

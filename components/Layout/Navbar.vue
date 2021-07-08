@@ -1,10 +1,12 @@
 <template>
   <nav
     id="navbar"
-    class="container flex justify-center w-full max-w-full px-10 pt-4 border-t  navbar dark:bg-black border-lighter lg:border-0"
+    class="container flex justify-center w-full max-w-full lg:px-10 lg:pt-4 border-t navbar dark:bg-black border-lighter lg:border-0"
   >
-    <div class="flex items-center justify-between pl-16 lg:pl-0 nav-items">
-      <div class="logo-container">
+    <div
+      class="flex items-center justify-center lg:justify-between pl-16 lg:pl-0 nav-items"
+    >
+      <div class="logo-container mr-2 md:mr-5 lg:mr-0">
         <img class="self-start my-3 lg:my-0" src="~/assets/img/logo.svg" />
       </div>
 
@@ -29,9 +31,9 @@
       </div>
 
       <div class="flex items-center justify-between lg:pr-10">
-        <div class="px-3 lg:pl-3 lg:pr-5" role="button">
+        <div class="px-5 md:px-10 lg:pl-3 lg:pr-5" role="button">
           <span
-            class="my-3 mb-0 text-white  lg:my-0 material-icons fs-40 icons-color"
+            class="my-3 mb-0 text-white lg:my-0 material-icons fs-40 fs-res-24 icons-color"
           >
             question_answer
           </span>
@@ -53,12 +55,12 @@
           </div>
         </div>
 
-        <div class="px-3 lg:px-5" role="button">
+        <div class="px-5 md:px-10 lg:px-5" role="button">
           <span
             @click.prevent.stop="handleOpenModals('notify')"
             @mouseover="notifyHover = true"
             @mouseleave="notifyHover = false"
-            class="my-3 text-white  lg:my-0 notification material-icons fs-40 icons-color"
+            class="my-3 text-white lg:my-0 notification material-icons fs-40 fs-res-24 icons-color"
           >
             notifications_active
           </span>
@@ -75,12 +77,12 @@
           </div>
         </div>
 
-        <div class="block px-3 lg:px-5 lg:hidden" role="button">
+        <div class="px-5 md:px-10 lg:px-5 block lg:hidden" role="button">
           <span
             @click.prevent.stop="handleOpenModals('notify')"
             @mouseover="notifyHover = true"
             @mouseleave="notifyHover = false"
-            class="my-3 text-white  lg:my-0 notification material-icons fs-40 icons-color"
+            class="my-3 text-white lg:my-0 notification material-icons fs-40 fs-res-24 icons-color"
           >
             try
           </span>
@@ -97,12 +99,12 @@
           </div>
         </div>
 
-        <div class="px-3 lg:pl-5" role="button">
+        <div class="px-5 md:px-10 lg:pl-5" role="button">
           <span
             @click.prevent.stop="handleOpenModals('store')"
             @mouseover="storeHover = true"
             @mouseleave="storeHover = false"
-            class="my-3 text-white  lg:my-0 notification material-icons fs-40 icons-color"
+            class="my-3 text-white lg:my-0 notification material-icons fs-40 fs-res-24 icons-color"
           >
             store
           </span>
@@ -118,7 +120,7 @@
 
       <div class="hidden lg:flex 0">
         <div
-          class="relative flex items-center px-5 px-10 py-1 border-solid rounded-full  border-custom-gray fs-16"
+          class="relative flex items-center px-5 px-10 py-1 border-solid rounded-full border-custom-gray fs-16"
         >
           <img
             class="absolute self-start my-3 mr-2 lg:my-0 just-logo"
@@ -137,7 +139,9 @@
         </div>
       </div>
 
-      <div class="block menu lg:hidden fs-40 text-secondary">
+      <div
+        class="block menu lg:hidden fs-40 text-secondary pl-2 md:pl-5 lg:pl-0"
+      >
         <i
           role="button"
           class="fas fa-bars"
