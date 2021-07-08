@@ -44,4 +44,7 @@
   @media (min-width: 1024px) {
     margin-left: -1.5em;
   }
+  @media (max-width: 1023px) {
+    height: 100% !important;
+  }
 }

@@ -19,10 +19,25 @@
     "
   >
     <div
-      class="flex items-center justify-center lg:justify-between pl-16 lg:pl-0 nav-items"
+      class="
+        flex
+        items-center
+        justify-center
+        lg:justify-between
+        pl-16
+        lg:pl-0
+        nav-items
+      "
     >
-      <div class="logo-container mr-2 md:mr-3 2xl:mr-10 2xl:mr-0">
-        <img class="self-start my-3 lg:my-0" src="~/assets/img/logo.svg" />
+      <div
+        class="logo-container mr-2 md:mr-3 2xl:mr-10 2xl:mr-0"
+        @click="$router.push('/')"
+      >
+        <img
+          class="self-start my-3 lg:my-0"
+          src="~/assets/img/logo.svg"
+          @click="$router.push('/')"
+        />
       </div>
 
       <div class="hidden 2xl:block" style="width: 12%"></div>
@@ -48,7 +63,13 @@
       <div
         class="flex items-center justify-between 2xl:ml-10 lg:pr-1 2xl:pr-10"
       >
-        <div class="px-4 sm:px-10 2xl:px-10 lg:pl-3 lg:pr-5" role="button">
+        <div
+          class="px-4 sm:px-10 2xl:px-10 lg:pl-3 lg:pr-5"
+          role="button"
+          @click.prevent.stop="
+            isMobile ? $router.push('/chat') : handleOpenModals('msg')
+          "
+        >
           <span
             class="
               my-3
@@ -58,9 +79,6 @@
               material-icons
               fs-40 fs-res-24
               icons-color
-            "
-            @click.prevent.stop="
-              isMobile ? $router.push('/chat') : handleOpenModals('msg')
             "
           >
             question_answer
@@ -93,17 +111,33 @@
           </div>
         </div>
 
-        <div class="px-4 sm:px-10 2xl:px-10 lg:px-5" role="button">
+        <div
+          class="px-4 sm:px-10 2xl:px-10 lg:px-5"
+          role="button"
+          @click.prevent.stop="
+            isMobile
+              ? $router.push('/notifications')
+              : handleOpenModals('notify')
+          "
+        >
           <span
-            @click.prevent.stop="handleOpenModals('notify')"
-            @mouseover="notifyHover = true"
-            @mouseleave="notifyHover = false"
-            class="my-3 text-white lg:my-0 notification material-icons fs-40 fs-res-24 icons-color"
+            @mouseover="!isMobile ? (notifyHover = true) : undefined"
+            @mouseleave="!isMobile ? (notifyHover = false) : undefined"
+            class="
+              my-3
+              text-white
+              lg:my-0
+              notification
+              material-icons
+              fs-40 fs-res-24
+              icons-color
+            "
           >
             notifications_active
           </span>
           <div
-            class="flex justify-center ease-in-out"
+            v-if="!isMobile"
+            class="hidden lg:flex justify-center ease-in-out"
             :class="{ 'ease-in-out': notifyBox }"
           >
             <img
@@ -118,17 +152,28 @@
         <div
           class="px-4 sm:px-10 2xl:px-10 lg:px-5 block lg:hidden"
           role="button"
+          @click.prevent.stop="
+            isMobile ? $router.push('/suggestions') : handleOpenModals('notify')
+          "
         >
           <span
-            @click.prevent.stop="handleOpenModals('notify')"
-            @mouseover="notifyHover = true"
-            @mouseleave="notifyHover = false"
-            class="my-3 text-white lg:my-0 notification material-icons fs-40 fs-res-24 icons-color"
+            @mouseover="!isMobile ? (notifyHover = true) : undefined"
+            @mouseleave="!isMobile ? (notifyHover = false) : undefined"
+            class="
+              my-3
+              text-white
+              lg:my-0
+              notification
+              material-icons
+              fs-40 fs-res-24
+              icons-color
+            "
           >
             try
           </span>
           <div
-            class="flex justify-center ease-in-out"
+            v-if="!isMobile"
+            class="hidden lg:flex justify-center ease-in-out"
             :class="{ 'ease-in-out': notifyBox }"
           >
             <img
@@ -140,17 +185,31 @@
           </div>
         </div>
 
-        <div class="px-4 sm:px-10 2xl:px-10 lg:pl-5" role="button">
+        <div
+          class="px-4 sm:px-10 2xl:px-10 lg:pl-5"
+          role="button"
+          @click.prevent.stop="
+            isMobile ? $router.push('/') : handleOpenModals('store')
+          "
+        >
           <span
-            @click.prevent.stop="handleOpenModals('store')"
-            @mouseover="storeHover = true"
-            @mouseleave="storeHover = false"
-            class="my-3 text-white lg:my-0 notification material-icons fs-40 fs-res-24 icons-color"
+            @mouseover="!isMobile ? (storeHover = true) : undefined"
+            @mouseleave="!isMobile ? (storeHover = false) : undefined"
+            class="
+              my-3
+              text-white
+              lg:my-0
+              notification
+              material-icons
+              fs-40 fs-res-24
+              icons-color
+            "
           >
             store
           </span>
           <div
-            class="flex justify-center ease-in-out"
+            v-if="!isMobile"
+            class="hidden lg:flex justify-center ease-in-out"
             :class="{ 'ease-in-out': storeBox }"
           >
             <img v-if="storeBox" src="~/assets/img/dropdown.png" class="mx-0" />
@@ -159,25 +218,12 @@
         </div>
       </div>
 
-      <div class="hidden lg:flex 0">
-        <div
-          class="relative flex items-center px-5 px-10 py-1 border-solid rounded-full border-custom-gray fs-16"
-        >
-          <img
-            class="absolute self-start my-3 mr-2 lg:my-0 just-logo"
-            src="~/assets/img/wallet-icon.png"
-          />
-          <span class="ml-3 font-semibold text-blue">54,000</span>
-          <span class="ml-1 font-semibold text-primary">JUST</span>
-        </div>
+      <div class="hidden lg:flex">
+        <BadgeJust />
       </div>
 
       <div class="hidden lg:flex lg:ml-5 2xl:ml-10">
-        <div
-          class="px-5 py-1 border-solid rounded-full border-custom-gray fs-16"
-        >
-          <span class="font-semibold text-gray">0x623d...298c </span>
-        </div>
+        <BadgeAddress />
       </div>
 
       <div
@@ -188,6 +234,7 @@
           class="fas fa-bars"
           @click.prevent.stop="openSidebar"
         ></i>
+        <LayoutMobileSidebar v-if="isSidebarActive" />
       </div>
     </div>
   </nav>
@@ -212,6 +259,8 @@ export default {
       storeHover: false,
       darkMode: true,
       searchValue: '',
+      isMobile: false,
+      isSidebarActive: false,
       messages: [
         {
           image: 'msg-profile07',
@@ -272,10 +321,17 @@ export default {
       return this.darkMode ? 'notify-hover-dark' : 'notify-hover'
     },
   },
+  beforeDestroy() {
+    if (typeof window !== 'undefined') {
+      window.removeEventListener('resize', this.onResize, { passive: true })
+    }
+  },
   mounted() {
     if (['dark', 'system'].includes(this.$colorMode.preference)) {
       this.darkMode = true
     }
+    this.onResize()
+    window.addEventListener('resize', this.onResize, { passive: true })
   },
   created() {
     this.$nuxt.$on('sidebarOpened', () => {
@@ -285,6 +341,9 @@ export default {
     })
   },
   methods: {
+    onResize() {
+      this.isMobile = window.innerWidth < 1024
+    },
     openMessages() {
       this.msgBox = !this.msgBox
     },
