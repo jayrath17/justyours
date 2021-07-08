@@ -41,6 +41,12 @@ a.nuxt-link-exact-active {
   color: #000;
 }
 
+@media (prefers-color-scheme: dark) {
+  a.nuxt-link-exact-active {
+    color: #fff;
+  }
+}
+
 .con-vs-card {
   background: transparent;
 }

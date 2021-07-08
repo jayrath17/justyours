@@ -3,20 +3,51 @@
     <div class="lg:container"><LayoutNavbar /></div>
     <div
       id="body-container"
-      class="flex flex-wrap w-full pb-60 lg:container dark:bg-black lg:border-t border-lighter lg:pb-0"
+      class="
+        flex flex-wrap
+        w-screen
+        pb-10
+        lg:container
+        dark:bg-black
+        lg:border-t
+        border-lighter
+        lg:pb-0
+      "
     >
       <div
-        class="flex-col justify-start hidden px-2 pt-12 sidebar-container lg:flex"
+        class="
+          flex-col
+          justify-start
+          hidden
+          px-2
+          pt-12
+          sidebar-container
+          lg:flex
+        "
       >
         <LayoutSidebar />
       </div>
       <div
-        class="w-full lg:h-screen lg:overflow-y-scroll lg:pb-20 lg:border-l lg:border-r border-lighter page-container lg:w-full lg:pt-12"
+        class="
+          w-full
+          lg:h-screen lg:overflow-y-scroll lg:pb-20 lg:border-l lg:border-r
+          border-lighter
+          page-container
+          lg:w-full lg:pt-12
+        "
       >
         <Nuxt />
       </div>
       <div
-        class="flex items-start justify-center pt-12 pb-20 lg:h-screen lg:overflow-y-scroll suggestions-container"
+        class="
+          lg:flex
+          items-start
+          justify-center
+          pt-12
+          pb-20
+          lg:h-screen lg:overflow-y-scroll
+          suggestions-container
+        "
       >
         <LayoutSuggestions />
       </div>

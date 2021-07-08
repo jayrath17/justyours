@@ -1,7 +1,13 @@
 <template>
   <div class="px-3 suggestions lg:w-3/4 3xl:w-4/3">
     <p
-      class="text-center  fs-24 btn-letter-spacing lg:mb-3 lg:-ml-4 dark:text-white"
+      class="
+        text-center
+        fs-24
+        btn-letter-spacing
+        lg:mb-3 lg:-ml-4
+        dark:text-white
+      "
     >
       SUGGESTED
     </p>
@@ -41,17 +47,17 @@ export default {
     return {
       suggestions: [
         {
-          title: 'Lana Fernandes - Starts from 12 $JUST',
+          title: 'Lana Fernandes - 12 $JUST',
           price: 12,
           img: 'suggestion3.png',
         },
         {
-          title: 'Sarina Izvyk - Starts from 7 $JUST',
+          title: 'Sarina Izvyk - 7 $JUST',
           price: 7,
           img: 'suggestion2.png',
         },
         {
-          title: 'Mariska XX - Starts from 5 $JUST',
+          title: 'Mariska XX - 5 $JUST',
           price: 5,
           img: 'suggestion1.png',
         },

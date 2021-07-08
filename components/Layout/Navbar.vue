@@ -1,13 +1,42 @@
 <template>
   <nav
     id="navbar"
-    class="container flex justify-center w-full max-w-full lg:mx-3 2xl:px-10 lg:pt-4 border-t navbar dark:bg-black border-lighter lg:border-0"
+    class="
+      lg:container
+      flex
+      justify-center
+      w-full
+      max-w-full
+      lg:mx-3
+      2xl:px-10
+      lg:pt-4
+      border-t
+      navbar
+      dark:bg-black
+      border-lighter
+      lg:border-0
+    "
   >
     <div
-      class="flex items-center justify-center lg:justify-between pl-16 lg:pl-0 nav-items"
+      class="
+        flex
+        items-center
+        justify-center
+        lg:justify-between
+        pl-16
+        lg:pl-0
+        nav-items
+      "
     >
-      <div class="logo-container mr-2 md:mr-3 2xl:mr-10 2xl:mr-0">
-        <img class="self-start my-3 lg:my-0" src="~/assets/img/logo.svg" />
+      <div
+        class="logo-container mr-2 md:mr-3 2xl:mr-10 2xl:mr-0"
+        @click="$router.push('/')"
+      >
+        <img
+          class="self-start my-3 lg:my-0"
+          src="~/assets/img/logo.svg"
+          @click="$router.push('/')"
+        />
       </div>
 
       <div class="hidden 2xl:block" style="width: 12%"></div>
@@ -35,12 +64,22 @@
       >
         <div class="px-4 sm:px-10 2xl:px-10 lg:pl-3 lg:pr-5" role="button">
           <span
-            class="my-3 mb-0 text-white lg:my-0 material-icons fs-40 fs-res-24 icons-color"
+            class="
+              my-3
+              mb-0
+              text-white
+              lg:my-0
+              material-icons
+              fs-40 fs-res-24
+              icons-color
+            "
+            @click="isMobile && $router.push('/chat')"
           >
             question_answer
           </span>
           <div
-            class="relative flex justify-center ease-in-out"
+            v-if="!isMobile"
+            class="relative justify-center ease-in-out hidden lg:flex"
             :class="{ 'ease-in-out': msgBox }"
           >
             <img
@@ -59,15 +98,28 @@
 
         <div class="px-4 sm:px-10 2xl:px-10 lg:px-5" role="button">
           <span
-            @click.prevent.stop="handleOpenModals('notify')"
-            @mouseover="notifyHover = true"
-            @mouseleave="notifyHover = false"
-            class="my-3 text-white lg:my-0 notification material-icons fs-40 fs-res-24 icons-color"
+            @click.prevent.stop="
+              isMobile
+                ? $router.push('/notifications')
+                : handleOpenModals('notify')
+            "
+            @mouseover="!isMobile ? (notifyHover = true) : null"
+            @mouseleave="!isMobile ? (notifyHover = false) : null"
+            class="
+              my-3
+              text-white
+              lg:my-0
+              notification
+              material-icons
+              fs-40 fs-res-24
+              icons-color
+            "
           >
             notifications_active
           </span>
           <div
-            class="flex justify-center ease-in-out"
+            v-if="!isMobile"
+            class="hidden lg:flex justify-center ease-in-out"
             :class="{ 'ease-in-out': notifyBox }"
           >
             <img
@@ -84,15 +136,28 @@
           role="button"
         >
           <span
-            @click.prevent.stop="handleOpenModals('notify')"
-            @mouseover="notifyHover = true"
-            @mouseleave="notifyHover = false"
-            class="my-3 text-white lg:my-0 notification material-icons fs-40 fs-res-24 icons-color"
+            @click.prevent.stop="
+              isMobile
+                ? $router.push('/suggestions')
+                : handleOpenModals('notify')
+            "
+            @mouseover="!isMobile ? (notifyHover = true) : null"
+            @mouseleave="!isMobile ? (notifyHover = false) : null"
+            class="
+              my-3
+              text-white
+              lg:my-0
+              notification
+              material-icons
+              fs-40 fs-res-24
+              icons-color
+            "
           >
             try
           </span>
           <div
-            class="flex justify-center ease-in-out"
+            v-if="!isMobile"
+            class="hidden lg:flex justify-center ease-in-out"
             :class="{ 'ease-in-out': notifyBox }"
           >
             <img
@@ -100,21 +165,29 @@
               src="~/assets/img/dropdown.png"
               class="mx-0"
             />
-            <!-- <MessageMsgNotification v-if="notifyBox" :messages="messages" /> -->
           </div>
         </div>
 
         <div class="px-4 sm:px-10 2xl:px-10 lg:pl-5" role="button">
           <span
-            @click.prevent.stop="handleOpenModals('store')"
-            @mouseover="storeHover = true"
-            @mouseleave="storeHover = false"
-            class="my-3 text-white lg:my-0 notification material-icons fs-40 fs-res-24 icons-color"
+            @click.prevent.stop="
+              isMobile ? $router.push('/') : handleOpenModals('store')
+            "
+            class="
+              my-3
+              text-white
+              lg:my-0
+              notification
+              material-icons
+              fs-40 fs-res-24
+              icons-color
+            "
           >
             store
           </span>
           <div
-            class="flex justify-center ease-in-out"
+            v-if="!isMobile"
+            class="hidden lg:flex justify-center ease-in-out"
             :class="{ 'ease-in-out': storeBox }"
           >
             <img v-if="storeBox" src="~/assets/img/dropdown.png" class="mx-0" />
@@ -123,35 +196,33 @@
         </div>
       </div>
 
-      <div class="hidden lg:flex 0">
-        <div
-          class="relative flex items-center px-5 px-10 py-1 border-solid rounded-full border-custom-gray fs-16"
-        >
-          <img
-            class="absolute self-start my-3 mr-2 lg:my-0 just-logo"
-            src="~/assets/img/wallet-icon.png"
-          />
-          <span class="ml-3 font-semibold text-blue">54,000</span>
-          <span class="ml-1 font-semibold text-primary">JUST</span>
-        </div>
+      <div class="hidden lg:flex">
+        <BadgeJust />
       </div>
 
       <div class="hidden lg:flex lg:ml-5 2xl:ml-10">
-        <div
-          class="px-5 py-1 border-solid rounded-full border-custom-gray fs-16"
-        >
-          <span class="font-semibold text-gray">0x623d...298c </span>
-        </div>
+        <BadgeAddress />
       </div>
 
       <div
-        class="block menu lg:hidden fs-40 text-secondary pl-2 md:pl-5 lg:pl-0"
+        class="
+          block
+          menu
+          lg:hidden
+          fs-40
+          text-secondary
+          pl-2
+          md:pl-5
+          lg:pl-0
+          relative
+        "
       >
         <i
           role="button"
           class="fas fa-bars"
           @click.prevent.stop="openSidebar"
         ></i>
+        <LayoutMobileSidebar v-if="isSidebarActive" />
       </div>
     </div>
   </nav>
@@ -176,6 +247,8 @@ export default {
       storeHover: false,
       darkMode: true,
       searchValue: '',
+      isMobile: false,
+      isSidebarActive: false,
       messages: [
         {
           image: 'msg-profile07',
@@ -236,12 +309,22 @@ export default {
       return this.darkMode ? 'notify-hover-dark' : 'notify-hover'
     },
   },
+  beforeDestroy() {
+    if (typeof window !== 'undefined') {
+      window.removeEventListener('resize', this.onResize, { passive: true })
+    }
+  },
   mounted() {
     if (['dark', 'system'].includes(this.$colorMode.preference)) {
       this.darkMode = true
     }
+    this.onResize()
+    window.addEventListener('resize', this.onResize, { passive: true })
   },
   methods: {
+    onResize() {
+      this.isMobile = window.innerWidth < 1024
+    },
     openMessages() {
       this.msgBox = !this.msgBox
     },
@@ -249,7 +332,7 @@ export default {
       this.msgBox = false
     },
     openSidebar() {
-      $nuxt.$emit('openSidebar')
+      this.isSidebarActive = !this.isSidebarActive
     },
     handleOpenModals(type) {
       if (type == 'msg') {
