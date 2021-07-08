@@ -1,5 +1,5 @@
 <template>
-  <div class="pr-5 pb-14">
+  <div class="lg:pr-5 lg:pb-14">
     <PostIndex v-for="post in posts" :key="post.id" :post="post" />
   </div>
 </template>

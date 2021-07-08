@@ -14,15 +14,17 @@
 #body-layout {
   transition: 0.4s;
 }
+
 #body-container {
   overflow-y: hidden !important;
   position: relative;
   top: 6rem;
   @media (max-width: 1023px) {
     position: static;
-    padding-right: 1em;
+    padding-right: 0;
   }
 }
+
 .nav-items {
   width: 87.5%;
   @media (max-width: 1023px) {

@@ -1,16 +1,16 @@
 <template>
   <nav
     id="navbar"
-    class="container flex justify-center w-full max-w-full lg:px-10 lg:pt-4 border-t navbar dark:bg-black border-lighter lg:border-0"
+    class="container flex justify-center w-full max-w-full lg:mx-3 2xl:px-10 lg:pt-4 border-t navbar dark:bg-black border-lighter lg:border-0"
   >
     <div
       class="flex items-center justify-center lg:justify-between pl-16 lg:pl-0 nav-items"
     >
-      <div class="logo-container mr-2 md:mr-5 lg:mr-0">
+      <div class="logo-container mr-2 md:mr-3 2xl:mr-10 2xl:mr-0">
         <img class="self-start my-3 lg:my-0" src="~/assets/img/logo.svg" />
       </div>
 
-      <div class="hidden lg:flex" style="width: 12%"></div>
+      <div class="hidden 2xl:block" style="width: 12%"></div>
 
       <div class="hidden search-input lg:flex">
         <vs-input
@@ -30,8 +30,10 @@
         </vs-input>
       </div>
 
-      <div class="flex items-center justify-between lg:pr-10">
-        <div class="px-5 md:px-10 lg:pl-3 lg:pr-5" role="button">
+      <div
+        class="flex items-center justify-between 2xl:ml-10 lg:pr-1 2xl:pr-10"
+      >
+        <div class="px-4 sm:px-10 2xl:px-10 lg:pl-3 lg:pr-5" role="button">
           <span
             class="my-3 mb-0 text-white lg:my-0 material-icons fs-40 fs-res-24 icons-color"
           >
@@ -55,7 +57,7 @@
           </div>
         </div>
 
-        <div class="px-5 md:px-10 lg:px-5" role="button">
+        <div class="px-4 sm:px-10 2xl:px-10 lg:px-5" role="button">
           <span
             @click.prevent.stop="handleOpenModals('notify')"
             @mouseover="notifyHover = true"
@@ -77,7 +79,10 @@
           </div>
         </div>
 
-        <div class="px-5 md:px-10 lg:px-5 block lg:hidden" role="button">
+        <div
+          class="px-4 sm:px-10 2xl:px-10 lg:px-5 block lg:hidden"
+          role="button"
+        >
           <span
             @click.prevent.stop="handleOpenModals('notify')"
             @mouseover="notifyHover = true"
@@ -99,7 +104,7 @@
           </div>
         </div>
 
-        <div class="px-5 md:px-10 lg:pl-5" role="button">
+        <div class="px-4 sm:px-10 2xl:px-10 lg:pl-5" role="button">
           <span
             @click.prevent.stop="handleOpenModals('store')"
             @mouseover="storeHover = true"
@@ -131,7 +136,7 @@
         </div>
       </div>
 
-      <div class="hidden lg:flex">
+      <div class="hidden lg:flex lg:ml-5 2xl:ml-10">
         <div
           class="px-5 py-1 border-solid rounded-full border-custom-gray fs-16"
         >
