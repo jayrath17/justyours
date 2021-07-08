@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-5 lg:ml-6">
+  <div class="mb-5 lg:mx-6">
     <div class="flex">
       <div class="flex flex-shrink-0 mr-4">
         <img src="/images/post.png" class="rounded-full" />
@@ -9,7 +9,7 @@
           <b class="text-lg font-bold dark:text-white fs-24">{{ post.user }}</b>
           <p class="mt-1 text-muted fs-24">44m</p>
         </div>
-        <div class="self-center mr-9 fs-24">
+        <div class="self-center fs-24">
           <i class="cursor-pointer fas fa-ellipsis-v dark:text-white"></i>
         </div>
       </div>

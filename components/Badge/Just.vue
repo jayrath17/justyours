@@ -10,6 +10,7 @@
       rounded-full
       border-custom-gray
       fs-16
+      dark:bg-white
     "
   >
     <img

@@ -2,6 +2,13 @@
   .profile__wrapper {
     width: 112px;
   }
+
+  .sidebar__route {
+    @media (max-width: 1799px) {
+      width: 70% !important;
+    }
+  }
+
   .profile-img {
     width: 104px;
     height: 104px;
@@ -16,10 +23,6 @@
     bottom: 13px;
     width: 26px;
     right: 18px;
-  }
-  .vs-switch {
-    min-width: 20px !important;
-    background: gray;
   }
 
   .border-color {
@@ -59,4 +62,16 @@
 
 .vs-card {
   background: transparent;
+}
+
+.mobile__sidebar {
+  .status-circle {
+    background-color: $green-color !important;
+    border: 3px solid $primary-color !important;
+    position: absolute;
+    border-radius: 50%;
+    right: 0 !important;
+    bottom: 13px !important;
+    top: initial !important;
+  }
 }

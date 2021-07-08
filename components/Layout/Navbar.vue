@@ -1,7 +1,22 @@
 <template>
   <nav
     id="navbar"
-    class="container flex justify-center w-full max-w-full lg:mx-3 2xl:px-10 lg:pt-4 border-t navbar dark:bg-black border-lighter lg:border-0"
+    class="
+      lg:container
+      flex
+      justify-center
+      w-full
+      max-w-full
+      lg:mx-3
+      2xl:px-10
+      lg:pt-4
+      border-t
+      navbar
+      bg-white
+      dark:bg-black
+      border-lighter
+      lg:border-0
+    "
   >
     <div
       class="flex items-center justify-center lg:justify-between pl-16 lg:pl-0 nav-items"
@@ -35,19 +50,40 @@
       >
         <div class="px-4 sm:px-10 2xl:px-10 lg:pl-3 lg:pr-5" role="button">
           <span
-            class="my-3 mb-0 text-white lg:my-0 material-icons fs-40 fs-res-24 icons-color"
+            class="
+              my-3
+              mb-0
+              text-white
+              lg:my-0
+              material-icons
+              fs-40 fs-res-24
+              icons-color
+            "
+            @click.prevent.stop="
+              isMobile ? $router.push('/chat') : handleOpenModals('msg')
+            "
           >
             question_answer
           </span>
           <div
-            class="relative flex justify-center ease-in-out"
+            v-if="!isMobile"
+            class="
+              relative
+              justify-center
+              ease-in-out
+              hidden
+              lg:flex
+              messages__dropdown__wrapper
+            "
             :class="{ 'ease-in-out': msgBox }"
           >
             <img
               v-if="msgBox"
               @click.prevent.stop="openMessages"
               src="~/assets/img/dropdown.png"
-              :class="`mx-0 dropdown ${msgBox ? 'dropdown-active' : ''}`"
+              :class="`absolute mx-0 dropdown ${
+                msgBox ? 'dropdown-active' : ''
+              }`"
             />
             <MessageDropdown
               v-if="msgBox"
@@ -73,7 +109,7 @@
             <img
               v-if="notifyBox"
               src="~/assets/img/dropdown.png"
-              class="mx-0"
+              class="mx-0 absolute"
             />
             <!-- <MessageMsgNotification v-if="notifyBox" :messages="messages" /> -->
           </div>
@@ -241,6 +277,13 @@ export default {
       this.darkMode = true
     }
   },
+  created() {
+    this.$nuxt.$on('sidebarOpened', () => {
+      this.isSidebarActive = !this.isSidebarActive
+      let body = document.getElementById('body-container')
+      body.style.opacity = 1
+    })
+  },
   methods: {
     openMessages() {
       this.msgBox = !this.msgBox
@@ -249,7 +292,14 @@ export default {
       this.msgBox = false
     },
     openSidebar() {
-      $nuxt.$emit('openSidebar')
+      this.isSidebarActive = !this.isSidebarActive
+      let body = document.getElementById('body-container')
+      if (this.isSidebarActive) {
+        body.style.opacity = 0.5
+        return
+      }
+      body.style.opacity = 1
+      return
     },
     handleOpenModals(type) {
       if (type == 'msg') {

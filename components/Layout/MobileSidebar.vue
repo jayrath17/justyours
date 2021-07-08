@@ -5,14 +5,16 @@
       rounded-xl
       bg-white
       dark:bg-black
-      p-10
+      px-4
+      py-4
       absolute
       -translate-y-full
       right-0
       top-0
+      mobile__sidebar
     "
   >
-    <div class="user__data flex">
+    <div class="user__data flex items-center">
       <div class="badges mt-5 mr-5">
         <BadgeJust />
         <BadgeAddress />
@@ -24,33 +26,50 @@
         <li
           v-for="(option, index) in options"
           :key="index"
-          class="divide-y-4 divide-yellow-600 text-center"
+          class="
+            divide-y-4 divide-yellow-600
+            text-center
+            border-b-2 border-gray-100
+          "
         >
           <component
             :is="option.to ? 'nuxt-link' : 'div'"
             :to="option.to ? option.to : undefined"
+            class="dark:text-active"
           >
-            <div v-if="option.to">
+            <div
+              v-if="option.to"
+              class="flex justify-center items-center pb-4 pt-4 my-4"
+            >
               <span class="fs-20">
                 {{ option.name }}
               </span>
               <i
                 v-if="option.pack == 'fa'"
                 :class="option.icon"
-                class="fs-20"
+                class="fs-20 ml-3"
               />
-              <span v-else class="material-icons-round fs-20">
+              <span v-else class="material-icons-round fs-20 ml-3">
                 {{ option.icon }}
               </span>
             </div>
             <div
               v-else-if="option.type == 'switch'"
-              class="fs-20 flex justify-center items-center mt-3 text-secondary"
+              class="
+                fs-20
+                flex
+                justify-center
+                items-center
+                text-secondary
+                pb-4
+                pt-4
+                my-4
+              "
             >
               <label
                 @click="darkMode = !darkMode"
                 class="
-                  ml-5
+                  mr-3
                   fs-20
                   cursor-pointer
                   select-none
@@ -67,11 +86,11 @@
                 id="dark"
               />
             </div>
-            <div v-else>
+            <div v-else class="flex justify-center items-center pt-4 my-4">
               <span class="fs-20">
                 {{ option.name }}
               </span>
-              <span class="material-icons-round fs-20">
+              <span class="material-icons-round fs-20 ml-3">
                 {{ option.icon }}
               </span>
             </div>
@@ -130,10 +149,35 @@ export default {
       ],
     }
   },
+  watch: {
+    darkMode() {
+      this.$colorMode.preference = this.darkMode ? 'dark' : 'light'
+    },
+  },
+  mounted() {
+    if (['dark', 'system'].includes(this.$colorMode.preference)) {
+      this.darkMode = true
+    }
+  },
   methods: {
-    hideSidebar() {},
+    hideSidebar() {
+      this.$nuxt.$emit('sidebarOpened')
+    },
   },
 }
 </script>
 
-<style></style>
+<style scoped lang="scss">
+.mobile__sidebar {
+  .profile__pic {
+    margin-bottom: 0 !important;
+    width: 5rem;
+  }
+
+  li:last-child {
+    border-bottom: 0 !important;
+    padding-bottom: 0.25em;
+    margin-bottom: 0.25em;
+  }
+}
+</style>

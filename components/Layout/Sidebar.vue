@@ -7,13 +7,20 @@
         <div
           v-for="(route, index) in routes"
           :key="index"
-          class="flex justify-start w-1/2 mb-12"
+          class="flex justify-start w-1/2 mb-12 sidebar__route"
         >
           <div class="text-left fs-24">
             <NuxtLink
               v-if="route.name !== 'dark'"
               :to="route.to"
-              class="flex items-center text-xl  text-secondary dark:text-active hover:text-black dark:hover:text-white"
+              class="
+                flex
+                items-center
+                text-xl text-secondary
+                dark:text-active
+                hover:text-black
+                dark:hover:text-white
+              "
             >
               <i :class="route.icon" />
               <span class="ml-5">
@@ -29,7 +36,14 @@
               />
               <label
                 @click="darkMode = !darkMode"
-                class="ml-5 text-xl cursor-pointer select-none  text-secondary xl:whitespace-nowrap"
+                class="
+                  ml-5
+                  text-xl
+                  cursor-pointer
+                  select-none
+                  text-secondary
+                  xl:whitespace-nowrap
+                "
                 for="dark"
                 >Dark Mode</label
               >
@@ -103,16 +117,6 @@ export default {
     if (['dark', 'system'].includes(this.$colorMode.preference)) {
       this.darkMode = true
     }
-  },
-  created() {
-    this.$nuxt.$on('openSidebar', () => {
-      this.activeSidebar = !this.activeSidebar
-      if (this.activeSidebar) {
-        // document.body.style.overflowY = 'hidden'
-      } else {
-        // document.body.style.overflowY = 'scroll'
-      }
-    })
   },
 }
 </script>
