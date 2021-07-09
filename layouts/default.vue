@@ -4,7 +4,7 @@
     <div class="lg:container"><LayoutNavbar /></div>
     <div
       id="body-container"
-      class="flex flex-wrap w-full lg:container lg:border-t border-lighter pb-10"
+      class="flex flex-wrap w-full lg:container lg:border-t border-lighter pb-10 lg:h-screen"
     >
       <div
         class="flex-col justify-start hidden px-2 pt-12 sidebar-container lg:flex"
@@ -26,31 +26,20 @@
 </template>
 
 <script>
+import getCookie from '@/scripts/cookies.js'
 export default {
   middleware: ['router-auth'],
   mounted() {
-    if (['dark', 'system'].includes(this.$colorMode.preference)) {
+    if (
+      ['dark', 'system'].includes(this.$colorMode.preference) &&
+      !this.$store.state.darkMode
+    ) {
       this.$store.commit('TOGGLE_DARK_MODE')
     }
 
     let modalAge = getCookie('justyours_modal_age')
-    console.log(modalAge, 'modal age')
-    // if (!modalAge)  this.$store.commit('TOGGLE_DARK_MODE')
-
-    function getCookie(cname) {
-      let name = cname + '='
-      let decodedCookie = decodeURIComponent(document.cookie)
-      let ca = decodedCookie.split(';')
-      for (let i = 0; i < ca.length; i++) {
-        let c = ca[i]
-        while (c.charAt(0) == ' ') {
-          c = c.substring(1)
-        }
-        if (c.indexOf(name) == 0) {
-          return c.substring(name.length, c.length)
-        }
-      }
-      return ''
+    if (modalAge) {
+      this.$store.commit('CLOSE_AGE_MODAL')
     }
   },
 }

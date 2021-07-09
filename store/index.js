@@ -13,7 +13,7 @@ export const state = () => ({
 
 export const getters = {
   isLoggedIn(state) {
-    return Boolean(state.userDoc && state.userDoc.email)
+    return Boolean(state.user)
   },
   isPremiumUser(state, getters) {
     // We must check here with the backend data
@@ -29,6 +29,7 @@ export const mutations = {
   SET_USER_AUTH(state, data) {
     if (data) {
       state.userAuth = Object.assign({}, data)
+      this.$router.push('/')
     } else {
       state.userAuth = null
     }
@@ -36,14 +37,23 @@ export const mutations = {
   OPEN_AGE_MODAL(state) {
     state.modals.age = true
   },
-  CLOSE_AGE_MODAL(state) {
+  CLOSE_AGE_MODAL(state, enableCookie = false) {
     state.modals.age = false
-    const d = new Date()
-    let days = 365
-    d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000)
-    let expires = 'expires=' + d.toUTCString()
-    document.cookie =
-      'justyours_modal_age' + '=' + state.modals.age + ';' + expires + ';path=/'
+
+    if (enableCookie) {
+      const d = new Date()
+      let days = 365
+      d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000)
+      let expires = 'expires=' + d.toUTCString()
+      document.cookie =
+        'justyours_modal_age' +
+        '=' +
+        state.modals.age +
+        ';' +
+        expires +
+        ';path=/'
+    }
+
     this.$router.push('/')
   },
   TOGGLE_SIDEBAR(state) {

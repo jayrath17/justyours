@@ -25,7 +25,7 @@
 export default {
   methods: {
     goToHomepage() {
-      this.$store.commit('CLOSE_AGE_MODAL')
+      this.$store.commit('CLOSE_AGE_MODAL', true)
     },
     returnBack() {
       window.location.href = 'https://google.com'
