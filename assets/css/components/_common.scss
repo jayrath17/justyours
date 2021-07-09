@@ -1,6 +1,6 @@
 html,
 body {
-  overflow: hidden;
+  // overflow: hidden; //comment out later plz
   transition: 0.4s;
   height: 100%;
   width: 100%;
@@ -37,6 +37,31 @@ body {
 }
 .suggestions-container {
   width: 35.3%;
+}
+h2 {
+  width: 100%;
+  text-align: center;
+  border-bottom: 2px solid $primary-color;
+  line-height: 0.1em;
+  margin: 10px 0 20px;
+}
+
+h2 span {
+  padding: 0 10px;
+}
+.login-banner {
+  width: 93.5%;
+}
+.input-height {
+  height: 65px;
+}
+.login-form input[type='text']::placeholder {
+  margin-left: 30px;
+}
+
+::placeholder {
+  color: red;
+  margin-left: 30px;
 }
 
 @media (max-width: 1500px) {

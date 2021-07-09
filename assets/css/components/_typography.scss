@@ -18,7 +18,7 @@
   color: #d64973;
 }
 .text-blue {
-  color: $blue-color;
+  color: $blue-color !important;
 }
 .text-gray {
   color: $gray-color;
@@ -51,9 +51,17 @@
 .fs-12 {
   font-size: 12px;
 }
+.fs-5 {
+  font-size: 5px !important;
+}
 .fs-res-24 {
   @media (max-width: 677px) {
     font-size: 24px !important;
+  }
+}
+.fs-res-12 {
+  @media (max-width: 677px) {
+    font-size: 12px !important;
   }
 }
 .btn-letter-spacing {
