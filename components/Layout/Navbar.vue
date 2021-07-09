@@ -1,33 +1,10 @@
 <template>
   <nav
     id="navbar"
-    class="
-      lg:container
-      flex
-      justify-center
-      w-full
-      max-w-full
-      lg:mx-3
-      2xl:px-10
-      lg:pt-4
-      border-t
-      navbar
-      bg-white
-      dark:bg-black
-      border-lighter
-      lg:border-0
-    "
+    class="lg:container flex justify-center w-full max-w-full lg:mx-3 2xl:px-10 lg:pt-4 border-t navbar bg-white dark:bg-black border-lighter lg:border-0"
   >
     <div
-      class="
-        flex
-        items-center
-        justify-center
-        lg:justify-between
-        pl-16
-        lg:pl-0
-        nav-items
-      "
+      class="flex items-center justify-center lg:justify-between pl-16 lg:pl-0 nav-items"
     >
       <div
         class="logo-container mr-2 md:mr-3 2xl:mr-10 2xl:mr-0"
@@ -71,28 +48,13 @@
           "
         >
           <span
-            class="
-              my-3
-              mb-0
-              text-white
-              lg:my-0
-              material-icons
-              fs-40 fs-res-24
-              icons-color
-            "
+            class="my-3 mb-0 text-white lg:my-0 material-icons fs-40 fs-res-24 icons-color"
           >
             question_answer
           </span>
           <div
             v-if="!isMobile"
-            class="
-              relative
-              justify-center
-              ease-in-out
-              hidden
-              lg:flex
-              messages__dropdown__wrapper
-            "
+            class="relative justify-center ease-in-out hidden lg:flex messages__dropdown__wrapper"
             :class="{ 'ease-in-out': msgBox }"
           >
             <img
@@ -123,15 +85,7 @@
           <span
             @mouseover="!isMobile ? (notifyHover = true) : undefined"
             @mouseleave="!isMobile ? (notifyHover = false) : undefined"
-            class="
-              my-3
-              text-white
-              lg:my-0
-              notification
-              material-icons
-              fs-40 fs-res-24
-              icons-color
-            "
+            class="my-3 text-white lg:my-0 notification material-icons fs-40 fs-res-24 icons-color"
           >
             notifications_active
           </span>
@@ -159,15 +113,7 @@
           <span
             @mouseover="!isMobile ? (notifyHover = true) : undefined"
             @mouseleave="!isMobile ? (notifyHover = false) : undefined"
-            class="
-              my-3
-              text-white
-              lg:my-0
-              notification
-              material-icons
-              fs-40 fs-res-24
-              icons-color
-            "
+            class="my-3 text-white lg:my-0 notification material-icons fs-40 fs-res-24 icons-color"
           >
             try
           </span>
@@ -195,15 +141,7 @@
           <span
             @mouseover="!isMobile ? (storeHover = true) : undefined"
             @mouseleave="!isMobile ? (storeHover = false) : undefined"
-            class="
-              my-3
-              text-white
-              lg:my-0
-              notification
-              material-icons
-              fs-40 fs-res-24
-              icons-color
-            "
+            class="my-3 text-white lg:my-0 notification material-icons fs-40 fs-res-24 icons-color"
           >
             store
           </span>
@@ -232,9 +170,9 @@
         <i
           role="button"
           class="fas fa-bars"
-          @click.prevent.stop="openSidebar"
+          @click.prevent.stop="toggleSidebar"
         ></i>
-        <LayoutMobileSidebar v-if="isSidebarActive" />
+        <LayoutMobileSidebar v-if="$store.state.sidebar" />
       </div>
     </div>
   </nav>
@@ -260,7 +198,6 @@ export default {
       darkMode: true,
       searchValue: '',
       isMobile: false,
-      isSidebarActive: false,
       messages: [
         {
           image: 'msg-profile07',
@@ -327,22 +264,16 @@ export default {
     }
   },
   mounted() {
-    if (['dark', 'system'].includes(this.$colorMode.preference)) {
-      this.darkMode = true
-    }
+    this.darkMode = this.$store.state.darkMode
     this.onResize()
     window.addEventListener('resize', this.onResize, { passive: true })
-  },
-  created() {
-    this.$nuxt.$on('sidebarOpened', () => {
-      this.isSidebarActive = !this.isSidebarActive
-      let body = document.getElementById('body-container')
-      body.style.opacity = 1
-    })
   },
   methods: {
     onResize() {
       this.isMobile = window.innerWidth < 1024
+      if (!this.isMobile) {
+        this.$router.push('/')
+      }
     },
     openMessages() {
       this.msgBox = !this.msgBox
@@ -350,15 +281,8 @@ export default {
     hide() {
       this.msgBox = false
     },
-    openSidebar() {
-      this.isSidebarActive = !this.isSidebarActive
-      let body = document.getElementById('body-container')
-      if (this.isSidebarActive) {
-        body.style.opacity = 0.5
-        return
-      }
-      body.style.opacity = 1
-      return
+    toggleSidebar() {
+      this.$store.commit('TOGGLE_SIDEBAR')
     },
     handleOpenModals(type) {
       if (type == 'msg') {

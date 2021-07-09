@@ -1,6 +1,6 @@
 <template>
   <transition name="slide">
-    <div class="pl-4 sidebar lg:pl-3 xl:pl-8" v-click-outside="hideSidebar">
+    <div class="pl-4 sidebar lg:pl-3 xl:pl-8">
       <div class="flex flex-col items-start 2xl:items-center">
         <GeneralAvatar image="/images/profile.png" />
 
@@ -13,14 +13,7 @@
             <NuxtLink
               v-if="route.name !== 'dark'"
               :to="route.to"
-              class="
-                flex
-                items-center
-                text-xl text-secondary
-                dark:text-active
-                hover:text-black
-                dark:hover:text-white
-              "
+              class="flex items-center text-xl text-secondary dark:text-active hover:text-black dark:hover:text-white"
             >
               <i :class="route.icon" />
               <span class="ml-5">
@@ -30,20 +23,14 @@
             <div v-else class="flex items-center text-xl text-secondary">
               <vs-switch
                 color="#C53761"
-                v-model="darkMode"
+                :value="$store.state.darkMode"
+                @click="toggleDarkMode"
                 size="sm"
                 id="dark"
               />
               <label
-                @click="darkMode = !darkMode"
-                class="
-                  ml-5
-                  text-xl
-                  cursor-pointer
-                  select-none
-                  text-secondary
-                  xl:whitespace-nowrap
-                "
+                @click="toggleDarkMode()"
+                class="ml-5 text-xl cursor-pointer select-none text-secondary xl:whitespace-nowrap"
                 for="dark"
                 >Dark Mode</label
               >
@@ -60,8 +47,6 @@ export default {
   name: 'Sidebar',
   data() {
     return {
-      darkMode: false,
-      activeSidebar: false,
       routes: [
         {
           to: '/profile',
@@ -103,21 +88,11 @@ export default {
     }
   },
   methods: {
-    hideSidebar() {
-      this.activeSidebar = false
-      document.body.style.overflowY = 'scroll'
+    toggleDarkMode() {
+      this.$store.commit('TOGGLE_DARK_MODE')
     },
   },
-  watch: {
-    darkMode() {
-      this.$colorMode.preference = this.darkMode ? 'dark' : 'light'
-    },
-  },
-  mounted() {
-    if (['dark', 'system'].includes(this.$colorMode.preference)) {
-      this.darkMode = true
-    }
-  },
+  mounted() {},
 }
 </script>
 

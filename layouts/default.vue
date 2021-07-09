@@ -1,51 +1,23 @@
 <template>
   <div class="p-5 overflow-hidden lg:p-0 dark:bg-black layout-container">
+    <GeneralAgeModal v-if="$store.state.modals.age" />
     <div class="lg:container"><LayoutNavbar /></div>
     <div
       id="body-container"
-      class="
-        flex flex-wrap
-        w-full
-        lg:container lg:border-t
-        border-lighter
-        pb-10
-      "
+      class="flex flex-wrap w-full lg:container lg:border-t border-lighter pb-10"
     >
       <div
-        class="
-          flex-col
-          justify-start
-          hidden
-          px-2
-          pt-12
-          sidebar-container
-          lg:flex
-        "
+        class="flex-col justify-start hidden px-2 pt-12 sidebar-container lg:flex"
       >
         <LayoutSidebar />
       </div>
       <div
-        class="
-          w-full
-          lg:h-screen lg:overflow-y-scroll lg:pb-20 lg:border-l lg:border-r
-          border-lighter
-          page-container
-          lg:w-full lg:pt-12
-        "
+        class="w-full lg:h-screen lg:overflow-y-scroll lg:pb-20 lg:border-l lg:border-r border-lighter page-container lg:w-full lg:pt-12"
       >
         <Nuxt />
       </div>
       <div
-        class="
-          hidden
-          lg:flex
-          items-start
-          justify-center
-          pt-12
-          pb-20
-          lg:h-screen lg:overflow-y-scroll
-          suggestions-container
-        "
+        class="hidden lg:flex items-start justify-center pt-12 pb-20 lg:h-screen lg:overflow-y-scroll suggestions-container"
       >
         <LayoutSuggestions />
       </div>
@@ -54,7 +26,34 @@
 </template>
 
 <script>
-export default {}
+export default {
+  middleware: ['router-auth'],
+  mounted() {
+    if (['dark', 'system'].includes(this.$colorMode.preference)) {
+      this.$store.commit('TOGGLE_DARK_MODE')
+    }
+
+    let modalAge = getCookie('justyours_modal_age')
+    console.log(modalAge, 'modal age')
+    // if (!modalAge)  this.$store.commit('TOGGLE_DARK_MODE')
+
+    function getCookie(cname) {
+      let name = cname + '='
+      let decodedCookie = decodeURIComponent(document.cookie)
+      let ca = decodedCookie.split(';')
+      for (let i = 0; i < ca.length; i++) {
+        let c = ca[i]
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1)
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length)
+        }
+      }
+      return ''
+    }
+  },
+}
 </script>
 
 <style>

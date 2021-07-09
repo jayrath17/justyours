@@ -1,18 +1,7 @@
 <template>
   <div
     v-click-outside="hideSidebar"
-    class="
-      rounded-xl
-      bg-white
-      dark:bg-black
-      px-4
-      py-4
-      absolute
-      -translate-y-full
-      right-0
-      top-0
-      mobile__sidebar
-    "
+    class="rounded-xl bg-white dark:bg-black px-4 py-4 absolute -translate-y-full right-0 top-0 mobile__sidebar"
   >
     <div class="user__data flex items-center">
       <div class="badges mt-5 mr-5">
@@ -26,11 +15,7 @@
         <li
           v-for="(option, index) in options"
           :key="index"
-          class="
-            divide-y-4 divide-yellow-600
-            text-center
-            border-b-2 border-gray-100
-          "
+          class="divide-y-4 divide-yellow-600 text-center border-b-2 border-gray-100"
         >
           <component
             :is="option.to ? 'nuxt-link' : 'div'"
@@ -55,33 +40,18 @@
             </div>
             <div
               v-else-if="option.type == 'switch'"
-              class="
-                fs-20
-                flex
-                justify-center
-                items-center
-                text-secondary
-                pb-2
-                pt-2
-                my-2
-              "
+              class="fs-20 flex justify-center items-center text-secondary pb-2 pt-2 my-2"
             >
               <label
-                @click="darkMode = !darkMode"
-                class="
-                  mr-3
-                  fs-20
-                  cursor-pointer
-                  select-none
-                  text-secondary
-                  xl:whitespace-nowrap
-                "
+                @click="toggleDarkMode"
+                class="mr-3 fs-20 cursor-pointer select-none text-secondary xl:whitespace-nowrap"
                 for="dark"
                 >Dark Mode</label
               >
               <vs-switch
                 color="#C53761"
-                v-model="darkMode"
+                :value="$store.state.darkMode"
+                @click="toggleDarkMode"
                 size="sm"
                 id="dark"
               />
@@ -105,7 +75,6 @@
 export default {
   data() {
     return {
-      darkMode: false,
       options: [
         {
           icon: 'fas fa-user',
@@ -149,21 +118,15 @@ export default {
       ],
     }
   },
-  watch: {
-    darkMode() {
-      this.$colorMode.preference = this.darkMode ? 'dark' : 'light'
-    },
-  },
-  mounted() {
-    if (['dark', 'system'].includes(this.$colorMode.preference)) {
-      this.darkMode = true
-    }
-  },
   methods: {
+    toggleDarkMode() {
+      this.$store.commit('TOGGLE_DARK_MODE')
+    },
     hideSidebar() {
-      this.$nuxt.$emit('sidebarOpened')
+      this.$store.commit('TOGGLE_SIDEBAR')
     },
   },
+  mounted() {},
 }
 </script>
 

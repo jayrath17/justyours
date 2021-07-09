@@ -1,17 +1,6 @@
 <template>
   <div
-    class="
-      relative
-      flex
-      items-center
-      px-5 px-10
-      py-1
-      border-solid
-      rounded-full
-      border-custom-gray
-      fs-16
-      dark:bg-white
-    "
+    class="relative flex items-center px-5 px-10 py-1 border-solid rounded-full border-custom-gray fs-16 dark:bg-white lg:dark:bg-transparent"
   >
     <img
       class="absolute self-start my-3 mr-2 lg:my-0 just-logo"
