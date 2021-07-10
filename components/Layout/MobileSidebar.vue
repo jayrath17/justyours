@@ -56,7 +56,11 @@
                 id="dark"
               />
             </div>
-            <div v-else class="flex justify-center items-center pt-2 my-2">
+            <div
+              v-else
+              class="flex justify-center items-center pt-2 my-2 cursor-pointer"
+              @click="$router.push('/signin')"
+            >
               <span class="fs-20">
                 {{ option.name }}
               </span>

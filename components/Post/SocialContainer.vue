@@ -12,7 +12,7 @@
         <span class="dark:text-white"> Comments </span>
       </div>
       <div
-        class="flex-auto font-semibold text-right cursor-pointer  dark:text-white"
+        class="flex-auto font-semibold text-right cursor-pointer dark:text-white"
       >
         Save
         <i class="fas fa-bookmark save"></i>
@@ -61,20 +61,29 @@
             <div class="relative mt-1">
               <input
                 type="text"
-                class="block w-full p-2 pt-4 pl-4 pr-10 border-gray-300 rounded-md  focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm dark:bg-gray-700 dark:text-white"
+                class="block w-full p-2 lg:pt-4 pl-4 pr-10 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm dark:bg-gray-700 dark:text-white"
                 placeholder="Add your comment"
                 v-model="comment"
                 @keyup.enter="addComment(post)"
               />
               <div
-                class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none "
+                class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none"
               >
-                <i class="mr-2 cursor-pointer far fa-grin-alt text-muted"></i>
-                <i
-                  class="mr-2 cursor-pointer  far fa-closed-captioning text-muted"
-                ></i>
-                <i class="mr-2 cursor-pointer fas fa-paperclip text-muted"></i>
-                <i class="mr-2 cursor-pointer fas fa-camera text-muted"></i>
+                <div class="hidden sm:block">
+                  <i class="mr-2 cursor-pointer far fa-grin-alt text-muted"></i>
+                  <i
+                    class="mr-2 cursor-pointer far fa-closed-captioning text-muted"
+                  ></i>
+                  <i
+                    class="mr-2 cursor-pointer fas fa-paperclip text-muted"
+                  ></i>
+                  <i class="mr-2 cursor-pointer fas fa-camera text-muted"></i>
+                </div>
+                <div class="block sm:hidden">
+                  <i
+                    class="mr-2 cursor-pointer fas fa-ellipsis-v text-muted"
+                  ></i>
+                </div>
               </div>
             </div>
           </div>
@@ -82,7 +91,10 @@
       </div>
     </div>
     <!-- Comment -->
-    <div class="my-16 divider dark:border-gray-700" v-if="post.id != 3"></div>
+    <div
+      class="my-8 lg:my-16 divider dark:border-gray-700"
+      v-if="post.id != 3"
+    ></div>
   </div>
 </template>
 
@@ -110,7 +122,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .divider {
   border: 3px solid #ebebeb;
   border-radius: 20px;
@@ -137,6 +149,15 @@ export default {
   border-radius: 53px;
   width: 100%;
   height: 58px;
+
+  @media (max-width: 1023px) {
+    height: 100%;
+  }
+
+  &:placeholder {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }
 input::placeholder {
   margin-left: 1em;

@@ -53,6 +53,9 @@ export default {
 #scroll-suggestion {
   /* overflow-y: scroll; */
   height: 100vh;
+  @media (max-width: 1023px) {
+    height: 100% !important;
+  }
 }
 html {
   /* font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',

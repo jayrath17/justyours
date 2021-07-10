@@ -17,11 +17,12 @@
 
 #body-container {
   transition: opacity 0.4s;
-  overflow-y: hidden !important;
+  // overflow-y: hidden !important;
   position: relative;
   top: 6rem;
   @media (max-width: 1023px) {
-    position: static;
+    top: 0;
+    // position: static;
     // padding-right: 2em;
   }
 }
