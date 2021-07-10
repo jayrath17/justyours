@@ -1,10 +1,13 @@
 <template>
   <div class="p-5 overflow-hidden lg:p-0 dark:bg-black layout-container">
     <GeneralAgeModal v-if="$store.state.modals.age" />
-    <div class="lg:container"><LayoutNavbar /></div>
+    <div class="lg:container">
+      <LayoutNavbar />
+    </div>
+    <div class="infinity-divider w-screen hidden lg:block"></div>
     <div
       id="body-container"
-      class="flex flex-wrap w-full lg:container lg:border-t border-lighter pb-10 lg:h-screen"
+      class="flex flex-wrap w-full lg:container pb-10 lg:h-screen"
     >
       <div
         class="flex-col justify-start hidden px-2 pt-12 sidebar-container lg:flex"

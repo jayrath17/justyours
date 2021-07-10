@@ -18,7 +18,7 @@
   color: #d64973;
 }
 .text-blue {
-  color: $blue-color !important;
+  color: $blue-color;
 }
 .text-gray {
   color: $gray-color;
@@ -69,6 +69,12 @@
 .fs-res-12 {
   @media (max-width: 677px) {
     font-size: 12px !important;
+  }
+}
+.email-login {
+  font-size: 33px;
+  @media (max-width: 677px) {
+    font-size: 30px;
   }
 }
 .btn-letter-spacing {
