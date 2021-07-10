@@ -23,14 +23,7 @@
             </div>
             <div class="overflow-y-scroll messages_boxes">
               <li
-                class="
-                  flex
-                  items-center
-                  justify-between
-                  mb-4
-                  rounded-lg
-                  setting-item
-                "
+                class="flex items-center justify-between mb-4 rounded-lg setting-item"
                 v-for="(msg, index) in filteredMessages"
                 :key="index"
                 @click="openChat(msg)"

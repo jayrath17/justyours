@@ -23,6 +23,13 @@
 .text-gray {
   color: $gray-color;
 }
+.text-navy {
+  color: $navy-blue-color !important;
+}
+
+.fs-36 {
+  font-size: 36px !important;
+}
 .fs-40 {
   font-size: 40px !important;
   @media (max-width: 677px) {

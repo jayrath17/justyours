@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <div class="px-4">
     <div
-      class="bg-white shadow-lg  rounded-3xl subscriptions dark:bg-black dark:custom-box-shadow"
+      class="bg-white shadow-lg rounded-3xl subscriptions dark:bg-black dark:custom-box-shadow"
     >
       <span
-        class="flex justify-center py-3 font-semibold text-white  rounded-t-3xl bg-primary fs-20"
+        class="flex justify-center py-3 font-semibold text-white rounded-t-3xl bg-primary fs-20"
         >My Subscriptions</span
       >
       <div class="p-5 my-5">
@@ -12,7 +12,7 @@
           <div
             v-for="tab in tabs"
             :key="tab.name"
-            class="flex items-center py-3 rounded-full cursor-pointer  3xl:px-16 xl:px-10 border-primary action__item hover:bg-primary hover:text-white tab__action"
+            class="flex items-center py-3 rounded-full cursor-pointer 3xl:px-16 xl:px-10 border-primary action__item hover:bg-primary hover:text-white tab__action"
             @click="selectOption(tab)"
             :class="tab.active ? 'bg-primary text-white' : 'text-primary'"
           >

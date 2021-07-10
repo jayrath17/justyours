@@ -8,7 +8,7 @@ export default {
   layout: 'blank',
   mounted() {
     if (['dark', 'system'].includes(this.$colorMode.preference)) {
-      this.$store.commit('TOGGLE_DARK_MODE')
+      // this.$store.commit('TOGGLE_DARK_MODE')
     }
   },
 }

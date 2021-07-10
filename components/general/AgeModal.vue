@@ -26,6 +26,7 @@ export default {
   methods: {
     goToHomepage() {
       this.$store.commit('CLOSE_AGE_MODAL', true)
+      this.$router.push('/')
     },
     returnBack() {
       window.location.href = 'https://google.com'

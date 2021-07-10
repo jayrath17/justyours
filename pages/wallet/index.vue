@@ -1,0 +1,135 @@
+<template>
+  <div class="wallet lg:container py-10 lg:py-20">
+    <img src="/just_logo.svg" class="logo" alt="Just Yours Logo" />
+
+    <p
+      class="mt-5 text-center fs-16 lg:fs-20 text-primary lg:text-black wallet_created"
+    >
+      New Wallet Created!
+    </p>
+    <div class="rounded-full mt-3 wallet__container">
+      <div
+        class="header hidden lg:block p-3 bg-primary text-center rounded-t-2xl"
+      >
+        <p class="fs-24 text-white font-semibold">Your Mnemonic Phrase</p>
+      </div>
+      <div class="secret__words rounded-b-2xl p-5">
+        <div>
+          <div class="bg-navy rounded-full inline-flex info__icon">
+            <i class="fas fa-info text-white fs-16"></i>
+          </div>
+          <p class="inline font-medium">
+            Please backup the text below on paper and keep it somewhere secret
+            and safe.
+          </p>
+        </div>
+        <div
+          class="words grid grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-4 mt-10 px-5"
+        >
+          <span
+            v-for="(word, index) in walletWords"
+            :key="index"
+            class="cursor-pointer border-b b-1 border-black pb-3 font-medium transform transition duration-300 ease-in-out hover:scale-110"
+          >
+            <span class="mr-2">
+              {{ index + 1 }}
+            </span>
+
+            {{ word }}
+          </span>
+        </div>
+        <div
+          class="actions flex flex-col lg:flex-row items-center lg:justify-around mt-5"
+        >
+          <a
+            class="fs-16 lg:fs-20 py-2 px-5 lg:px-20 w-full justify-center flex lg:block md:w-1/2 lg:w-auto bg-primary text-white rounded-full cursor-pointer font-semibold"
+            @click="$router.push('/')"
+          >
+            I wrote down my recovery key
+          </a>
+          <a
+            class="fs-16 lg:fs-20 py-2 px-5 lg:px-16 w-full justify-center flex lg:block md:w-1/2 lg:w-auto border-primary border-1 text-primary rounded-full cursor-pointer font-semibold mt-4 lg:mt-0"
+          >
+            View your private key
+          </a>
+        </div>
+      </div>
+    </div>
+    <p
+      class="text-center text-navy cursor-pointer fs-20 font-medium hover:underline"
+    >
+      What Is This?
+    </p>
+  </div>
+</template>
+
+<script>
+export default {
+  // middleware: ['router-auth'],
+  layout: 'blank',
+  data() {
+    return {
+      walletWords: [
+        'Mystery',
+        'God',
+        'Phrasal',
+        'Ramekin',
+        'Fragance',
+        'Beautiful',
+        'Life',
+        'Demonic',
+        'Typhoon',
+        'Absurd',
+        'Lane',
+        'Fruit',
+        'Sun',
+        'Mercury',
+        'Fun',
+        'Limb',
+        'Group',
+        'Rise',
+        'Tycoon',
+        'Coster',
+        'Astute',
+        'Tart',
+        'Roller',
+        'Fall',
+      ],
+    }
+  },
+}
+</script>
+
+<style lang="scss" scoped>
+.wallet {
+  .wallet_created {
+    letter-spacing: 4.5px;
+    font-weight: bold;
+  }
+
+  .info__icon {
+    padding: 0.25em 0.6em;
+  }
+
+  .wallet__container {
+    max-width: 1072px;
+    margin: 1em auto;
+  }
+
+  .logo {
+    height: 99px;
+    transform: scale(7);
+    @media (max-width: 1024px) {
+      transform: scale(5);
+    }
+    margin: 0 auto;
+  }
+
+  .secret__words {
+    background: #ededed;
+    @media (max-width: 1024px) {
+      background: white;
+    }
+  }
+}
+</style>

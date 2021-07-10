@@ -53,8 +53,6 @@ export const mutations = {
         expires +
         ';path=/'
     }
-
-    this.$router.push('/')
   },
   TOGGLE_SIDEBAR(state) {
     state.sidebar = !state.sidebar
