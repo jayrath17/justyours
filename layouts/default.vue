@@ -1,5 +1,5 @@
 <template>
-  <div class="p-5 overflow-hidden lg:p-0 dark:bg-black layout-container">
+  <div class="p-5 lg:overflow-hidden lg:p-0 dark:bg-black layout-container">
     <ModalAge v-if="$store.state.modals.age" />
     <div class="lg:container">
       <LayoutNavbar />
@@ -32,6 +32,18 @@
 import getCookie from '@/scripts/cookies.js'
 export default {
   middleware: ['router-auth'],
+  created() {
+    window.addEventListener('load', function () {
+      console.log('here!')
+      setTimeout(function () {
+        // This hides the address bar:
+        window.scrollTo(0, 1)
+      }, 0)
+    })
+    window.document.body.onscroll = function () {
+      console.log(123)
+    }
+  },
   mounted() {
     if (
       ['dark', 'system'].includes(this.$colorMode.preference) &&
