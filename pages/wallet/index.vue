@@ -132,13 +132,19 @@ export default {
 
   .wallet__container {
     max-width: 1072px;
+    @media (max-width: 1023px) {
+      max-width: 100%;
+    }
     margin: 1em auto;
   }
 
   .logo {
     height: 99px;
     transform: scale(7);
-    @media (max-width: 1024px) {
+    @media (max-width: 768px) {
+      transform: scale(3);
+    }
+    @media (min-width: 769px) and (max-width: 1024px) {
       transform: scale(5);
     }
     margin: 0 auto;
