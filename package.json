@@ -17,7 +17,7 @@
     "nuxt-webfontloader": "^1.1.0",
     "sass": "^1.35.1",
     "sass-loader": "10",
-    "vue-metamask": "^2.0.3",
+    "web3": "^1.0.0-beta.48",
     "vuesax": "^3"
   },
   "devDependencies": {

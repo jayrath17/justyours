@@ -1,19 +1,23 @@
 <template>
-  <div class="xl:container lg:mx-5 overflow-y-scroll h-screen">
+  <div class="xl:container lg:mx-5">
     <div class="flex justify-center pt-5 lg:pt-10 3xl:mx-32">
       <div
         class="lg:w-3/5 xl:w-1/2 2xl:w-3/5 hidden lg:flex justify-end pt-8 3xl:mx-16"
       >
-        <img
-          class="login-banner 2xl:mr-3 mt-24 pt-1.5 w-full"
-          src="/images/login.png"
-          alt="Just Yours"
-        />
+        <div
+          class="transform transition duration-300 ease-in-out hover:scale-110 hover:cursor-pointer"
+        >
+          <img
+            class="login-banner 2xl:mr-3 mt-24 pt-1.5 w-full"
+            src="/images/login.png"
+            alt="Just Yours"
+          />
+        </div>
       </div>
       <div class="w-4/5 lg:w-2/5 xl:w-1/2 2xl:w-2/5 lg:pl-8 2xl:pr-32">
         <div class="flex flex-col items-center">
           <img src="/just_logo.png" alt="" />
-          <span class="fs-18 text-blue text-center dark:text-white mt-3 lg:mt-2"
+          <span class="fs-18 text-blue text-center mt-3 lg:mt-2"
             >Sign Up to make quick money and generate a loving fan base!</span
           >
           <div class="w-full mt-5 lg:mt-5">
@@ -37,6 +41,8 @@
             </button>
           </div>
           <div class="w-full mt-3 lg:mt-3">
+            <!-- <vue-metamask userMessage="msg" @onComplete="onComplete">
+            </vue-metamask> -->
             <button class="w-full" @click="loginWithMetamask()">
               <div class="flex">
                 <div
@@ -57,34 +63,32 @@
           </div>
         </div>
 
-        <h2 class="mt-5 lg:mt-10">
-          <span class="fs-24 text-black bg-white dark:bg-black dark:text-white"
-            >OR</span
-          >
+        <h2 class="mt-5 lg:mt-5">
+          <span class="fs-24 text-black bg-white">OR</span>
         </h2>
 
-        <div class="flex flex-col items-center mt-0 lg:mt-8 login-form">
-          <span class="fs-24 text-secondary dark:white">Sign Up</span>
+        <div class="flex flex-col items-center login-form">
+          <span class="fs-24 text-secondary">Sign Up</span>
 
           <input
-            class="input-height fs-24 border-lighter border-2 w-full rounded-full dark:bg-black dark:text-white pl-4 mt-3 lg:mt-5"
+            class="input-height fs-24 border-lighter border-2 w-full rounded-full pl-4 mt-3 lg:mt-2"
             placeholder="E-mail"
             type="text"
           />
           <input
-            class="input-height fs-24 border-lighter border-2 w-full rounded-full dark:bg-black dark:text-white pl-4 mt-3 lg:mt-3"
+            class="input-height fs-24 border-lighter border-2 w-full rounded-full pl-4 mt-3 lg:mt-3"
             placeholder="Password"
             type="text"
           />
           <input
-            class="input-height fs-24 border-lighter border-2 w-full rounded-full dark:bg-black dark:text-white pl-4 mt-3 lg:mt-3"
+            class="input-height fs-24 border-lighter border-2 w-full rounded-full pl-4 mt-3 lg:mt-3"
             placeholder="Retype Password"
             type="text"
           />
 
           <button
             @click="signUp()"
-            class="bg-primary text-white w-full rounded-full dark:bg-black dark:text-white pl-4 input-height fs-24 mt-3 lg:mt-4 pt-1"
+            class="bg-primary text-white w-full rounded-full pl-4 input-height fs-24 mt-3 lg:mt-4"
           >
             Sign Up
           </button>
@@ -107,43 +111,114 @@
       </div>
 
       <div class="flex justify-between items-center mt-3 lg:mt-5">
-        <div
-          class="fs-24 p-1.5 flex fs-res-24 rounded-full bg-primary text-white mx-5"
+        <a
+          class="fs-24 social__icon p-1.5 flex fs-res-24 rounded-full bg-primary text-white mx-5"
+          href="https://discord.gg/justyours"
+          target="_blank"
         >
-          <i class="fab fa-discord"></i>
-        </div>
-        <div
-          class="fs-24 p-1.5 flex fs-res-24 rounded-full bg-primary text-white mx-5"
+          <i class="fs-16 fab fa-discord"></i>
+        </a>
+        <a
+          class="fs-24 social__icon p-1.5 flex fs-res-24 rounded-full bg-primary text-white mx-5"
+          href="https://twitter.com/justyoursme"
+          target="_blank"
         >
-          <i class="fab fa-twitter"></i>
-        </div>
-        <div
-          class="fs-24 p-1.5 flex fs-res-24 rounded-full bg-primary text-white mx-5"
+          <i class="fs-16 fab fa-twitter"></i>
+        </a>
+        <a
+          class="fs-24 social__icon p-1.5 flex fs-res-24 rounded-full bg-primary text-white mx-5"
+          href="https://t.me/JustYoursMe"
+          target="_blank"
         >
-          <i class="fab fa-telegram-plane"></i>
-        </div>
-        <div
-          class="fs-24 p-1.5 flex fs-res-24 rounded-full bg-primary text-white mx-5"
+          <i class="fs-16 fab fa-telegram-plane"></i>
+        </a>
+        <a
+          class="fs-24 social__icon p-1.5 flex fs-res-24 rounded-full bg-primary text-white mx-5"
+          href="https://discord.gg/justyours"
+          target="_blank"
         >
-          <i class="fab fa-instagram"></i>
-        </div>
+          <i class="fs-16 fab fa-instagram"></i>
+        </a>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+// import VueMetamask from 'vue-metamask'
 export default {
+  data() {
+    return {
+      msg: 'This is demo net work',
+    }
+  },
   methods: {
+    getAccount() {
+      return new Promise((resolve) => {
+        this.$web3.eth.getAccounts().then((res) => {
+          if (!res.length) {
+            alert('Please login to MetaMask!')
+            return
+          }
+          return resolve(res[0])
+        })
+      })
+    },
+    createSignature(address, nonce) {
+      return new Promise((resolve, reject) => {
+        window.$web3.eth.personal
+          .sign(`Sign Nonce: ${nonce}`, address.toLowerCase(), '')
+          .then((signature) => {
+            return resolve(signature)
+          })
+          .catch((e) => {
+            return reject(e)
+          })
+      })
+    },
     loginWithEmail() {
-      this.$store.commit('SET_USER_AUTH', { name: 'Test', lname: 'Test' })
+      this.$store.commit('SET_USER_AUTH', {
+        name: 'Test',
+        lname: 'Test',
+        wallet: true,
+      })
     },
     loginWithMetamask() {
-      this.$store.commit('SET_USER_AUTH', { name: 'Meta', lname: 'Mask' })
+      const address = this.$store.state.account.address
+      if (!address) return alert('Please login to Metamask first')
+      // const nonce = (await this.$axios.$get(`/api/v1/user/nonce/${address}`)).nonce;
+      // const signature = await this.createSignature(address, nonce);
+      // console.log(signature);
+      // this.$store.state.user.signature = signature;
+      // const auth = {
+      //     address: address,
+      //     nonce: nonce,
+      //     signature: signature,
+      // };
+
+      // this.$store.commit('SET_USER_AUTH', {
+      //   name: 'Meta',
+      //   lname: 'Mask',
+      //   wallet: true,
+      // })
     },
     signUp() {
-      this.$store.commit('SET_USER_AUTH', { name: 'Meta', lname: 'Mask' })
+      this.$store.commit('SET_USER_AUTH', {
+        name: 'Meta',
+        lname: 'Mask',
+        wallet: false,
+      })
+    },
+    onComplete(data) {
+      console.log('data:', data)
     },
   },
 }
 </script>
+
+<style scoped lang="scss">
+.social__icon {
+  padding-left: 0.3em;
+  padding-right: 0.3em;
+}
+</style>

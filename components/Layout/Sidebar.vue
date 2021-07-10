@@ -7,34 +7,42 @@
         <div
           v-for="(route, index) in routes"
           :key="index"
-          class="flex justify-start w-1/2 mb-12 sidebar__route"
+          class="w-1/2 mb-12 sidebar__route"
         >
-          <div class="text-left fs-24">
+          <div class="text-left fs-24 grid grid-cols-2 gap-1 items-center">
+            <i
+              v-if="route.name !== 'dark'"
+              :class="route.icon"
+              class="dark:text-active text-secondary hover:text-black dark:hover:text-white text-white"
+            />
             <NuxtLink
               v-if="route.name !== 'dark'"
               :to="route.to"
-              class="flex items-center text-xl text-secondary dark:text-active hover:text-black dark:hover:text-white"
+              class="flex items-center text-xl text-secondary dark:text-active hover:text-black dark:hover:text-white sidebar__route_link"
             >
-              <i :class="route.icon" />
-              <span class="ml-5">
+              <span class="">
                 {{ route.name }}
               </span>
             </NuxtLink>
-            <div v-else class="flex items-center text-xl text-secondary">
-              <vs-switch
-                color="#C53761"
-                :value="$store.state.darkMode"
-                @click="toggleDarkMode"
-                size="sm"
-                id="dark"
-              />
-              <label
-                @click="toggleDarkMode()"
-                class="ml-5 text-xl cursor-pointer select-none text-secondary xl:whitespace-nowrap"
-                for="dark"
-                >Dark Mode</label
-              >
-            </div>
+            <template v-else class="text-xl text-secondary">
+              <div>
+                <vs-switch
+                  color="#C53761"
+                  :value="$store.state.darkMode"
+                  @click="toggleDarkMode"
+                  size="sm"
+                  id="dark"
+                />
+              </div>
+              <div>
+                <label
+                  @click="toggleDarkMode()"
+                  class="text-xl cursor-pointer select-none text-secondary xl:whitespace-nowrap sidebar__route_link"
+                  for="dark"
+                  >Dark Mode</label
+                >
+              </div>
+            </template>
           </div>
         </div>
       </div>
@@ -97,6 +105,10 @@ export default {
 </script>
 
 <style scoped>
+.sidebar__route_link {
+  margin-left: -2em;
+}
+
 .sidebar {
   transform: translateX(0%) !important;
 }

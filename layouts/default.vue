@@ -1,6 +1,6 @@
 <template>
   <div class="p-5 overflow-hidden lg:p-0 dark:bg-black layout-container">
-    <GeneralAgeModal v-if="$store.state.modals.age" />
+    <ModalAge v-if="$store.state.modals.age" />
     <div class="lg:container">
       <LayoutNavbar />
     </div>

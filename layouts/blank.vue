@@ -1,6 +1,6 @@
 <template>
-  <div class="dark:bg-black">
-    <GeneralAgeModal v-if="$store.state.modals.age" />
+  <div>
+    <ModalAge v-if="$store.state.modals.age" />
     <Nuxt />
   </div>
 </template>

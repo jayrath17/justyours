@@ -1,13 +1,13 @@
 <template>
   <nav
     id="navbar"
-    class="lg:container flex justify-center w-full max-w-full lg:mx-3 2xl:px-10 lg:pt-4 border-t navbar bg-white dark:bg-black border-lighter lg:border-0"
+    class="lg:container flex justify-center w-full max-w-full lg:mx-3 2xl:px-10 lg:pt-4 border-t navbar bg-white dark:bg-black border-lighter lg:border-0 lg:top-2"
   >
     <div
       class="flex items-center justify-center lg:justify-between pl-16 lg:pl-0 nav-items"
     >
       <div
-        class="logo-container mr-2 md:mr-3 2xl:mr-10 2xl:mr-0"
+        class="logo-container mr-2 md:mr-3 2xl:mr-10 2xl:mr-0 cursor-pointer"
         @click="$router.push('/')"
       >
         <img

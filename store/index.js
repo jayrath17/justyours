@@ -3,8 +3,15 @@ export const state = () => ({
   user: null,
   darkMode: false,
 
+  account: {
+    address: null,
+    nonce: null,
+    signature: null,
+  },
+
   modals: {
     age: true,
+    agree: false,
   },
   sidebar: false,
 
@@ -29,10 +36,24 @@ export const mutations = {
   SET_USER_AUTH(state, data) {
     if (data) {
       state.userAuth = Object.assign({}, data)
-      this.$router.push('/')
+      state.user = Object.assign({}, data)
+      if (!data.wallet) {
+        this.$router.push('/wallet')
+      } else {
+        this.$router.push('/')
+      }
     } else {
       state.userAuth = null
+      state.user = null
     }
+  },
+  OPEN_AGREE_MODAL(state) {
+    state.modals.agree = true
+    document.body.style.overflow = 'hidden'
+  },
+  CLOSE_AGREE_MODAL(state) {
+    state.modals.agree = false
+    document.body.style.overflow = 'auto'
   },
   OPEN_AGE_MODAL(state) {
     state.modals.age = true

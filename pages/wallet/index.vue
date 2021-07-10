@@ -1,71 +1,87 @@
 <template>
   <div class="wallet lg:container py-10 lg:py-20">
-    <img src="/just_logo.svg" class="logo" alt="Just Yours Logo" />
+    <template v-if="!$store.state.user.wallet">
+      <img src="/just_logo.svg" class="logo" alt="Just Yours Logo" />
 
-    <p
-      class="mt-5 text-center fs-16 lg:fs-20 text-primary lg:text-black wallet_created"
-    >
-      New Wallet Created!
-    </p>
-    <div class="rounded-full mt-3 wallet__container">
-      <div
-        class="header hidden lg:block p-3 bg-primary text-center rounded-t-2xl"
+      <p
+        class="mt-5 text-center fs-16 lg:fs-20 text-primary lg:text-black wallet_created"
       >
-        <p class="fs-24 text-white font-semibold">Your Mnemonic Phrase</p>
-      </div>
-      <div class="secret__words rounded-b-2xl p-5">
-        <div>
-          <div class="bg-navy rounded-full inline-flex info__icon">
-            <i class="fas fa-info text-white fs-16"></i>
+        New Wallet Created!
+      </p>
+      <div class="rounded-full mt-3 wallet__container">
+        <div
+          class="header hidden lg:block p-3 bg-primary text-center rounded-t-2xl"
+        >
+          <p class="fs-24 text-white font-semibold">Your Mnemonic Phrase</p>
+        </div>
+        <div class="secret__words rounded-b-2xl p-5">
+          <div>
+            <div class="bg-navy rounded-full inline-flex info__icon">
+              <i class="fas fa-info text-white fs-16"></i>
+            </div>
+            <p class="inline font-medium">
+              Please backup the text below on paper and keep it somewhere secret
+              and safe.
+            </p>
           </div>
-          <p class="inline font-medium">
-            Please backup the text below on paper and keep it somewhere secret
-            and safe.
-          </p>
-        </div>
-        <div
-          class="words grid grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-4 mt-10 px-5"
-        >
-          <span
-            v-for="(word, index) in walletWords"
-            :key="index"
-            class="cursor-pointer border-b b-1 border-black pb-3 font-medium transform transition duration-300 ease-in-out hover:scale-110"
+          <div
+            class="words grid grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-4 mt-10 px-5"
           >
-            <span class="mr-2">
-              {{ index + 1 }}
-            </span>
+            <span
+              v-for="(word, index) in walletWords"
+              :key="index"
+              class="cursor-pointer border-b b-1 border-black pb-3 font-medium transform transition duration-300 ease-in-out hover:scale-110"
+            >
+              <span class="mr-2">
+                {{ index + 1 }}
+              </span>
 
-            {{ word }}
-          </span>
-        </div>
-        <div
-          class="actions flex flex-col lg:flex-row items-center lg:justify-around mt-5"
-        >
-          <a
-            class="fs-16 lg:fs-20 py-2 px-5 lg:px-20 w-full justify-center flex lg:block md:w-1/2 lg:w-auto bg-primary text-white rounded-full cursor-pointer font-semibold"
-            @click="$router.push('/')"
+              {{ word }}
+            </span>
+          </div>
+          <div
+            class="actions flex flex-col lg:flex-row items-center lg:justify-around mt-5"
           >
-            I wrote down my recovery key
-          </a>
-          <a
-            class="fs-16 lg:fs-20 py-2 px-5 lg:px-16 w-full justify-center flex lg:block md:w-1/2 lg:w-auto border-primary border-1 text-primary rounded-full cursor-pointer font-semibold mt-4 lg:mt-0"
-          >
-            View your private key
-          </a>
+            <a
+              class="fs-16 lg:fs-20 py-2 px-5 lg:px-20 w-full justify-center flex lg:block md:w-1/2 lg:w-auto bg-primary text-white rounded-full cursor-pointer font-semibold"
+              @click="$router.push('/')"
+            >
+              I wrote down my recovery key
+            </a>
+            <a
+              class="fs-16 lg:fs-20 py-2 px-5 lg:px-16 w-full justify-center flex lg:block md:w-1/2 lg:w-auto border-primary border-1 text-primary rounded-full cursor-pointer font-semibold mt-4 lg:mt-0"
+            >
+              View your private key
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-    <p
-      class="text-center text-navy cursor-pointer fs-20 font-medium hover:underline"
-    >
-      What Is This?
-    </p>
+      <p
+        class="text-center text-navy cursor-pointer fs-20 font-medium hover:underline"
+      >
+        What Is This?
+      </p>
+    </template>
+    <template v-else>
+      <p
+        class="mt-5 text-center fs-16 lg:fs-20 text-primary lg:text-black wallet_created"
+      >
+        You already created your wallet
+      </p>
+      <a
+        class="fs-16 lg:fs-20 py-2 px-5 lg:px-20 justify-center flex bg-primary text-white rounded-full cursor-pointer font-semibold"
+        @click="$router.push('/')"
+      >
+        Home
+      </a>
+    </template>
+    <ModalNeverShareWallet v-if="$store.state.modals.agree" />
   </div>
 </template>
 
 <script>
 export default {
-  // middleware: ['router-auth'],
+  middleware: ['router-auth'],
   layout: 'blank',
   data() {
     return {
@@ -96,6 +112,9 @@ export default {
         'Fall',
       ],
     }
+  },
+  mounted() {
+    this.$store.commit('OPEN_AGREE_MODAL')
   },
 }
 </script>

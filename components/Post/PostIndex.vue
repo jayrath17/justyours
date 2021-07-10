@@ -9,6 +9,7 @@
         <img :src="post.image" :alt="post.user" class="ml-1" />
       </div>
     </vs-card>
+
     <!-- Image -->
 
     <!-- Footer -->

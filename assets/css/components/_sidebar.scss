@@ -4,9 +4,15 @@
   }
 
   .sidebar__route {
-    @media (max-width: 1799px) {
-      width: 70% !important;
+    @media (max-width: 1300px) {
+      width: 95% !important;
     }
+    @media (min-width: 1301px) and (max-width: 1800px) {
+      width: 85% !important;
+    }
+    // @media (min-width: 1501px) and (max-width: 100px) {
+    // width: 85% !important;
+    // }
   }
 
   .profile-img {
