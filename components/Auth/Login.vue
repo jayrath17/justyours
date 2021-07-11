@@ -18,7 +18,7 @@
         <div class="flex flex-col items-center">
           <img src="/just_logo.png" alt="" />
           <span class="fs-18 text-blue text-center mt-3 lg:mt-2"
-            >Sign Up to make quick money and generate a loving fan base!</span
+            >Your exclusive content creator platform!</span
           >
           <div class="w-full mt-5 lg:mt-5">
             <button class="w-full" @click="loginWithEmail()">
