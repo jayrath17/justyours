@@ -68,39 +68,7 @@
     height: 50px !important;
     font-size: 24px !important;
     border-radius: 40px;
-  }
-
-  .message-box {
-    transition: all 0.3s ease;
-
-    .show {
-      display: block;
-      display: flex;
-    }
-
-    .wrapper ul {
-      width: 400px;
-      list-style: none;
-      padding: 10px;
-      transition: all 0.3s ease;
-    }
-    width: 455px;
-    height: 500px;
-    right: 3%;
-
-    @media (max-width: 1023px) {
-      left: calc(50% - 200px);
-      width: 400px;
-    }
-    @media (max-width: 400px) {
-      left: calc(50% - 160px);
-      width: 320px;
-    }
-  }
-
-  .notification:hover {
-    animation: shake 0.5s;
-    animation-iteration-count: 1.5s;
+    border: none !important;
   }
 
   .menu {
@@ -121,6 +89,11 @@
     width: 18px;
     right: -7px;
     top: 0;
+    span {
+      color: #101010 !important;
+      font-weight: 600 !important;
+      font-size: 12px !important;
+    }
   }
 
   .box-enter-active,
@@ -202,7 +175,7 @@
   }
 
   .messages_boxes {
-    max-height: 300px;
+    max-height: 500px;
     overflow-y: scroll;
   }
   nav {
@@ -218,7 +191,8 @@
   }
 
   .wrapper_box {
-    background: #242526;
+    border-radius: 38px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
     top: 40px;
     display: flex;
 
@@ -232,13 +206,13 @@
   nav .wrapper {
     top: 65px;
     display: flex;
-    width: 400px;
+    width: 600px;
     @media (min-width: 320px) and (max-width: 1024px) {
       width: 320px;
     }
     overflow: hidden;
     border-radius: 5px;
-    background: #242526;
+    // background: #242526;
     display: none;
     transition: all 0.3s ease;
   }
@@ -247,7 +221,7 @@
     display: flex;
   }
   .wrapper ul {
-    width: 400px;
+    width: 600px;
     @media (min-width: 320px) and (max-width: 1024px) {
       width: 320px;
     }
@@ -267,7 +241,10 @@
     text-decoration: none;
   }
   .wrapper ul li:hover {
-    background: #3a3b3c;
+    background: rgba(0, 0, 0, 0.05);
+    @media (prefers-color-schema: dark) {
+      background: #3a3b3c;
+    }
   }
   ul li a.icon {
     height: 40px;
@@ -302,5 +279,53 @@
   }
   .wrapper .arrow span {
     margin-right: 15px;
+  }
+
+  .content-inputs {
+    input {
+      background: #f0f2f5;
+      color: #999999;
+    }
+
+    .input-span-placeholder {
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 29px;
+      letter-spacing: 0.183333px;
+
+      color: #999999;
+    }
+
+    .vs-icon {
+      color: #999999;
+    }
+  }
+}
+
+.message-box {
+  transition: all 0.3s ease;
+
+  .show {
+    display: block;
+    display: flex;
+  }
+
+  .wrapper ul {
+    width: 600px;
+    list-style: none;
+    padding: 10px;
+    transition: all 0.3s ease;
+  }
+  width: 600px;
+  height: 500px;
+  right: 3%;
+
+  @media (max-width: 1023px) {
+    left: calc(50% - 200px);
+    width: 400px;
+  }
+  @media (max-width: 400px) {
+    left: calc(50% - 160px);
+    width: 320px;
   }
 }

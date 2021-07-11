@@ -16,6 +16,60 @@ export const state = () => ({
   sidebar: false,
 
   returnTo: null,
+  messages: [
+    {
+      userId: 11,
+      image: 'msg-profile07',
+      name: 'Rayella Ferguss',
+      msg: 'I’m ready for the shoot tom',
+      date: '12w',
+      count: 3,
+    },
+    {
+      userId: 2,
+      image: 'msg-profile06',
+      name: 'Mistique Madeline',
+      msg: 'Wondering about the idea...',
+      date: '7w',
+    },
+    {
+      userId: 3,
+      image: 'msg-profile05',
+      name: 'Caroline Daenm..',
+      msg: 'What about the surfboard...',
+      date: '1w',
+      count: 5,
+    },
+    {
+      userId: 4,
+      image: 'msg-profile04',
+      name: 'Shameil Khan',
+      msg: 'That works for me.',
+      date: '5d',
+    },
+    {
+      userId: 5,
+      image: 'msg-profile03',
+      name: 'Gizelle Zifadsy',
+      msg: ' Honey be goin wild at all ti..',
+      date: '3d',
+      count: 1,
+    },
+    {
+      userId: 6,
+      image: 'msg-profile02',
+      name: 'Shannon Kala.',
+      msg: 'She may or may not like we..',
+      date: '3d',
+    },
+    {
+      userId: 7,
+      image: 'msg-profile01',
+      name: 'Mikella Jia',
+      msg: 'You: Gotta meet you tomm...',
+      date: '1d',
+    },
+  ],
 })
 
 export const getters = {

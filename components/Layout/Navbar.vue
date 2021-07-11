@@ -40,15 +40,12 @@
       <div
         class="flex items-center justify-between 2xl:ml-10 lg:pr-1 2xl:pr-10"
       >
-        <div
-          class="px-4 sm:px-10 2xl:px-10 lg:pl-3 lg:pr-5"
-          role="button"
-          @click.prevent.stop="
-            isMobile ? $router.push('/chat') : handleOpenModals('msg')
-          "
-        >
+        <div class="px-4 sm:px-10 2xl:px-10 lg:pl-3 lg:pr-5" role="button">
           <span
-            class="my-3 mb-0 text-white lg:my-0 material-icons fs-40 fs-res-24 icons-color"
+            class="my-3 mb-0 text-white lg:my-0 material-icons fs-40 fs-res-24 icons-color select-none"
+            @click.prevent.stop="
+              isMobile ? $router.push('/chats') : handleOpenModals('msg')
+            "
           >
             question_answer
           </span>
@@ -83,9 +80,7 @@
           "
         >
           <span
-            @mouseover="!isMobile ? (notifyHover = true) : undefined"
-            @mouseleave="!isMobile ? (notifyHover = false) : undefined"
-            class="my-3 text-white lg:my-0 notification material-icons fs-40 fs-res-24 icons-color"
+            class="my-3 text-white lg:my-0 notification material-icons fs-40 fs-res-24 icons-color select-none"
           >
             notifications_active
           </span>
@@ -111,9 +106,7 @@
           "
         >
           <span
-            @mouseover="!isMobile ? (notifyHover = true) : undefined"
-            @mouseleave="!isMobile ? (notifyHover = false) : undefined"
-            class="my-3 text-white lg:my-0 notification material-icons fs-40 fs-res-24 icons-color"
+            class="my-3 text-white lg:my-0 notification material-icons fs-40 fs-res-24 icons-color select-none"
           >
             try
           </span>
@@ -139,9 +132,7 @@
           "
         >
           <span
-            @mouseover="!isMobile ? (storeHover = true) : undefined"
-            @mouseleave="!isMobile ? (storeHover = false) : undefined"
-            class="my-3 text-white lg:my-0 notification material-icons fs-40 fs-res-24 icons-color"
+            class="my-3 text-white lg:my-0 notification material-icons fs-40 fs-res-24 icons-color select-none"
           >
             store
           </span>
@@ -188,18 +179,16 @@ export default {
   },
   data() {
     return {
-      msgHover: false,
-      notifyHover: false,
       msgBox: false,
       notifyBox: false,
       notificationsBox: false,
       storeBox: false,
-      storeHover: false,
       darkMode: true,
       searchValue: '',
       isMobile: false,
       messages: [
         {
+          userId: 11,
           image: 'msg-profile07',
           name: 'Rayella Ferguss',
           msg: 'I’m ready for the shoot tom',
@@ -207,12 +196,14 @@ export default {
           count: 3,
         },
         {
+          userId: 2,
           image: 'msg-profile06',
           name: 'Mistique Madeline',
           msg: 'Wondering about the idea...',
           date: '7w',
         },
         {
+          userId: 3,
           image: 'msg-profile05',
           name: 'Caroline Daenm..',
           msg: 'What about the surfboard...',
@@ -220,12 +211,14 @@ export default {
           count: 5,
         },
         {
+          userId: 4,
           image: 'msg-profile04',
           name: 'Shameil Khan',
           msg: 'That works for me.',
           date: '5d',
         },
         {
+          userId: 5,
           image: 'msg-profile03',
           name: 'Gizelle Zifadsy',
           msg: ' Honey be goin wild at all ti..',
@@ -233,12 +226,14 @@ export default {
           count: 1,
         },
         {
+          userId: 6,
           image: 'msg-profile02',
           name: 'Shannon Kala.',
           msg: 'She may or may not like we..',
           date: '3d',
         },
         {
+          userId: 7,
           image: 'msg-profile01',
           name: 'Mikella Jia',
           msg: 'You: Gotta meet you tomm...',
@@ -250,12 +245,6 @@ export default {
   computed: {
     isMainPage() {
       return this.$route.path == '/'
-    },
-    hoverMsgImg() {
-      return this.darkMode ? 'msg-hover-dark' : 'msg-hover'
-    },
-    hoverNotifyImg() {
-      return this.darkMode ? 'notify-hover-dark' : 'notify-hover'
     },
   },
   beforeDestroy() {

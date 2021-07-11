@@ -32,18 +32,6 @@
 import getCookie from '@/scripts/cookies.js'
 export default {
   middleware: ['router-auth'],
-  created() {
-    window.addEventListener('load', function () {
-      console.log('here!')
-      setTimeout(function () {
-        // This hides the address bar:
-        window.scrollTo(0, 1)
-      }, 0)
-    })
-    window.document.body.onscroll = function () {
-      console.log(123)
-    }
-  },
   mounted() {
     if (
       ['dark', 'system'].includes(this.$colorMode.preference) &&

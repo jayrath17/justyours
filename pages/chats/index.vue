@@ -1,5 +1,5 @@
 <template>
-  <h1>Chat</h1>
+  <MessageDropdown :messages="$store.state.messages" />
 </template>
 
 <script>

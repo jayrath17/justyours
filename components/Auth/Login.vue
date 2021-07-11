@@ -33,7 +33,7 @@
                   </span>
                 </div>
                 <div
-                  class="w-11/12 bg-primary text-white w-full rounded-r-3xl input-height fs-24 flex justify-center items-center"
+                  class="w-11/12 bg-primary text-white w-full rounded-r-3xl input-height fs-24 flex justify-start pl-6 items-center"
                 >
                   <span class=""> Login with email </span>
                 </div>
@@ -46,12 +46,12 @@
             <button class="w-full" @click="loginWithMetamask()">
               <div class="flex">
                 <div
-                  class="rounded-l-3xl border border-2 border-color-primary flex justify-center items-center bg-white icon width"
+                  class="rounded-l-3xl border border-2 border-color-primary flex justify-center items-center bg-white icon width metamask__icon"
                 >
                   <img src="/images/metamask-logo.png" class="mx-5" />
                 </div>
                 <div
-                  class="w-11/12 bg-primary text-white w-full rounded-r-3xl input-height fs-24 flex justify-center items-center"
+                  class="w-11/12 bg-primary text-white w-full rounded-r-3xl input-height fs-24 flex justify-start pl-6 items-center"
                 >
                   <div>Login with Metamask</div>
                 </div>
@@ -217,6 +217,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.metamask__icon {
+  max-width: 79px;
+}
 .social__icon {
   padding-left: 0.3em;
   padding-right: 0.3em;

@@ -44,12 +44,36 @@
   box-shadow: 0px 0px 20px rgba(188, 188, 188, 0.3);
 }
 
+.dark .dark\:box-messages {
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25) !important;
+}
+
 .dark .dark\:bg-messages {
-  background: #101010;
+  background: #101010 !important;
 }
 
 .dark .nuxt-link-exact-active.dark\:text-active {
   color: white;
+}
+
+.dark .dark\:bg-gray {
+  background: #242526;
+}
+
+.dark .dark\:bg-gray-1000 {
+  background: #404040 !important;
+}
+
+.dark .dark\:bg-input {
+  input {
+    background: #404040 !important;
+  }
+}
+
+.dark .dark\:hover\:bg-light-gray {
+  &:hover {
+    background: #3a3b3c !important;
+  }
 }
 
 // END DARK MODE
